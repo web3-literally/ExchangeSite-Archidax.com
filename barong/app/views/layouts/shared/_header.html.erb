@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark mb-4">
+  <div class="container">
+    <%= link_to 'Barong', index_path, class: 'navbar-brand' %>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item <%= 'active' if params[:controller].match?(/phones/) %>">
+          <%= link_to 'Phone', new_phone_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item <%= 'active' if params[:controller].match?(/profiles/) %>">
+          <%= link_to 'Profile', new_profile_path, class: 'nav-link' %>
+        </li>
+      </ul>
+      <a href="javascript:;" onclick="window.open('/signout');
+        window.location.assign('/accounts/sign_out');">
+        <span>Logout</span>
+      </a>
+    </div>
+  </div>
+</nav>

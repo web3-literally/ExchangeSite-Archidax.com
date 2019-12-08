@@ -1,0 +1,34 @@
+<div class="dropdown text-center" id="account-dropdown">
+
+  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownUserMenuButton">
+    <i class="fa fa-user"></i>
+  </a>
+  <div class="dropdown-menu" aria-labelledby="dropdownUserMenuButton">
+    <a class="dropdown-item" href="<%= settings_path %>">
+      <span>Account</span>
+      <br />
+      <strong><%= current_user.email %></strong>
+      <%= image_tag 'chevron-right-solid.svg' %>
+    </a>
+    <% if is_admin? %>
+      <a class="dropdown-item" href="<%= admin_dashboard_path %>">
+        <span><%= t('header.admin') %></span>
+        <%= image_tag 'chevron-right-solid.svg' %>
+      </a>
+    <% end %>
+    <!-- <a class="dropdown-item" href="<%#= referrals_path %>">
+      <span><%#= t('header.referrals') %></span>
+      <%#= image_tag 'chevron-right-solid.svg' %>
+    </a> -->
+    <a class="dropdown-item" href="<%= order_history_path %>">
+      <span><%= t('header.history') %></span>
+      <%= image_tag 'chevron-right-solid.svg' %>
+    </a>
+    <a class="dropdown-item" href="javascript:;" onclick="window.open('/signout');
+      window.location.assign('/accounts/sign_out');">
+      <span>Logout</span>
+      <%= image_tag 'chevron-right-solid.svg' %>
+    </a>
+  </div>
+
+</div>

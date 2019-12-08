@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+
+  <% if account_signed_in? %>
+
+    <div class="col-xs-12 col-sm-11 col-md-6 mt-5 mb-3">
+      <div class="text-center">
+        <div class="d-flex justify-content-center">
+          <% if current_account.level == 1 %>
+            <%= link_to 'Verify your phone', new_phone_path, class: 'btn btn-primary btn-block mb-4' %>
+          <% end %>
+          <% if current_account.level == 3%>
+            <h2 class="wrap"> Your identity has been successfully approved</h2>
+          <% else %>
+            <h2 class="wrap"> Pending compliance officer approval </h2>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="text-center">
+        <div class="wrap">
+          <h2 class="wrap">Signed in as <%= current_account.email %></h2><br/>
+        </div>
+      </div>
+    </div>
+
+    <% else %>
+
+      <h2>You are not signed in.</h2>
+      <br/>
+      <%= link_to 'Sign in', new_account_session_path %> or <%= link_to 'Sign up', new_account_registration_path %>
+
+    <% end %>
+
+</div><br/>

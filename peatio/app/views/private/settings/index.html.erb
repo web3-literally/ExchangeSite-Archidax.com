@@ -1,0 +1,203 @@
+<%= content_for :scripts do %>
+  <%= stylesheet_link_tag 'layouts/dashboard' %>
+<% end %>
+
+<% barong_domain = ENV['BARONG_DOMAIN'] %>
+
+<div class="card">
+  <% unless alert.blank? %>
+    <span class="alert alert-danger mb-0">
+      <i class="icon icon-cancel-circled"></i> <h3><%= alert %></h3>
+    </span>
+  <% end %>
+
+  <% unless notice.blank? %>
+    <span class="alert alert-success mb-0">
+      <i class="icon icon-cancel-circled"></i> <h3><%= notice %></h3>
+    </span>
+  <% end %>
+</div>
+
+<div class="container">
+
+  <div class="row gray-border header-part">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4">
+          <div>
+            <%= show_svg 'icons/user.svg' %>
+          </div>
+        </div>
+        <div class="col-8 text-center">
+          <h3 class="text-yellow">Membership Level: General</h3>
+          <p class="text-yellow"><%= current_user.email %></p>
+          <p>Last Login Time: <%= current_user.login_time %></p>
+          <p>IP: <span class="text-yellow"><%= current_user.login_ip %></span></p>
+          <%# unless barong_domain.blank? %>
+            <div>
+              <p>Using <span class="text-yellow">BGC</span> to pay for fees (30% discount) </p>
+              <a href="#" data-remote="true" rel="nofollow" data-method="post">
+              <span class="switch switch-sm">
+                <input type="checkbox" class="switch" <%#= "#{'checked' if current_user.house_fee }" %> id="switch-id" >
+                <label for="switch-id"></label>
+              </span>
+              </a>
+            </div>
+          <%# end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 explain-level-container">
+      <h3 class="dash">
+        <span class="<%= current_user.level == 1 ? 'active' : '' %>"><%= show_svg "icons/gem.svg" %> Lv.1</span>
+        <span class="<%= current_user.level == 2 ? 'active' : '' %>"><%= show_svg "icons/gem.svg" %> Lv.2</span>
+        <span class="<%= current_user.level == 3 ? 'active' : '' %>"><%= show_svg "icons/gem.svg" %> Lv.3</span>
+      </h3>
+      <div class="explain-level text-yellow">
+        <span></span>
+        <span><%= link_to current_user.level == 2 ? 'Change phone' : "Verify phone", '/users/phones/new' %></span>
+        <span>
+          <%= link_to 'Submit Verification Documents (General)', '/users/profiles/new' %>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row settings-part">
+
+    <div class="col-6">
+      <div class="gray-border security-container">
+        <div>
+          <div>
+            <div>
+              <%= show_svg 'icons/mobile.svg' %>
+            </div>
+            <div class="text-conteiner">
+              <p>SMS Authentication</p>
+              <p>Used for withdrawals and security modifications</p>
+            </div>
+          </div>
+          <div>
+            <%= link_to 'Enable', "/users/phones/new", class: 'enable-button' %>
+          </div>
+        </div>
+        <div>
+          <div>
+            <div>
+              <%= show_svg 'icons/2fa.svg' %>
+            </div>
+            <div class="text-conteiner">
+              <p>Google Authentication</p>
+              <p>Used for withdrawals and security modifications</p>
+            </div>
+          </div>
+          <div>
+            <%= link_to 'Enable', "/users/security", class: 'enable-button' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="gray-border password-container">
+        <div>
+          <%= show_svg "icons/unlock-alt-solid.svg" %>
+          Login Password
+        </div>
+        <div>
+          <%= link_to 'Change', '/accounts/edit', class: "gray-border" %>
+        </div>
+      </div>
+<!--       <div class="gray-border com-info-container">-->
+<!--         <div>-->
+<!--          <div class="text-center"><%#= number_with_precision(Referral.total_rewards(current_user.id), precision: 5) %></div>-->
+<!--          <div class="text-center"><%#= Member.where(referral_code: current_user.code).count %>/<%#= current_user.check_lvl_two_refferals%></div>-->
+<!--          <div class="text-center"><%#= current_user.calc_referral_bonus %></div>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          <div class="text-yellow text-center">My hold GIG <br /> (total GIG amount)</div>-->
+<!--          <div class="text-yellow text-center">Referral Member <br /> (level 1 / level 2)</div>-->
+<!--          <div class="text-yellow text-center">Referral Reward <br /> (total GIG amount)</div>-->
+<!--        </div>-->
+<!--       </div>-->
+       <div class="gray-border referal-link-container">
+         <div>
+          <% unless barong_domain.blank? %>
+            <div class="qr-code">
+
+            </div>
+
+            <div class="referal-content row">
+              <div class="col-3 text-right pr-0 pl-0">
+                <div>
+                  My referal ID:
+                </div>
+                <div>Referral Link:</div>
+                <div>Share: </div>
+              </div>
+              <div class="col-9">
+                <div>
+                  <span class="text-yellow"><%= current_user.code %></span>
+                  <div class="hidden-xs">Your commission rate: <span class="text-yellow">80%</span></div>
+                </div>
+                <div class="referal-input-container">
+                  <input type="text" name="" value='https://<%= barong_domain %>/accounts/sign_up?referral_code=<%= current_user.code %>' id="referral_link" readonly>
+                  <button class="clipboard-btn" data-clipboard-action="copy" data-clipboard-target="#referral_link"><%= show_svg 'icons/copy-solid.svg' %></button>
+                </div>
+                <div class="social-media">
+                  <div><%= show_svg 'icons/facebook.svg' %></div>
+                  <div><%= show_svg 'icons/twitter.svg' %></div>
+                  <div><%= show_svg 'icons/linkedin.svg' %></div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+       </div>
+    </div>
+  </div>
+    
+
+  <!-- <div class="row rewards-status gray-border">
+    <div class="header-container">
+      <h3>Rewards Status</h3>
+      <p class="text-yellow">Return your transaction fee to 100% GIG token reward</p>
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Order id</th>
+                <th>Ref type</th>
+                <th>Rewards</th>
+                <th>At</th>
+                <th colspan="4"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <%# @referrals.each do |referral| %>
+                <tr>
+                  <td><%#= referral.id %></td>
+                  <td><%#= referral.order_id %></td>
+                  <td><%#= referral.ref_type %></td>
+                  <td><%#= referral.rewards %></td>
+                  <td><%#= referral.created_at %></td>
+                  <td><%#= link_to 'Show', referral %></td>
+                </tr>
+              <%# end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="total-trade-reward-container">
+          <p class="text-center">TOTAL TRADE REWARD AMOUNT: <%#= number_with_precision(Referral.total_rewards(current_user.id), precision: 5) %></p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+</div>

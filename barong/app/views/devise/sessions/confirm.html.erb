@@ -1,0 +1,50 @@
+
+<h2 class="title font-weight-bold"><span>Hello, <%= resource[:email] %>!</span></h2>
+
+<div class="importantInfo">
+  <p>
+    <%= image_tag "exclamation-circle-solid.svg" %>
+    Please check that you are visiting
+    <strong>https://gigaex.io</strong>
+  </p>
+</div>
+
+<p class="empty-field">This field is required.</p>
+
+<%= form_for(resource, as: resource_name, url: account_session_path) do |f| %>
+  <%= f.hidden_field :email %>
+
+  <div id="passwords-form">
+    <div class="form-group">
+      <%= f.password_field :password, autofocus: true, autocomplete: 'off',
+                                        class: 'form-control required',
+                                        placeholder: 'Enter password' %>
+    </div>
+
+    <% if @otp_enabled %>
+      <div id="otp-code" class="form-group">
+        <%= text_field_tag :otp, '', autocomplete: 'off', class: 'form-control', required: true, maxlength: 6, size: 6, pattern: '\d{6}', placeholder: 'XXXXXX' %>
+      </div>
+    <% end %>
+
+    <% if devise_mapping.rememberable? -%>
+      <div class="form-group">
+        <div class="row">
+          <div class="col text-left">
+            <%= f.label :remember_me do %>
+              <%= f.check_box :remember_me, class: 'checkbox' %>
+              Remember me
+            <% end %>
+          </div>
+          <div class="col text-right">
+            <%= link_to 'Back', new_account_session_path, class: 'text-yellow' %>
+          </div>
+        </div>
+      </div>
+    <% end -%>
+
+    <div class="submit-container">
+      <%= f.submit 'Log in', class: 'btn btn-success', disabled: true %>
+    </div>
+  </div>
+<% end %>

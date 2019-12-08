@@ -1,0 +1,45 @@
+body.devise {
+  background-image: image-url($devise-background-image);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .card {
+    border: 0;
+    border-top: 5px solid $devise-form-color;
+
+    .title {
+      padding: 20px 20px 0 20px;
+    }
+    .card-footer {
+      margin-top: $grid-gutter-width / 2;
+      border-top: 0;
+      background: $devise-form-color;
+    }
+    .btn {
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .wrap {
+      font-size: 1.5rem;
+      white-space: nowrap;
+    }
+  }
+
+  #error_explanation {
+    @extend .alert;
+    @extend .alert-danger;
+    h2 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style-position: inside;
+    }
+  }
+}
+
+#document_doc_number {
+  min-width: 422px;
+}

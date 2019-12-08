@@ -1,0 +1,606 @@
+.page-title {
+  font-size: 26px;
+  font-weight: bold;
+  margin: 0 0 15px;
+}
+
+.funs_detail {
+  color: white;
+  .funs_cover {
+    background-color: #0b2038;
+    .page-title {
+      padding: 15px 15px 15px 30px;
+      border-bottom: solid 1px gray;
+      background-color: #07182d;
+    }
+    .card {
+      background-color: unset;
+      border: unset;
+      color: white;
+    }
+  }
+}
+
+.funs-pan {
+  background-color: #113052;
+}
+
+.panel-currencies {
+  padding: 0;
+  .currencies-container {
+    min-height: $funds-panel-height;
+    border-right: 1px solid #ddd;
+  }
+  .details-container {
+    padding: 20px 20px 0;
+    .form {
+      margin: 30px 0;
+      max-width: 640px;
+      .form-submit .btn {
+        padding: 4px 20px;
+        margin-right: 5px;
+      }
+      .currency-balance {
+        color: #449D44;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &.transfer-form {
+        max-width: inherit;
+      }
+      .control-label {
+        text-align: left;
+      }
+    }
+    .help-block {
+      font-size: 14px;
+    }
+  }
+  .panel-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    &:not(:first-child) {
+      margin-top: 15px;
+    }
+  }
+  .help-block {
+    ul {
+      list-style: none;
+      padding: 10px 0 0 20px;
+    }
+  }
+  .outlined-label {
+    color: #999;
+    font-size: 12px;
+    border: 1px solid #999;
+    padding: 1px 8px;
+    border-radius: 4px;
+    &.new {
+      color: $brand-primary;
+
+      border-color: $brand-primary;
+    }
+  }
+  .table tr.new-row {
+    .outlined-label {
+      color: $brand-primary;
+      border-color: $brand-primary;
+    }
+  }
+}
+
+table.table-currencies {
+  border-radius: 5px;
+  right: -1px;
+  margin-bottom: 0;
+  > tbody > tr > td,
+  > thead > tr > th {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+  }
+  > thead > tr > th {
+    background-color: #eee;
+  }
+}
+
+.currency-item {
+  margin: 0;
+  background-color: #041324;
+  .currency-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 3px;
+    background-color: #333;
+  }
+  .currency-left {
+    text-align: center;
+    width: 20%;
+    .currency-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 100%;
+      background: center center no-repeat no-repeat;
+      background-size: cover;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    .currency-symbol {
+      margin-top: 5px;
+      text-transform: uppercase;
+      color: #999;
+      font-size: 12px;
+    }
+  }
+  .currency-balance-col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .currency-balance {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Aileron;
+    margin: 0;
+    .currency-sign {
+      display: none;
+      font-size: 20px;
+      margin-left: -4px;
+    }
+  }
+  .currency-balance-locked {
+    display: block;
+    color: #999;
+    font-size: 14px;
+    font-weight: normal;
+  }
+  .currency-actions {
+    position: relative;
+    text-align: right;
+    vertical-align: middle;
+    p {
+      margin: 0;
+      position: relative;
+      &:first-child {
+        margin: 0 0 20px 0;
+
+      }
+      a {
+        color: unset;
+      }
+
+      text-align: center;
+      color: #565656;
+    }
+  }
+  &.selected {
+    background-color: #113052;
+
+    &.deposit-now .currency-actions {
+      .currency-deposit {
+        background-color: #2567b7;
+        color: white;
+      }
+
+      .currency-withdraw {
+
+      }
+    }
+
+    &.withdraw-now .currency-actions {
+      .currency-deposit {
+
+      }
+
+      .currency-withdraw {
+        background-color: #2567b7;
+        color: white;
+      }
+    }
+  }
+
+  //&.selected .currency-actions:after, &.selected .currency-actions:before {
+  //  right: -2px;
+  //  top: 50%;
+  //  border: solid transparent;
+  //  content: " ";
+  //  height: 0;
+  //  width: 0;
+  //  position: absolute;
+  //  pointer-events: none;
+  //  z-index: 1024;
+  //}
+  //
+  //&.selected .currency-actions:after {
+  //  border-color: rgba(255, 255, 255, 0);
+  //  border-right-color: #ffffff;
+  //  border-width: 10px;
+  //  margin-top: -10px;
+  //}
+  //&.selected .currency-actions:before {
+  //  border-color: rgba(221, 221, 221, 0);
+  //  border-right-color: #dddddd;
+  //  border-width: 11px;
+  //  margin-top: -11px;
+  //}
+  //&.deposit-now .currency-actions:after,
+  //&.deposit-now .currency-actions:before {
+  //  top: 31px;
+  //}
+  //&.withdraw-now .currency-actions:after,
+  //&.withdraw-now .currency-actions:before {
+  //  top: 73px;
+  //}
+}
+
+.transfer-form {
+  .table {
+    border: 1px solid #ccc;
+    tbody > tr > td {
+      padding: 10px 15px 0 15px;
+      border-right: 1px solid #ccc;
+      border-top: none;
+    }
+    .v-col {
+      padding: 8px;
+      width: 30px;
+      vertical-align: middle;
+    }
+    label {
+      font-size: 13px;
+      font-weight: normal;
+      padding: 0;
+    }
+    .form-control-static {
+      font-size: 16px;
+      font-weight: bold;
+      padding-bottom: 0;
+    }
+    .col-md-12 {
+      padding: 0;
+    }
+    tbody > tr.last-row td {
+      padding-bottom: 15px;
+    }
+  }
+
+  .form-submit {
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+#memo {
+  color: red;
+  text-align: center;
+}
+
+#deposit_address {
+  text-align: center;
+}
+
+.withdraw-instruction {
+  color: #777;
+  .col-sm-4 {
+    text-align: center;
+  }
+  .steps {
+    display: inline-block;
+    margin: 0;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #DDD;
+    border-radius: 50%;
+    color: #E0E4E7;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 50px;
+    text-align: center;
+  }
+  p {
+    color: #777;
+    line-height: 1.6;
+  }
+  .split {
+    margin: 15px 0;
+  }
+  .qrcode-container {
+    float: right;
+    margin-left: 10px;
+  }
+}
+
+body#funds-index, .funs_detail .funs_cover {
+  background-color: #fff;
+  color: #666;
+}
+
+.funs_detail .funs_cover .page-title {
+  color: #454545;
+  background: transparent;
+}
+
+.currency-item {
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+}
+
+.funs-pan {
+  border: 1px solid #e6e6e6;
+}
+
+.currency-item .currency-actions p a,
+.currency-withdraw a {
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding: 5px 0;
+}
+
+.currency-item.selected.deposit-now .currency-actions .currency-deposit,
+.currency-item.selected.withdraw-now .currency-withdraw {
+  color: #666;
+  background-color: #c9c9c9;
+  border-color: #e6e6e6;
+  border-radius: 3px;
+}
+
+.currency-item .currency-actions .currency-deposit:hover,
+.currency-item .currency-withdraw:hover,
+.btn.btn-primary:hover {
+  background: #e8b342!important;
+  border-color: #e8b342!important;
+  color: #fff!important;
+}
+
+.currency-item.selected, .funs-pan {
+  background: #f4f4f4;
+}
+
+.currency-item .currency-balance, h2.panel-title, .withdraw-instruction .steps, .table, .card-body {
+  color: #666;
+}
+
+.btn.btn-primary {
+  color: #666 !important;
+  background-color: #fff !important;
+  border: 1px solid #d4d4d4 !important;
+}
+
+.input-group .input-group-btn .btn#withdraw_all_btn {
+  background-color: #F9B900;
+  border: none;
+  padding: 8.5px 10px;
+}
+
+.show-xm, .show-xxm {
+  display: none;
+}
+
+#funds-index {
+  .input-group-text {
+    padding: 0 10px;
+  }
+  .hidden {
+    display: none !important;
+  }
+  #wrap {
+    min-height: calc(100vh - 281px);
+
+    .navbar-expand-lg {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .page-title {
+      padding-top: 40px;
+    }
+
+    .card {
+      border: none;
+      background-color: transparent;
+
+      table.table-currencies {
+        background-color: transparent;
+
+        thead {
+          background-color: rgba(255, 255, 255, 0.1);
+          display: none;
+
+          th:first-child,
+          th:nth-child(2) {
+            width: 7%;
+          }
+          th:nth-child(3),
+          th:nth-child(4) {
+            width: 17%;
+          }
+          th:nth-child(5) {
+            width: 15%;
+          }
+          th:nth-child(6) {
+            width: 11%;
+          }
+          th:nth-child(7),
+          th:last-child {
+            width: 8%;
+          }
+        }
+
+        tbody td {
+          padding: 10px;
+          text-align: left !important;
+          vertical-align: middle;
+
+          a:hover {
+            text-decoration: none;
+          }
+        }
+
+        tbody {
+          td:first-child,
+          td:nth-child(2) {
+            width: 8%;
+            min-width: 66px;
+          }
+          td:nth-child(3),
+          td:nth-child(4) {
+            width: 17%;
+          }
+          td:nth-child(5) {
+            width: 15%;
+          }
+          td:nth-child(6) {
+            width: 11%;
+          }
+          td:nth-child(7),
+          td:last-child {
+            width: 8%;
+            min-width: 110px;
+          }
+          td:last-child {
+            min-width: 115px;
+          }
+        }
+
+        .currency-item.selected {
+          background-color: transparent;
+        }
+
+        .currency-item .currency-left .currency-logo {
+          background-color: #fff;
+        }
+
+        .currency-item .currency-actions p:first-child,
+        .currency-withdraw {
+          margin: 0;
+          text-align: center;
+          padding: 5px 7px;
+        }
+
+        .currency-item .currency-actions p:first-child:hover,
+        .currency-withdraw:hover {
+          text-decoration: none;
+          background-color: rgba(255,255,255,0.1);
+          padding: 5px 7px;
+          border-radius: 3px;
+        }
+
+        .currency-item.deposit-now .currency-actions:after, 
+        .currency-item.deposit-now .currency-actions:before {
+          top: 21px;
+          width: 95px;
+          height: 34px;
+          border: none;
+          background-color: rgba(255, 255, 255, 0.1);
+          left: 11px;
+          border-radius: 3px;
+        }
+
+        .currency-item.withdraw-now .currency-actions:after, 
+        .currency-item.withdraw-now .currency-actions:before {
+          top: 21px;
+          width: 104px;
+          height: 35px;
+          border: none;
+          background-color: rgba(255,255,255,0.1);
+          left: 126px;
+          border-radius: 3px;
+        }
+
+        @media (max-width: 1199px) {
+          .currency-item.deposit-now .currency-actions:after,
+          .currency-item.deposit-now .currency-actions:before {
+            width: 90px;
+          }
+          .currency-item.withdraw-now .currency-actions:after, 
+          .currency-item.withdraw-now .currency-actions:before {
+            width: 98px;
+            left: 122px;
+          }
+        }
+
+        @media (max-width: 991px) {
+          .currency-item.withdraw-now .currency-actions:after, 
+          .currency-item.withdraw-now .currency-actions:before {
+            width: 95px;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .currency-item.deposit-now .currency-actions:after, 
+          .currency-item.deposit-now .currency-actions:before {
+            width: 95px;
+          }
+          .currency-item.withdraw-now .currency-actions:after, 
+          .currency-item.withdraw-now .currency-actions:before {
+            width: 99px;
+            left: 125px;
+          }
+          td:nth-child(5), th:nth-child(5), th:first-child, td:first-child, .deposit-history th:first-child, .deposit-history td:first-child, .deposit-history td:nth-child(2), .deposit-history th:nth-child(2), .deposit-history td:nth-child(5), .deposit-history th:nth-child(5) {
+            display: none;
+          }
+        }
+
+        @media (max-width: 520px) {
+          td:nth-child(7), 
+          td:last-child {
+            min-width: 88px;
+          }
+          .currency-item.deposit-now .currency-actions:after, 
+          .currency-item.deposit-now .currency-actions:before {
+            width: 106px;
+          }
+          .currency-item.withdraw-now .currency-actions:after, 
+          .currency-item.withdraw-now .currency-actions:before {
+            width: 114px;
+            left: 137px;
+          }
+          td:nth-child(3), th:nth-child(3) {
+            display: none;
+          }
+        }
+
+        @media (max-width: 425px) {
+          .currency-item.deposit-now .currency-actions:after, 
+          .currency-item.deposit-now .currency-actions:before {
+            width: 89px;
+          }
+          .currency-item.withdraw-now .currency-actions:after, 
+          .currency-item.withdraw-now .currency-actions:before {
+            width: 95px;
+            left: 120px;
+          }
+        }
+      }
+
+      table.table-currencies:first-child thead {
+        display: table-header-group;
+      }
+    }
+  }
+}
+
+.row {
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .withdraw-history {
+    td:nth-child(1), th:nth-child(1),
+    td:nth-child(2), th:nth-child(2),
+    td:nth-child(3), th:nth-child(3) {
+      display: none;
+    }
+  }
+  .deposit-history {
+    td:nth-child(1), th:nth-child(1),
+    td:nth-child(2), th:nth-child(2),
+    td:nth-child(5), th:nth-child(5) {
+      display: none;
+    }
+  }
+
+}

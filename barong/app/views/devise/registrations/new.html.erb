@@ -1,0 +1,33 @@
+<h2 class="title"><span>Register</span></h2>
+
+<p class="empty-field">This field is required.</p>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="form-group">
+    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control required', placeholder: 'Email' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.password_field :password, autocomplete: 'off', class: 'form-control required', placeholder: @minimum_password_length ? "Password (#{@minimum_password_length} characters minimum)" : "Password" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control required', placeholder: 'Password confirmation' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field :referral_code, autocomplete: 'off', class: 'form-control', placeholder: 'Referral ID (optional)' %>
+  </div>
+
+  <div class="filed">
+    <label>
+      <input id="agreement" type="checkbox">
+      I agree to Gigaex's <a href="/terms" target="_blank" class="text-yellow">Terms of Use</a></label>
+  </div>
+
+  <div class="submit-container">
+    <%= f.submit 'Submit', class: 'btn btn-block btn-success', disabled: true %>
+  </div>
+<% end %>

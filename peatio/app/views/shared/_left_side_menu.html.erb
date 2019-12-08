@@ -1,0 +1,386 @@
+<div class="page-sidebar fixedscroll">
+
+        <!-- MAIN MENU - START -->
+        <div class="page-sidebar-wrapper crypto ps-container ps-active-y" id="main-menu-wrapper" style="height: 526px;">
+
+            <ul class="wraplist" style="height: auto;">
+                <li class="menusection">Main</li>
+                <li class="">
+                    <a href="/dashboard">
+                        <i class="img relative crypto-ic ">
+                            <%= image_tag 'crypto-dash/icons/1.png', class: "ic1 width-20" %>
+                        </i>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="/funds">
+                        <i class="img">
+                            <%= image_tag 'crypto-dash/icons/2.png', class: "width-20" %>
+                        </i>
+                        <span class="title">Crypto Wallet</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#">
+                        <i class="img">
+                            <%= image_tag 'crypto-dash/icons/6.png', class: "width-20" %>
+                        </i>
+                        <span class="title">Buy &amp; Sell</span>
+                    </a>
+                </li>
+                <% if is_admin? %>
+                    <li class="">
+                        <a href="<%= admin_dashboard_path %>">
+                            <i class="img">
+                                <%= image_tag 'crypto-dash/icons/4.png', class: "width-20" %>
+                            </i>
+                            <span class="title">ICO Admin</span>
+                        </a>
+                    </li>
+                <% end %>
+                <li class="">
+                    <a href="#">
+                        <i class="img">
+                            <%= image_tag 'crypto-dash/icons/8.png', class: "width-20" %>
+                        </i>
+                        <span class="title">Affiliate Program</span>
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="<%= order_history_path %>">
+                        <i class="img">
+                            <%= image_tag 'crypto-dash/icons/6.png', class: "width-20" %>
+                        </i>
+                        <span class="title">My Hisotry</span>
+                    </a>
+                </li>
+                <!-- <li class="">
+                    <a href="crypto-profile.html">
+                        <i class="img">
+                            <%= image_tag 'crypto-dash/icons/10.png', class: "width-20" %>
+                        </i>
+                        <span class="title">Trader Profile</span>
+                    </a>
+                </li> -->
+                
+                <li class="">
+                    <a href="#">
+                        <i class="img">
+                            <%= image_tag 'crypto-dash/icons/12.png', class: "width-20" %>
+                        </i>
+                        <span class="title">Support</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="/settings">
+                        <i class="img">
+                            <%= image_tag 'crypto-dash/icons/11.png', class: "ic1 width-20" %>
+                        </i>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="javascript:;">
+                        <i class="img">
+                            <%= image_tag 'crypto-dash/icons/9.png', class: "width-20" %>
+                        </i>
+                        <span class="title">Access Pages</span>
+                        <span><i class="fas fa-angle-left"></i></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a class="" href="/accounts/sign_in">Login</a>
+                        </li>
+                        <li>
+                            <a class="" href="/accounts/sign_up">Registration</a>
+                        </li>
+                    </ul>
+                </li>
+                
+               <!--  <li class=""> 
+                    <a href="javascript:;">
+                        <i class="img">
+                            <%= image_tag 'crypto-dash/icons/7.png', class: "width-20" %>
+                        </i>
+                        <span class="title">Mailbox</span>
+                    <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu" style="display: none;">
+                        <li>
+                        <a class="" href="crypto-mail-inbox.html">Inbox</a>
+                        </li>
+                        <li>
+                        <a class="" href="crypto-mail-compose.html">Compose</a>
+                        </li>
+                        <li>
+                        <a class="" href="crypto-mail-view.html">View</a>
+                        </li>
+                        <li>
+                        <a class="" href="crypto-mail-important.html">Important Mail</a>
+                        </li>
+                        <li>
+                        <a class="" href="crypto-mail-trash.html">Mail Trash</a>
+                        </li>
+                    </ul>
+                </li> -->
+                <!-- <li class="menusection">Data Visualization</li>
+                <li class="">
+                    <a href="javascript:;">
+                        <i class="img">
+                            <%= image_tag 'crypto-dash/icons/16.png', class: "width-20" %>
+                        </i>
+                        <span class="title">Echarts</span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a class="" href="charts-echart-line.html">Line &amp; Area Charts</a>
+                        </li>
+                        <li>
+                            <a class="" href="charts-echart-bar.html">Bar &amp; Stacked Charts</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="javascript:;">
+                        <i class="img">
+                            <%= image_tag 'crypto-dash/icons/17.png', class: "width-20" %>
+                        </i>
+                        <span class="title">Morris Charts</span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a class="" href="charts-morris-line.html">Line Charts</a>
+                        </li>
+                        <li>
+                            <a class="" href="charts-morris-bar.html">Bar &amp; Stacked Charts</a>
+                        </li>
+                        <li>
+                            <a class="" href="charts-morris-area.html">Area Charts</a>
+                        </li>
+                        <li>
+                            <a class="" href="charts-morris-pie.html">Pie Charts</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="javascript:;">
+                        <i class="img">
+                            <%= image_tag 'crypto-dash/icons/18.png', class: "width-20" %>
+                        </i>
+                        <span class="title">Charts JS</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a class="" href="charts-chartjs-line.html">Line Charts</a>
+                        </li>
+                        <li>
+                            <a class="" href="charts-chartjs-bar.html">Bar Charts</a>
+                        </li>
+                        <li>
+                            <a class="" href="charts-chartjs-pie-donut.html">Pie &amp; Donut</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="javascript:;">
+                        <i class="img">
+                            <%= image_tag 'crypto-dash/icons/19.png', class: "width-20" %>
+                        </i>
+                        <span class="title">Flot Charts</span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a class="" href="charts-flot-area.html">Area Charts</a>
+                        </li>
+                        <li>
+                            <a class="" href="charts-flot-line.html">Line Charts</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="javascript:;">
+                        <i class="img">
+                            <%= image_tag 'crypto-dash/icons/20.png', class: "width-20" %>
+                        </i>
+                        <span class="title">Sparkline Charts</span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a class="" href="charts-sparkline-line.html">Line &amp; Area Charts</a>
+                        </li>
+                        <li>
+                            <a class="" href="charts-sparkline-bar.html">Bar Charts</a>
+                        </li>
+                        <li>
+                            <a class="" href="charts-sparkline-composite.html">Composite Charts</a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li class="menusection">User Interface</li>
+                <li class="">
+                    <a href="javascript:;"> 
+                    <i class="img">
+                        <%= image_tag 'crypto-dash/icons/13.png', class: "width-20" %>
+                    </i>
+                     <span class="title">Ui Elements</span> <span class="arrow "></span> </a>
+                    <ul class="sub-menu">
+                        
+
+                        <li class="">
+                            <a href="javascript:;"><span class="title">Timeline</span> <span class="arrow "></span> </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a class="" href="ui-timeline-centered.html">Centered timeline</a>
+                                </li>
+                                <li>
+                                    <a class="" href="ui-timeline-left.html">Left Aligned timeline</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="javascript:;"><span class="title">Pricing Tables</span> <span class="arrow "></span> </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a class="" href="ui-pricing-expanded.html">Expanded</a>
+                                </li>
+                                <li>
+                                    <a class="" href="ui-pricing-narrow.html">Narrow</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="javascript:;"><span class="title">Icon Sets</span> <span class="arrow "></span> </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a class="" href="ui-icons.html">Icon Styles</a>
+                                </li>
+                                <li>
+                                    <a class="" href="ui-fontawesome.html">Font Awesome</a>
+                                </li>
+                                <li>
+                                    <a class="" href="ui-glyphicons.html">Glyph Icons</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><span class="title">Form Elements</span> <span class="arrow "></span> </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a class="" href="form-elements.html">Field Elements</a>
+                                </li>
+                                <li>
+                                    <a class="" href="form-elements-premade.html">Pre Made Forms</a>
+                                </li>
+                                <li>
+                                    <a class="" href="form-elements-icheck.html">Checkbox &amp; Radio</a>
+                                </li>
+                                <li>
+                                    <a class="" href="form-elements-grid.html">Form Grid</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="form-wizard.html"> <span class="title">Form Wizard</span> </a>
+                        </li>
+                        <li>
+                            <a href="form-validation.html"> <span class="title">Form Validations</span> </a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                
+                <li class="">
+                    <a href="javascript:;">
+                        <i class="img">
+                        <%= image_tag 'crypto-dash/icons/14.png', class: "width-20" %>
+                    </i>
+                        <span class="title">Components</span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a class="" href="ui-tabs.html">Tabs</a>
+                        </li>
+                        <li>
+                            <a class="" href="ui-accordion.html">Accordions</a>
+                        </li>
+                        <li>
+                            <a class="" href="ui-progress.html">Progress Bars</a>
+                        </li>
+                        <li>
+                            <a class="" href="ui-buttons.html">Buttons</a>
+                        </li>
+                        <li>
+                            <a class="" href="ui-modals.html">Modals</a>
+                        </li>
+                        <li>
+                            <a class="" href="ui-alerts.html">Alerts</a>
+                        </li>
+                        <li>
+                            <a class="" href="ui-notifications.html">Notifications</a>
+                        </li>
+                        <li>
+                            <a class="" href="ui-tooltips.html">Tooltips</a>
+                        </li>
+                        <li>
+                            <a class="" href="ui-popovers.html">Popovers</a>
+                        </li>
+                        <li>
+                            <a class="" href="ui-navbars.html">Navbars</a>
+                        </li>
+                        <li>
+                            <a class="" href="ui-dropdowns.html">Dropdowns</a>
+                        </li>
+                        <li>
+                            <a class="" href="ui-breadcrumbs.html">Breadcrumbs</a>
+                        </li>
+                        <li>
+                            <a class="" href="ui-pagination.html">Pagination</a>
+                        </li>
+                        <li>
+                            <a class="" href="ui-labels-badges.html">Labels &amp; Badges</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="">
+                    <a href="javascript:;">
+                        <i class="img">
+                            <%= image_tag 'crypto-dash/icons/15.png', class: "width-20" %>
+                        </i>
+                        <span class="title">Appearance</span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a class="" href="ui-typography.html">Typography</a>
+                        </li>
+                        <li>
+                            <a class="" href="ui-grids.html">Grids</a>
+                        </li>
+                        <li>
+                            <a class="" href="ui-panels.html">Draggable Panels</a>
+                        </li>
+                        <li>
+                            <a class="" href="ui-group-list.html">Group Listing</a>
+                        </li>
+                    </ul>
+                </li> -->
+
+            </ul>
+
+        <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 526px; right: 3px;"><div class="ps-scrollbar-y" style="top: 0px; height: 276px;"></div></div></div>
+        <!-- MAIN MENU - END -->
+
+        <%= javascript_include_tag 'dashboard/perfect-scrollbar.min.js' %>
+        <%= javascript_include_tag 'dashboard/swiper' %>
+        <%= javascript_include_tag 'dashboard/scripts.js' %>
+    </div>

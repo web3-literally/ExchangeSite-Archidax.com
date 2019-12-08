@@ -1,0 +1,62 @@
+<audio preload="preload" id="success-fx">
+  <source src="<%= audio_path('success.mp3') %>" />
+</audio>
+
+<audio preload="preload" id="warning-fx">
+  <source src="<%= audio_path('warning.mp3') %>" />
+</audio>
+
+<%= render partial: 'header' %>
+<div id="wrap">
+  <div class="left-column">
+    <div class="top-left-column">
+      <div class="first">
+        <div class="second">
+          <div class="last-container">
+            <div class="switch-container">
+              <%= render partial: 'range_switch' %>
+              <%= render partial: 'indicator_switch' %>
+              <%= render partial: 'chart_options' %>
+            </div>
+            <%= render partial: 'candlestick' %>
+            <%= render partial: 'depths' %>
+            <%= render partial: 'tradingview' %>
+            <%= render partial: 'tradingviewhtml' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-left-column">
+      <%= render partial: 'my_orders' %>
+    </div>
+  </div>
+  <div class="right-column">
+    <div class="top-right-column">
+      <div class="top-right-column-left-part">
+        <%= render partial: 'new_order_book', locals: { ask_unit: @data.fetch(:current_market).fetch(:ask_unit).upcase, bid_unit: @data.fetch(:current_market).fetch(:bid_unit).upcase } %>
+      </div>
+      <div class="top-right-column-right-part">
+        <%= render partial: 'market_trades' %>
+      </div>
+    </div>
+    <div class="bottom-right-column">
+      <div class="place-order-container">
+        <div class="place-order-type">
+          <ul>
+            <li class="active" data-name="market" id="active_market"><span>Market</span></li>
+            <li data-name="limit" id="active_limit"><span>Limit</span></li>
+          </ul>
+          <ul class="ml-auto">
+            <li class="active" data-name="buy" id="buy_form"><span>Buy</span></li>
+            <li data-name="sell" id="sell_form"><span>Sell</span></li>
+          </ul>
+        </div>
+        <div class="place-order-boxes-continer">
+          <%= render partial: 'bid_entry', locals: { market: @data.fetch(:current_market) } %>
+          <%= render partial: 'ask_entry', locals: { market: @data.fetch(:current_market) } %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

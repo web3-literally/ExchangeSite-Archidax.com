@@ -1,0 +1,16 @@
+
+<h2 class="title font-weight-bold"><span>Resend <span class="hidden-xs">confirmation</span> instructions</span></h2>
+
+<p class="empty-field">This field is required.</p>
+
+<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="form-group">
+    <%= f.email_field :email, autofocus: true, autocomplete: 'email', value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'form-control required', placeholder: 'Your email' %>
+  </div>
+
+  <div class="submit-container">
+    <%= f.submit 'Resend', class: 'btn btn-block btn-success' %>
+  </div>
+<% end %>

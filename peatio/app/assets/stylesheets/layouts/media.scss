@@ -1,0 +1,300 @@
+@media (max-width: 1250px) {
+  footer div.bottom div:first-child {
+    flex: 0 0 45%;
+    margin-left: 20px;
+  }
+  footer div ul:first-child {
+    flex: 100%;
+    justify-content: center;
+    margin: 0;
+  }
+  footer div ul.social-media {
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 1160px) {
+  footer div.bottom div {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    flex: 0 0 100% !important;
+    justify-content: center;
+    padding: 0 !important;
+  }
+  #funds-index .funs_detail .card-currencies .col-4 {
+    flex: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+  #funds-index .funs_detail .card-currencies .col-4 table.table-currencies {
+    display: inline-block;
+    width: fit-content;
+  }
+  #funds-index .funs_detail .card-currencies .col-8.funs-pan {
+    flex: 100%;
+    max-width: 100%;
+  }
+  .container {
+    min-width: 100%;
+    padding: 20px 30px !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  #static_pages-about .summary .text-container img,
+  #static_pages-about .exchange-feature .text-container img {
+    right: 10px !important;
+    opacity: 0.3;
+  }
+  #static_pages-exchage_platform .true_global_exchange h1 {
+    font-size: 28px !important;
+  }
+  #static_pages-exchage_platform .true_global_exchange h2,
+  #static_pages-exchage_platform .true_global_exchange .row .col-7 > div > p {
+    font-size: 30px !important;
+  }
+  #static_pages-exchage_platform .true_global_exchange .row .col-7 > div > div > p {
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 950px) {
+  #welcome-index .col-2.text-center {
+    display: none;
+  }
+  #welcome-index .col-5 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  #welcome-index .sub-container.row.data-info .col-5 > div {
+    width: 85% !important;
+  }
+  .hidden-sm {
+    display: none;
+  }
+  #main-menu-wrapper li a span.title {
+    display: none;
+  }
+  .page-sidebar.fixedscroll {
+    display: none;
+  }
+  #wrap, .footer-section {
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hidden-ssm {
+    display: none !important;
+  }
+  .collapse.show {
+    background: dimgray;
+    height: fit-content!important;
+    z-index: 3;
+  }
+  .navbar-expand-md .navbar-nav:first-child {
+    height: fit-content !important;
+  }
+  #airdropButton,
+  .navbar-dark .navbar-nav .nav-link {
+    padding: 0px 16px;
+    height: 48px;
+  }
+  .btn.btn-secondary.dropdown-toggle:hover, .app-path:hover, .account-info {
+    width: fit-content;
+    border: none;
+    margin: 0;
+    box-shadow: none;
+  }
+  .dropdown.text-center .dropdown-menu .dropdown-item, header .dropdown:hover .dropdown-menu {
+    width: fit-content;
+  }
+  #static_pages-exchage_platform .true_global_exchange h1 {
+    font-size: 20px !important;
+  }
+  #static_pages-exchage_platform .true_global_exchange h2,
+  #static_pages-exchage_platform .true_global_exchange .row .col-7 > div > p {
+    font-size: 22px !important;
+  }
+  .h-app-down .app-bg {
+    width: 27%;
+    left: 0;
+    top: 30px;
+  }
+  .h-app-down .pc-bg {
+    width: 33%;
+    right: -10px;
+    top: 120px;
+  }
+  .hidden-sm {
+    display: inherit;
+  }
+  .sm-hidden {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .io-zinnia .site-header .navbar-btns {
+    display: flex;
+    flex-direction: column;
+  }
+  .io-zinnia .site-header .navbar.is-transparent.active {
+    background-color: dimgray;
+  }
+  .btns.animated,
+  .h-introduce .container {
+    flex-wrap: wrap;
+  }
+  .btns li {
+    width: calc(50% - 30px);
+  }
+  .h-introduce .container .list {
+    margin: 10px auto;
+  }
+  .footer-section {
+    .col-xs-3, .col-xs-6 {
+      text-align: center;
+      width: 100%;
+    }
+  }
+  .io-zinnia a.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      margin: 0;
+    }
+    img:first-child {
+      margin-top: -45px;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  #welcome-index .col-5 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  footer div ul:first-child,
+  footer div ul:first-child li,
+  footer div.bottom div.emails-container {
+    display: inline-block;
+  }
+  footer div ul:first-child,
+  footer div.bottom div.emails-container {
+    text-align: center;
+  }
+  .show-xm {
+    display: block!important;
+  }
+  .hidden-xm {
+    display: none;
+  }
+  #static_pages-exchage_platform .true_global_exchange .col-5 {
+    display: none;
+  }
+  #static_pages-exchage_platform .true_global_exchange .col-7,
+  #static_pages-exchage_platform .main-sub-container .row .col-8 {
+    flex: 100%;
+    max-width: 100%;
+  }
+  #static_pages-exchage_platform .main-sub-container .row {
+    position: relative;
+  }
+  #static_pages-exchage_platform .main-sub-container .row .col-4 {
+    position: absolute;
+    flex: 100%;
+    max-width: 100%;
+  }
+  #static_pages-exchage_platform .main-sub-container .row .col-8 h3 {
+    margin-bottom: 170px;
+  }
+  #static_pages-exchage_platform .main-sub-container .row .col-4 img {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  .mb-xs-200 {
+    margin-bottom: 200px !important;
+  }
+  .mb-xs-240 {
+    margin-bottom: 240px !important;
+  }
+  .mb-xs-280 {
+    margin-bottom: 280px !important;
+  }
+}
+
+@media (max-width: 425px) {
+  footer div ul.support-mail,
+  footer div ul.social-media {
+    flex: 100%;
+    justify-content: center !important;
+  }
+  #funds-index .funs_detail .card-currencies .col-4 table.table-currencies {
+    width: 100%;
+  }
+  #funds-index .funs_detail .container-fluid.p-5 {
+    padding: 0 !important;
+  }
+  #static_pages-about .summary .text-container img,
+  #static_pages-about .exchange-feature .text-container img {
+    right: 0 !important;
+    width: 100% !important;
+  }
+  #static_pages-exchage_platform .main-sub-container .row .col-4 img {
+    top: 85px;
+  }
+  #static_pages-exchage_platform .main-sub-container .row .col-8 h3 {
+    margin-bottom: 200px;
+  }
+  .mb-xs-200 {
+    margin-bottom: 240px !important;
+  }
+  .mb-xs-240 {
+    margin-bottom: 280px !important;
+  }
+  .mb-xs-280 {
+    margin-bottom: 320px !important;
+  }
+  #static_pages-exchage_platform .main-sub-container .row:last-child .col-4 img {
+    top: 140px;
+  }
+  #static_pages-exchage_platform .main-sub-container .row:nth-child(4) .col-4 img,
+  #static_pages-exchage_platform .main-sub-container .row:nth-child(5) .col-4 img,
+  #static_pages-exchage_platform .main-sub-container .row:nth-child(7) .col-4 img,
+  #static_pages-exchage_platform .main-sub-container .row:nth-child(6) .col-4 img,
+  #static_pages-exchage_platform .main-sub-container .row:nth-child(11) .col-4 img,
+  #static_pages-exchage_platform .main-sub-container .row:nth-child(8) .col-4 img {
+    top: 60px;
+  }
+}
+
+@media (max-width: 320px) {
+  #welcome-index .sub-container.row.data-info .col-5 > div {
+    width: 100% !important;
+  }
+  .show-xxm {
+    display: block!important;
+  }
+  .show-xm {
+    display: none!important;
+  }
+  .hidden-xxm {
+    display: none;
+  }
+  #static_pages-exchage_platform .main-sub-container .row .col-4 img {
+    top: 120px;
+  }
+  #static_pages-exchage_platform .main-sub-container .row:nth-child(4) .col-4 img,
+  #static_pages-exchage_platform .main-sub-container .row:nth-child(5) .col-4 img,
+  #static_pages-exchage_platform .main-sub-container .row:nth-child(7) .col-4 img,
+  #static_pages-exchage_platform .main-sub-container .row:nth-child(6) .col-4 img,
+  #static_pages-exchage_platform .main-sub-container .row:nth-child(11) .col-4 img,
+  #static_pages-exchage_platform .main-sub-container .row:nth-child(8) .col-4 img {
+    top: 80px;
+  }
+}

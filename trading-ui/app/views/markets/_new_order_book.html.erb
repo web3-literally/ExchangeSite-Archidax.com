@@ -1,0 +1,57 @@
+<div class="order-book-container">
+
+  <div class="order-book-header-switch">
+    <ul>
+      <li id="orders_both">
+        <input type="image" class="active" alt="orderbook-buysell" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAABF0lEQVQ4jaXUoUvDQRjG8c+m4MAgGoXhQBAMBpt/gMUoBq2KYBNhIIpZEcE8ZMjqgibLqqJZ25JgEDE5FsSB6Aze4NhUfvv5wHHPexzfe7h7ucxToSjSeZiXpNRgV/2WFvQTcBgLkc+j/h/gMq4jP44S9tIC17GPTIDksHmxO9VAux/gS/CvqAVfwgBuQp3pBzgZ/Ds+gq9gFJ+hTpwws1XtXdzeKU6gcHR4fDndPEnK+h0YKwATJ8yGzW3MRus1nMUHJx1ZjOEAaxGgieeobicdWTRQxorvVhnCPObSJOz04QNusRhOusMM7usjG39dWY/ixq5gNfgyrkLivhS/cg6PIWEerX5h3QlbqEY+lbq/r9O0oI6+AFb5Q71drBHQAAAAAElFTkSuQmCC" >
+      </li>
+      <li class="slsm78-5 hGrrqS" id="orders_bids">
+        <input type="image" alt="orderbook-buy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAAyklEQVQ4jcXSMUoDQRTG8d8sAdMJ6XOAFBZ2HiAHsLROY5tcInfYDWIbwQOk9gKxsxIsLOxCuu02RXbDsGiYLAt+8OC9Yfje/72ZkOd5pUcNEPo0DFV1HrAoCkieYpDauG/DdMLFy/nmEzn/SZjVlyvcRucbvEZ1SI0MIywxiwz2+GkRJkWGHVZ4wBBXmOKuC2Gzwy9scV/X77jB58f145/7+k3xozxHY6/wVhNfpDBfn/Ihvh13MUZ5qVmbsMQ6yjup/Q+fuho1OgDrcC9Xcb+0AgAAAABJRU5ErkJggg==">
+      </li>
+      <li class="slsm78-5 hGrrqS" id="orders_asks">
+        <input type="image" alt="orderbook-sell" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAAsUlEQVQ4jaWQMQoCMRBFX9BCsLIVhAXBu1hbeAFrGyux9gwLAfEEVjYeQM9gvY2lW4mFaGxGCEuUmfgh5P8Q3nzGXYoFkXZyT8hUu5HvuaAUsAuMIz8Azv8Ap8Ax8n2gBFa5wBmwBpxAOsB8vxzVQLAAr+JvwEF8CbSAk2RnAQ7FP4Cn+C3QA16STQ3rxPsGKKJsaphSJecjdUMXwu+/3nstC/jesCn9DpUNTDtUT9foDaE9InSwV1aPAAAAAElFTkSuQmCC">
+      </li>
+    </ul>
+  </div>
+
+  <div class="order-book-header-content" role="row">
+    <div class="s1b2igbg-3 LGxqy s62mpio-0 fWVxeY">
+      <div class="ReactVirtualized__Table__headerColumn" role="columnheader" style="color:#999;font-weight:normal;line-height:1;text-transform:initial;flex:1 1 310px;-ms-flex:1 1 310px;-webkit-flex:1 1 310px">
+        <span class="ReactVirtualized__Table__headerTruncatedText" title="Price(USDT)"><%= t('.amount', bid_unit: bid_unit) %></span>
+      </div>
+    </div>
+    <div class="s1b2igbg-3 LGxqy s62mpio-0 dBSZfv">
+      <div class="ReactVirtualized__Table__headerColumn" role="columnheader" style="color:#999;font-weight:normal;line-height:1;text-transform:initial;flex:1 1 320px;-ms-flex:1 1 320px;-webkit-flex:1 1 320px">
+        <span class="ReactVirtualized__Table__headerTruncatedText" title="Amount(BTC)"><%= t('.volume', ask_unit: ask_unit) %></span>
+      </div>
+    </div>
+    <div class="s1b2igbg-3 LGxqy s62mpio-0 dBSZfv">
+      <div class="ReactVirtualized__Table__headerColumn" role="columnheader" style="color:#999;font-weight:normal;line-height:1;text-transform:initial;flex:1 1 385px;-ms-flex:1 1 385px;-webkit-flex:1 1 385px">
+        <span class="ReactVirtualized__Table__headerTruncatedText" title="Total(USDT)"><%= t('.price', bid_unit: bid_unit) %></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="order-book-header" id="order_book_ask_container">
+    <div class="hidden"></div>
+    <div direction="row" wrap="nowrap">
+      <div style="height: 100%; flex: 1 1 auto; position: relative;">
+        <div style="overflow:visible;height:0;width:100%">
+          <div class="ReactVirtualized__Table s1wul8e1-1 icBBGb" role="grid">
+
+            <div id="order_book_ask" class="panel panel-default">
+              <table class="table table-hover asks"></table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= render partial: 'ticker' %>
+
+  <div id="order_book_bid" class="panel panel-default">
+    <table class="table table-hover bids"></table>
+  </div>
+</div>

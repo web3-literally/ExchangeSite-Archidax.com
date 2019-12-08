@@ -1,0 +1,28 @@
+
+<h2 class="title"><span>Log in</span></h2>
+
+<div class="importantInfo">
+  <p>
+    <%= image_tag "exclamation-circle-solid.svg" %>
+    Please check that you are visiting
+    <strong>https://gigaex.io</strong>
+  </p>
+</div>
+
+<p class="empty-field">This field is required.</p>
+
+<%= form_for(resource, as: resource_name, url: accounts_sign_in_confirm_path) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div id="email-form">
+    <div class="form-group">
+      <%= f.email_field :email, autofocus: true, autocomplete: 'email',
+                                  class: 'form-control required',
+                                  placeholder: 'Email', required: true %>
+    </div>
+
+    <div class="submit-container">
+      <%= f.submit 'Submit', class: 'btn btn-success', disabled: true %>
+    </div>
+  </div>
+<% end %>

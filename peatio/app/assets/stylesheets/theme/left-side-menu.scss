@@ -1,0 +1,377 @@
+/*----------------------------------------
+  Sidebar Main Menu
+------------------------------------------*/
+
+.page-sidebar {
+    height: auto;
+    width: 260px;
+    position: fixed;
+    padding: 0px;
+    background-color: #ffffff;
+    margin-top: 48px;
+    overflow: hidden;
+    box-shadow: 0 0 10px 0 rgba(33,33,33,.2);
+    -webkit-box-shadow: 0 0 10px 0 rgba(33,33,33,.2);
+    -moz-box-shadow: 0 0 10px 0 rgba(33,33,33,.2);
+    -o-box-shadow: 0 0 10px 0 rgba(33,33,33,.2);
+    -ms-box-shadow: 0 0 10px 0 rgba(33,33,33,.2);
+    min-height: 100%;
+    height: auto;
+}
+
+.page-sidebar.fixedscroll {
+    position: fixed;
+}
+
+.page-sidebar.pagescroll {
+    position: absolute;
+}
+
+.fixedscroll #main-menu-wrapper{
+    padding-top: 0px;
+    overflow: hidden;
+    position: relative;
+}
+
+#main-menu-wrapper ul {
+    padding: 0px;
+    margin: 0px;
+    padding-left: 0px;
+    list-style-type: none;
+    font-family: Aileron;
+    font-weight: 400;
+    font-size: 14px;
+}
+#main-menu-wrapper ul.wraplist {
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+#main-menu-wrapper li ul.sub-menu {
+    padding-left: 0px;
+}
+#main-menu-wrapper li ul.sub-menu ul.sub-menu {
+    padding-left: 20px;
+}
+#main-menu-wrapper li ul.sub-menu {
+    display: none;
+    list-style-type: none;
+    font-size: 14px;
+    width: 100%;
+}
+#main-menu-wrapper li a {
+    display: block;
+    line-height: 42px;
+    min-height: 42px;
+    height: auto;
+    color: #f1f1f1;
+    color: #424242;
+    text-decoration: none;
+    padding-left: 5px;
+    clear: both;
+    border-left: 4px solid transparent;
+    white-space: nowrap;
+}
+#main-menu-wrapper li .sub-menu a {
+    line-height: 36px;
+    min-height: 36px;
+}
+#main-menu-wrapper li .sub-menu a {
+    color: rgba(174, 178, 183, 1.0);
+    margin-bottom: 1px;
+    padding-left: 55px;
+    border-left: 4px solid transparent;
+}
+#main-menu-wrapper li.open .sub-menu a.active, #main-menu-wrapper li.open .sub-menu a:hover, #main-menu-wrapper li .sub-menu a:hover {
+    background-color: rgba(33, 33, 33, 0.1);
+    border-left: 4px solid #4d9cf8;
+}
+
+#main-menu-wrapper li.open .sub-menu a{
+    border-left: 4px solid transparent;
+}
+
+#main-menu-wrapper li a:hover {
+    background-color: rgba(33, 33, 33, 0.1);
+    border-left: 4px solid #4d9cf8;
+    /*color: #ffffff;*/
+}
+#main-menu-wrapper li.open a {
+    border-left: 4px solid #4d9cf8;
+    margin: 0;
+    width: 100%;
+}
+
+
+.page-sidebar-wrapper.crypto li.open>a {
+    background: #dae9f6;
+}
+.page-sidebar-wrapper.crypto li{
+    width: 90%;
+    margin: 5px auto;
+}
+.page-sidebar-wrapper.crypto li a:hover{
+    background: aliceblue !important
+}
+.page-sidebar-wrapper.crypto li.open .sub-menu a:hover{
+    border-left-color: transparent !important
+}
+#main-menu-wrapper li a:hover .arrow:before, #main-menu-wrapper li.open a .arrow:before {
+    color: #757575;
+}
+#main-menu-wrapper li .sub-menu a:hover .arrow:before, #main-menu-wrapper li.open .sub-menu a .arrow:before {
+    color: rgba(194, 198, 203, 0.65);
+}
+#main-menu-wrapper li.open .sub-menu a {
+    background-color: transparent;
+    color: #616161;
+}
+#main-menu-wrapper li a i {
+    display: inline-block;
+    width: 45px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    top: 0px;
+    position: relative;
+}
+#main-menu-wrapper li a span > i {
+    float: right;
+    margin-top: 5px;
+}
+#main-menu-wrapper li a .arrow:before {
+    float: right;
+    margin-top: 1px;
+    margin-right: 20px;
+    display: inline;
+    font-size: 16px;
+    font-family: Aileron;
+    height: auto;
+    content: "\f104";
+    font-weight: 300;
+    text-shadow: none;
+    color: #757575;
+}
+#main-menu-wrapper li.open a .arrow.open:before {
+    content: "\f107";
+}
+#main-menu-wrapper li a .arrow {
+    float: right;
+    position: absolute;
+    right: 0px;
+}
+#main-menu-wrapper .fa {
+    font-size: 14px;
+}
+
+#main-menu-wrapper li .label{
+    font-family: Aileron;
+    font-size: 10px;
+    padding: 3px 7px;
+    float: right;
+    margin: 15px 15px 0 0;
+    position: absolute;
+    right: 30px;
+}
+
+#main-menu-wrapper li .label.nosubmenu{
+    right: 25px;
+    margin-top: 13px;
+}
+
+
+.page-sidebar.chat_shift #main-menu-wrapper li .label,
+.page-sidebar.collapseit #main-menu-wrapper li .label{
+    display: none;
+}
+
+.page-sidebar.chat_shift #main-menu-wrapper li:hover .label,
+.page-sidebar.collapseit #main-menu-wrapper li:hover .label{
+    display: inline-block;
+    margin-top: 13px;
+    right: 0px;
+}
+
+#main-menu-wrapper .menusection{
+    font-family: Aileron;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 40px;
+    padding-left: 24px;
+    margin: 10px 0 0px 0;
+    color: #9e9e9e;
+    text-transform: uppercase;
+}
+
+.page-sidebar.chat_shift #main-menu-wrapper .menusection, 
+.page-sidebar.collapseit #main-menu-wrapper .menusection{
+    color: transparent;
+    height: 1px;
+    background: rgba(33,33,33,0.1);
+    width: 44px;
+    overflow: hidden;
+    margin: 10px 8px 10px 8px;
+}
+
+.page-sidebar.chat_shift #main-menu-wrapper .menusection:first-child, 
+.page-sidebar.collapseit #main-menu-wrapper .menusection:first-child{
+    background-color: transparent;
+}
+
+.page-sidebar .menustats{
+    padding: 15px 15px 15px 20px;
+}
+
+.page-sidebar .menustats h5{
+    font-size: 13px;
+}
+
+.page-sidebar .menustats .progress{
+    height: 5px;
+    background-color: #eeeeee;
+    margin-bottom: 25px;
+}
+
+.page-sidebar.chat_shift .menustats, 
+.page-sidebar.collapseit .menustats{
+    content: " ";
+    height: 50px;
+    overflow: hidden;
+    color: transparent;
+    opacity: 0;
+}
+
+
+/*----------------------------------------
+  Sidebar User Profile
+------------------------------------------*/
+
+.page-sidebar .profile-info {
+    background: transparent;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 15px;
+}
+.page-sidebar .profile-image {
+    padding-right: 5px;
+    display: inline-block;
+}
+.profile-info .profile-image img {
+    height: 65px;
+    width: 65px;
+    float: right;
+    top: 5px;
+    left: 5px;
+    position: relative;
+    background-color: #777777;
+}
+.profile-info .profile-details{
+    white-space: nowrap;
+}
+.profile-info .profile-details h3 {
+    margin: 10px 0 5px 0;
+}
+.profile-info .profile-details h3 a {
+    font-family: Aileron;
+    font-weight: 400;
+    color: #757575;
+    font-size: 19px;
+    line-height: 23px;
+    text-decoration: none;
+}
+.profile-info .profile-details .profile-title {
+    color: rgba(174, 178, 183, 1.0);
+    font-size: 13px;
+}
+.profile-info .profile-details .profile-status {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    display: inline-block;
+}
+.profile-status.available, .uprofile-status.available {
+    background-color: #4CAF50;
+}
+.profile-status.busy, .uprofile-status.busy {
+    background-color: #f44336;
+}
+.profile-status.idle, .uprofile-status.idle {
+    background-color: #E91E63;
+}
+.profile-status.away, .uprofile-status.away {
+    background-color: #FFC107;
+}
+.profile-status.offline, .uprofile-status.offline {
+    background-color: #9e9e9e;
+}
+/*----------------------------------------
+  Sidebar Fixed Bottom Graphs
+------------------------------------------*/
+
+.page-sidebar .project-info {
+    position: relative;
+    bottom: 0px;
+    height: 40px;
+    background-color: rgba(70, 70, 78, 1.0);
+    width: 100%;
+    display: block;
+    overflow: hidden;
+}
+.page-sidebar .project-info .block1 {
+    display: inline-block;
+    height: 40px;
+    padding: 8px 0 5px 30px;
+}
+.page-sidebar .project-info .block2 {
+    display: inline-block;
+    height: 40px;
+    padding: 8px 0 5px 15px;
+}
+.page-sidebar .project-info .graph {
+    float: left;
+    width: 55px;
+    padding: 5px 5px 5px 5px;
+}
+.page-sidebar .project-info .data {
+    float: left;
+    font-size: 10px;
+    color: #aaaaaa;
+    width: auto;
+    white-space: nowrap;
+    display: inline-block;
+    padding-right: 5px;
+}
+.page-sidebar .project-info .data .title {
+    display: block;
+    line-height: 15px;
+}
+.page-sidebar .project-info .data .total {
+    color: #dddddd;
+    line-height: 12px;
+    display: block;
+    font-size: 11px;
+}
+
+#wrap, .footer-section {
+    margin-left: 260px;
+    padding-top: 48px;
+}
+
+#wrap > .container {
+    padding: 0 30px;
+}
+
+.navbar-expand-md .navbar-nav .dropdown-menu {
+    left: auto;
+    right: 0;
+}
+
+header.bg-dark {
+    position: fixed;
+    width: 100%;
+    z-index: 10000;
+}

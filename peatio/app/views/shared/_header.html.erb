@@ -1,0 +1,58 @@
+<header class="bg-dark">
+  <nav class="navbar navbar-expand-md navbar-dark" style="line-height: 2">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="<%= root_path %>">
+        <%= image_tag 'blue.png', class: 'nav-icon' %>
+        <img class="nav-img" src="<%= ENV['LOGO_URL'] || image_path('white.png') %>">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-navbar" aria-controls="top-navbar" aria-expanded="false" aria-label="Toggle navigation" style="line-height: inherit"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="top-navbar">
+        <ul class="navbar-nav">
+          <div class="dropdown text-center hidden-sm">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= image_tag "th-solid.svg" %>
+            </button>
+          </div>
+          <li class="app-path">
+            <%= link_to 'Exchange', '/trading/ethbtc' %>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <% if current_user %>
+            <li class="app-path">
+              <%= link_to 'Funds', funds_path %>
+            </li>
+          <% end %>
+          <li class="app-path hidden-sm">
+            <%= link_to 'Support', '#' %>
+          </li>
+          <li class="app-path hidden-sm">
+            <%= link_to 'Notice', '#' %>
+          </li>
+          <% if current_user %>
+            <li class="account-info app-path">
+                <%= render partial: 'shared/header_profile_setting' %>
+            </li>
+          <% else %>
+            <li class="account-info">
+              <div class="signin-signup-container">
+                <% provider = ENV['OAUTH2_SIGN_IN_PROVIDER'] %>
+                <% unless provider.blank? %>
+                  <a href="/auth/<%= provider == 'google' ? 'google_oauth2' : provider %>" role="button">
+                    Log In
+                  </a>
+                  <span>
+                    or
+                    <%= link_to "Register", '/accounts/sign_up' %>
+                  </span>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+          <%= render partial: 'shared/header_lang_sel' %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</header>

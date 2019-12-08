@@ -1,0 +1,137 @@
+// -------------------------------------------------------------
+// COLORS DEFINITIONS
+// -------------------------------------------------------------
+$main-color: #777;
+$second-color: #333;
+$neutral-color: #333;
+
+$green-color: rgb(77, 215, 16);
+$red-color: rgb(208, 0, 23);
+
+$main-bg: #151515;
+$second-bg: #000;
+
+$main-gray: #ccc;
+$dark-gray: #777;
+$black-color: #070707;
+
+
+// -------------------------------------------------------------
+// LAYOUT POSITION
+// -------------------------------------------------------------
+
+$inverted-layout: false; // set to "true" to invert columns
+
+
+// -------------------------------------------------------------
+// COLORS
+// -------------------------------------------------------------
+
+// body
+$body-bg: $second-bg;
+
+// content
+$content-bg: $body-bg;
+$mask-bg: rgba($main-bg, .85);
+
+// texts and links
+$text-color: white;
+$link-color: $main-gray;
+$link-color-hover: lighten($link-color, 10);
+$link-color-active: lighten($link-color, 25);
+$icon-color: $link-color;
+
+// tables
+$table-bg-hover: $second-bg;
+$highlight-color: $second-color;
+$thead-color: $dark-gray;
+$thead-bg: transparent;
+
+// borders
+$border-color: $neutral-color;
+
+
+// -------------------------------------------------------------
+// PANELS
+// -------------------------------------------------------------
+$panel-bg: $main-bg;
+$panel-bg-alpha: rgba($main-bg,0.8);
+$panel-default-heading-bg: $neutral-color;
+$panel-default-border: $neutral-color;
+$panel-border-radius: 2px;
+$panel-body-padding: 8px 8px 8px 8px;
+$panel-heading-padding: 2px 8px 0px 8px;
+$panel-default-text: $text-color;
+
+
+// -------------------------------------------------------------
+// GREEN (positive numbers)
+// -------------------------------------------------------------
+$up-text: $green-color;
+$up-text-fade: rgba($up-text, 0.9);
+
+
+// -------------------------------------------------------------
+// RED (negative numbers)
+// -------------------------------------------------------------
+$down-text: $red-color;
+$down-text-fade: rgba($down-text, 0.9);
+
+
+// -------------------------------------------------------------
+// MISC
+// -------------------------------------------------------------
+$grid-gutter-width: 4px;
+$border-radius-base: 2px;
+
+
+// -------------------------------------------------------------
+// NAVBAR & NAVS
+// -------------------------------------------------------------
+
+// navbar layout & sizes
+$navbar-padding-horizontal: 5px;
+$navbar-margin-bottom: 0px;
+$navbar-height: 30px;
+
+// Navbar colors
+$navbar-default-bg: $panel-bg;
+$navbar-default-border: $border-color;
+$navbar-default-spliter: $body-bg;
+$navbar-numbers-color: $text-color;
+
+// Tabs colors
+$nav-tabs-border-color: $border-color;
+$nav-tabs-active-link-hover-border-color: $border-color;
+$nav-tabs-justified-link-border-color: $border-color;
+$nav-tabs-active-link-hover-bg: $highlight-color;
+$nav-tabs-active-link-hover-color: $link-color;
+
+// Dropdowns
+$dropdown-bg: $second-bg;
+$dropdown-link-color: $link-color;
+$dropdown-link-hover-bg: $highlight-color;
+
+
+// -------------------------------------------------------------
+// FONTS
+// -------------------------------------------------------------
+$font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+
+// -------------------------------------------------------------
+// FORMS, INPUTS, BUTTONS
+// -------------------------------------------------------------
+$input-bg: $panel-bg;
+$input-color: $main-bg;
+$input-group-addon-bg: $second-color;
+$input-border: $border-color;
+$input-height-base: 25px;
+$input-border-focus: $navbar-default-border;
+
+$btn-primary-bg: $main-color;
+$btn-primary-border: darken($main-color, 5);
+
+$label-info-bg: rgba(0,0,0,0);
+$label-success-bg: rgba(0,0,0,0);
+$label-primary-bg: rgba(0,0,0,0);

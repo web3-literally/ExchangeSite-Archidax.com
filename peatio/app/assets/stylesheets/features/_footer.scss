@@ -1,0 +1,66 @@
+.footer-section {
+  background-image: none;
+  background-color: #2c2524;
+  color: #979ca0;
+  font-size: 12px;
+  position: relative;
+  margin-bottom: 0 !important;
+}
+
+.section-pad-md {
+  padding-top: 90px;
+}
+
+.footer-section a img:first-child {
+  width: 40px;
+  vertical-align: top;
+}
+
+.footer-section .bk-footer-contact .sns a {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #493c3b;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.footer-bottom {
+  padding: 10px 0 40px;
+}
+
+.footer-section .bk-footer-contact {
+  padding-top: 30px;
+}
+
+.ui-shape:before, .ui-shape:after {
+  position: absolute;
+  content: '';
+  height: 210px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transition: all .4s;
+}
+
+.ui-shape-light:before {
+  background-image: image-url('shape-a-wh.png');
+  top: 2%;
+  width: 190px;
+  left: 100px;
+}
+
+.ui-shape-light:after {
+  background-image: image-url('shape-b-wh.png');
+  bottom: 5%;
+  width: 166px;
+  right: 100px;
+}
+
+@import 'layouts/media_footer';

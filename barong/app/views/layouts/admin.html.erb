@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <%= domain_favicon_tag %>
+    <title>Gigaex KYC admin</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'admin', media: 'all' %>
+    <%= javascript_include_tag 'admin' %>
+  </head>
+  <body>
+    <%= render 'admin/shared/navigation' %>
+    <div class="container">
+      <% if flash[:notice].present? %>
+        <div class="alert alert-info">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+    </div>
+    <%= yield %>
+  </body>
+</html>

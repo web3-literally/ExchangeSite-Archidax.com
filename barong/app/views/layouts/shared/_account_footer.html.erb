@@ -1,0 +1,30 @@
+<div class="row footer-container">
+
+  <div class="col-3 text-left">
+    <div class="btn-group">
+      <a href="javascript:void(0)" class="dropdown-toggle text-yellow" data-toggle="dropdown">
+        Settings
+      </a>
+      <div class="dropdown-menu text-dark">
+        <%= link_to "Change your password", edit_account_registration_path, class:'dropdown-item' %>
+
+        <% if Vault::TOTP.server_available? && !current_account.otp_enabled %>
+          <%= link_to 'Enable two factor authentification', security_path, class:'dropdown-item' %>
+        <% end %>
+
+        <%= link_to 'Add profile', new_profile_path, class:'dropdown-item' if current_account.level >= 2 && !current_account.profile %>
+        <%= link_to 'Upload document', new_document_path, class:'dropdown-item' if current_account.profile %>
+        <%= link_to 'Add phone', new_phone_path, class:'dropdown-item' %>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-6"><a class="btn btn-primary" href="/settings"> Go to Dashboard</a></div>
+  <div class="col-3 text-right">
+    <a class="text-yellow" href="javascript:;" onclick="window.open('/signout');
+      window.location.assign('/accounts/sign_out');">
+      <span>Logout</span>
+    </a>
+  </div>
+
+</div>

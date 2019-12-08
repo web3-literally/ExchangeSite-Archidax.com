@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-6">
+    <h3>Rewards</h3>
+  </div>
+</div>
+
+<div class="card">
+  <%= table_for @rewards, class: 'table table-condensed table-striped' do |t| %>
+    <% t.column :member_id %>
+
+    <% t.column :currency_id %>
+
+    <% t.column :amount %>
+
+    <% t.column :created_at %>
+
+    <%= paginate @rewards %>
+  <% end %>
+</div>

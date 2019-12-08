@@ -1,0 +1,269 @@
+@import 'vars/bootstrap';
+@import 'bootstrap';
+
+@import 'vars/basic';
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+@import 'layouts/basic';
+@import 'layouts/header';
+
+@import 'features/welcome';
+@import 'features/assets';
+@import 'features/history';
+@import 'features/funds';
+
+@import 'theme/theme';
+
+@font-face {
+  font-family: 'Aileron';
+  src: font-url("Aileron-Regular.otf");
+  font-weight: normal;
+  font-style: normal; 
+}
+
+
+/* layouts
+-------------------------------------------------------------- */
+html, body {
+  height: 100vh;
+  font-family: Aileron;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: Aileron;
+}
+
+// disabling responsive
+.container {
+  min-width: 960px;
+}
+
+#wrap {
+  margin: 0 auto;
+  min-height: 100%;
+
+  & + iframe { display: none; }
+
+  #guide {
+    padding-left: 26px;
+  }
+
+  #content {
+    padding-top: 15px;
+
+    .list-group {
+      margin-right: -15px;
+      margin-bottom: 0px;
+
+      .list-group-item {
+        border-left: 0px;
+        border-right: 0px;
+
+        &.split {
+          padding-bottom: 8px;
+
+          & > * {
+            margin-top: 4px;
+            margin-bottom: 0px;
+          }
+        }
+
+        &:first-of-type {
+          padding-top: 0px;
+          border-top: 0px;
+        }
+
+        &:last-of-type {
+          border-bottom: 0px;
+        }
+      }
+    }
+  }
+}
+footer.footer {
+  color: $footer-color;
+  height: $footer-height;
+  margin-top: -$footer-height;
+  box-sizing: 'border-box';
+  padding-top: 53px;
+  width: 100%;
+  background-color: $footer-bg;
+  border-top: 1px solid $footer-border;
+  .logo-img {
+    width: 100%;
+    max-width: 350px;
+    min-width: 240px;
+    margin-bottom: 30px;
+  }
+  ul {
+    padding-left: 0px;
+    list-style: none;
+    line-height: 2;
+    li {
+      a {
+        color: #5093e5;
+      }
+    }
+  }
+}
+
+#push {
+  height: $footer-height;
+  box-sizing: 'border-box';
+}
+
+
+/* ticker
+------------------------------------------- */
+.dl-horizontal.dl-ticker {
+  margin-bottom: 10px;
+  line-height: 40px;
+
+  dt {
+    width: 38px;
+    cursor: pointer;
+    color: $gray-400;
+  }
+
+  dd {
+    margin-top: -4px;
+    font-size: 20px;
+    margin-left: 42px;
+    font-family: Aileron;
+  }
+}
+
+/* flash message element
+
+------------------------------------------------------- */
+form.simple_form {
+  .form-submit, .form-group {
+    input[type=submit] + a, a + a {
+      margin-right: $btn-gutter-width;
+    }
+  }
+
+  hr.split {
+    border-top-color: #DDD;
+    margin-left: 10px;
+    margin-right: 54px;
+  }
+}
+/* flash message element
+
+------------------------------------------------------- */
+.flash-alert, .flash-notice {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  h5 i.fa { margin-right: 10px; }
+}
+
+@import 'layouts/custom';
+
+body::-webkit-scrollbar {
+  width: 0.7em;
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+#feeTable .modal-dialog,
+#airdrop .modal-dialog {
+  max-width: 90%;
+}
+
+#feeTable .modal-body img,
+#airdrop .modal-body img {
+  width: 100%;
+}
+
+#feeTable button.close span,
+#airdrop button.close span {
+  margin-top: 5px;
+  display: block;
+  font-size: 40px;
+  margin-bottom: -10px;
+}
+
+#feeTable .modal-content .btn.btn-secondary,
+#airdrop .modal-content .btn.btn-secondary {
+  background-color: #000;
+  opacity: 0.75;
+  border: none;
+}
+
+#feeTable .modal-content .btn.btn-secondary:hover,
+#airdrop .modal-content .btn.btn-secondary:hover {
+  opacity: 0.9;
+}
+
+#airdropButton {
+  background: transparent;
+  border: none;
+  color: #bcbcbc;
+  height: 100%;
+  cursor: pointer;
+  outline: none;
+}
+
+#airdropButton:hover {
+  background-color: #333333;
+  transition: color .3s ease;
+}
+
+#feeButton {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  outline: none;
+  padding: 0 1em 0 0;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  cursor: pointer;
+  transition: color .3s ease;
+  border: none;
+}
+
+#feeButton:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.modal.fade.show {
+  max-width: 100%;
+}
+
+#static_pages-api table {
+  border-collapse: collapse;
+}
+
+#static_pages-api table, th, td {
+  border: 1px solid #dfe2e5;
+  padding: 6px 13px;
+  margin-bottom: 20px;
+}
+
+#static_pages-api tbody tr:nth-child(even) {
+  background-color: #f6f8fa;
+}
+
+hr.bold {
+  border-width: 4px;
+  margin: 50px 0 40px;
+}
+
+@import 'features/footer';
+@import 'theme/left-side-menu';
+@import 'theme/dashboard';
+@import 'layouts/media';

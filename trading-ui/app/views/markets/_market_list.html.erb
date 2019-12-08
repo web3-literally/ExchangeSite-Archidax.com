@@ -1,0 +1,68 @@
+<div id="market_list_wrapper" class="has-right-dropdown hidden">
+  <div class="market_list_container">
+    <% if @data.fetch(:market_groups).count > 1 %>
+      <div class="dropdown-wrapper">
+        <ul class="dropdown-menu">
+          <li>
+            <a class="active" data-name="all" href="javascript:;">
+              <%= t('.all_html') %>
+            </a>
+          </li>
+          <% @data[:markets].map{|market| market[:bid_unit]}.uniq.each do |name| %>
+            <li>
+              <a data-name="<%= name %>" href="javascript:;">
+                <%= t('.ccy_html', currency: name.upcase) %>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div id="market_list">
+      <div class="panel panel-default panel-width">
+        <div class="panel-body panel-body-head">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>
+                  <span class="name"><%= t('.all') %></span>
+                </th>
+                <th class="text-right price">
+                  <%= t('.price') %>
+                </th>
+                <th class="text-right change">
+                  <%= t('.change') %>
+                </th>
+                <th class="text-right volume">
+                  <%= t('.volume') %>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="panel-body panel-body-content">
+          <table class="table table-hover markets all">
+            <tbody>
+              <% @data.fetch(:markets).each do |market| %>
+                <tr class="markets-toggle" id="market-list-<%= market.fetch(:id) %>" data-quote-unit="<%= market.fetch(:bid_unit) %>" data-base-unit="<%= market.fetch(:ask_unit) %>" data-market="<%= market[:id] %>">
+                  <td class="col-xs-4 name">
+                    <%= link_to market.fetch(:name), '/trading/' + market.fetch(:id) %>
+                  </td>
+                  <td class="col-xs-15 price">
+                    <%= market.fetch(:ticker).fetch(:last) %>
+                  </td>
+                  <td class="col-xs-5 change">
+                    | +0.00%
+                  </td>
+                  <td class="col-xs-5 volume">
+                    <%= market.fetch(:ticker).fetch(:volume) %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

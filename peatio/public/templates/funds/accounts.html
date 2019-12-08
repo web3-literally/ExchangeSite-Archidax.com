@@ -1,0 +1,63 @@
+<table class="table table-currencies" ng-repeat="account in accounts" bind="accounts">
+  <thead>
+    <tr>
+      <th>Coin</th>
+      <th>Name</th>
+      <th>Total Balance</th>
+      <th>Available Balance</th>
+      <th>In Order</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="currency-item" ng-class="{selected: accountsCtrl.isSelected(account.currency),
+      'deposit-now': accountsCtrl.isDeposit(),
+      'withdraw-now': accountsCtrl.isWithdraw() }"
+      data-currency="{{account.currency}}">
+
+      <td class="currency-left">
+        <div class="currency-logo" ng-style="currencyLogoStyles(account)"></div>
+      </td>
+      <td>
+        <div class="currency-symbol">{{ account.currency | uppercase }}</div>
+      </td>
+      <td>
+        <span class="total-balance">{{ (1 * account.locked + 1 * account.balance) | round_down }}</span>
+      </td>
+      <td class="currency-balance-col">
+        <p class="currency-balance"><span class="currency-sign"></span>{{account.balance | round_down }}</p>
+      </td>
+      <td>
+        <span class="currency-balance-locked"><i class="fa fa-lock"></i> {{account.locked}}</span>
+      </td>
+      <td class="currency-actions">
+        <p class="currency-deposit {{account.currency}}"><a href="#" ng-click="accountsCtrl.deposit(account); $event.preventDefault()" onclick="scroll_to(this)" >{{ 'funds.deposit' | t }}</a></p>
+      </td>
+      <td>
+        <p class="currency-withdraw {{account.currency}}"><a href="#" ng-click="accountsCtrl.withdraw(account); $event.preventDefault()" onclick="scroll_to(this)" >{{ 'funds.withdraw' | t }}</a></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  var before_clicked = ''
+
+  function scroll_to(e) {
+    if ($(e).parent().attr('class') == before_clicked ) {
+      $('.card-body').toggleClass('hidden');
+      if (!$('.card-body').attr('class').includes('hidden')) {
+        $('html,body').animate({
+          scrollTop: $($(".panel-title")[0]).offset().top},
+          'slow');
+      }
+    } else {
+      $('.card-body').removeClass('hidden');
+      $('html,body').animate({
+        scrollTop: $($(".panel-title")[0]).offset().top},
+        'slow');
+      before_clicked = $(e).parent().attr('class');
+    }
+  }
+</script>

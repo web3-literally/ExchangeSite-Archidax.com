@@ -1,0 +1,96 @@
+AllCops:
+  Exclude:
+    - db/**/*
+    - ci/bump.rb
+    - bin/*
+    - config/**/*
+    - lib/barong/version.rb
+    - config/routes.rb
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Metrics/LineLength:
+  Enabled: false
+  Max: 110
+
+Metrics/ClassLength:
+  Exclude:
+    - "app/api/user_api/**/*"
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*"
+
+Layout/CaseIndentation:
+  EnforcedStyle: end
+  IndentOneStep: true
+
+Layout/AccessModifierIndentation:
+  EnforcedStyle: outdent
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - db/migrate/**/*
+
+Layout/ExtraSpacing:
+  Enabled:                 false
+  AllowForAlignment:       true
+  ForceEqualSignAlignment: true
+
+Style/PercentLiteralDelimiters:
+ PreferredDelimiters:
+   default: '[]'
+   '%i':    '[]'
+   '%':     '[]'
+
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: single_quotes
+
+Style/Documentation:
+  Exclude:
+    - spec/**/*
+    - test/**/*
+    - db/**/*
+    - app/controllers/**/*
+    - app/helpers/**/*
+    - app/mailers/**/*
+    - config/application.rb
+    - app/api/**/*
+
+Performance/TimesMap:
+  Exclude:
+    - db/**/*
+
+Metrics/AbcSize:
+  Max: 30
+  Exclude:
+    - db/**/*
+
+Style/NumericPredicate:
+  EnforcedStyle: comparison
+
+Layout/SpaceInLambdaLiteral:
+  EnforcedStyle: require_space
+
+Metrics/BlockLength:
+  Exclude:
+    - config/environments/**/*.rb
+    - lib/tasks/auto_annotate_models.rake
+  ExcludedMethods: ['describe', 'context', 'namespace', 'resource']
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded

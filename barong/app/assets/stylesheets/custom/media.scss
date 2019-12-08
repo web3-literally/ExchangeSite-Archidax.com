@@ -1,0 +1,40 @@
+@media (max-width: 869px){
+  .main-card {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 577px){
+  body.devise .card {
+    width: 100%;
+    top: 10px;
+    transform: none;
+    left: 0;
+    right: 0;
+    margin: 20px auto;
+    padding: 20px 15px 40px;
+  }
+}
+
+@media (max-width: 390px){
+  body.devise .card {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  body.devise .card .pt-2,
+  .footer-container {
+    width: 100%;
+  }
+  .importantInfo p {
+    top: -10px;
+  }
+  .importantInfo p strong {
+    display: block;
+  }
+  .info-alert {
+    width: 100%;
+  }
+  .hidden-xs {
+    display: none;
+  }
+}

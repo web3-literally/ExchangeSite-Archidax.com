@@ -1,0 +1,58 @@
+<header class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="navbar-left">
+    <ul id="menu" class="nav navbar-nav">
+      <a class="navbar-brand" href="/">
+        <%= image_tag 'red.png', class: 'logo-icon' %>
+        <!-- <img class="nav-img" src="<%= ENV['LOGO_URL'] || image_path('white.png') %>"> -->
+      </a>
+      <div class="market-switch middle-nav">
+        <%= @data.fetch(:current_market).fetch(:ask_unit).upcase %><span>&nbsp;/ <%= @data.fetch(:current_market).fetch(:bid_unit).upcase %></span>
+        <b class="caret"></b>
+        <%= render partial: 'market_list' %>
+      </div>
+    </ul>
+  </div>
+
+  <div class="market-info">
+    <div class="market-info-text middle-nav">
+      <span data-title="<%= t('.vol') %>">
+        <br />
+        <span class="vol"></span>
+      </span>
+    </div>
+    <div class="market-info-text middle-nav">
+      <span data-title="<%= t('.high') %>">
+        <br />
+        <span class="high"></span>
+      </span>
+    </div>
+    <div class="market-info-text middle-nav">
+      <span data-title="<%= t('.low') %>">
+        <br />
+        <span class="low"></span>
+      </span>
+    </div>
+    <div class="market-info-text middle-nav">
+      <span data-title="<%= t('.change') %>">
+        <br />
+        <span class="change"></span>
+      </span>
+    </div>
+  </div>
+
+  <div class="middle-nav user-info-container">
+    <ul class="nav navbar-nav navbar-right text-center">
+      <% if @data[:current_member] %>
+        <%= render partial: 'account_summary' %>
+        <%= render partial: 'settings' %>
+      <% else %>
+        <p class="navbar-text">
+          <%= t('markets.mask.warning').html_safe %>
+        </p>
+      <% end %>
+    </ul>
+  </div>
+  <div class="select-language middle-nav">
+    <%= render partial: 'language' %>
+  </div>
+</header>

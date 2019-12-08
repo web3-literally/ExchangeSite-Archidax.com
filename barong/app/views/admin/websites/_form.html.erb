@@ -1,0 +1,55 @@
+<%= form_with(model: [:admin, @website], local: true) do |form| %>
+  <% if website.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(website.errors.count, "error") %> prohibited this website from being saved:</h2>
+
+      <ul>
+        <% website.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.label :domain, class: 'control-label'%>
+  <%= form.text_field :domain, id: :website_domain , class: 'form-control col-sm-10'%>
+  <br>
+
+  <%= form.label :title, class: 'control-label'%>
+  <%= form.text_field :title, id: :website_title , class: 'form-control col-sm-10'%>
+  <br>
+
+  <%= form.label :logo, class: 'control-label'%>
+  <%= form.text_field :logo, id: :website_logo , class: 'form-control col-sm-10'%>
+  <br>
+
+  <%= form.label :favicon, class: 'control-label'%>
+  <%= form.text_field :favicon, id: :website_favicon , class: 'form-control col-sm-10'%>
+  <br>
+
+  <%= form.label :stylesheet, class: 'control-label'%>
+  <%= form.text_field :stylesheet, id: :website_stylesheet , class: 'form-control col-sm-10'%>
+  <br>
+
+  <%= form.label :header, class: 'control-label'%>
+  <%= form.text_area :header, id: :website_header , class: 'form-control col-sm-10'%>
+  <br>
+
+  <%= form.label :footer, class: 'control-label'%>
+  <%= form.text_area :footer, id: :website_footer , class: 'form-control col-sm-10'%>
+  <br>
+
+  <%= form.label :redirect_url, class: 'control-label'%>
+  <%= form.text_field :redirect_url, id: :website_redirect_url , class: 'form-control col-sm-10'%>
+  <br>
+
+  <%= form.label :state, class: 'control-label'%>
+  <%= form.text_field :state, id: :website_state , class: 'form-control col-sm-10'%>
+  <br>
+
+  <%= form.submit 'Submit', class: 'btn btn-primary' %>
+  <%= link_to t('doorkeeper.applications.buttons.cancel'), admin_websites_path,  class: 'btn btn-default' %>
+  <br>
+  <br>
+
+<% end %>

@@ -1,0 +1,47 @@
+<div class="page-header">
+  <h1><%= t('.title', name: @application.name) %></h1>
+</div>
+
+<ul class="list-group">
+  <li class="list-group-item">
+    <b> <%= t('.application_id') %>: </b>
+    <code id="application_id"><%= @application.uid %></code>
+  </li>
+  <li class="list-group-item">
+    <b> <%= t('.secret')  %>: </b>
+    <code id="secret"><%= @application.secret %></code>
+  </li>
+  <li class="list-group-item">
+    <b> <%= t('.scopes') %>: </b>
+    <code id="scopes"><%= @application.scopes %></code>
+  </li>
+</ul>
+<br>
+
+<h4><%= t('.actions') %></h4>
+<div class="actions">
+  <%= link_to t('doorkeeper.applications.buttons.edit'), edit_oauth_application_path(@application), class: 'btn btn-primary' %>
+  <div style= "display: inline-block">
+    <%= render 'delete_form', application: @application, submit_btn_css: 'btn btn-danger'%>
+  </div>
+</div>
+
+<h4 class="text-center"><%= t('.callback_urls') %>:</h4>
+<table class="table table-bordered table-striped table-hover table-sm text-center">
+  <thead>
+    <th>URL</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @application.redirect_uri.split.each do |uri| %>
+      <tr>
+        <td>
+          <code><%= uri %></code>
+        </td>
+        <td>
+          <%= link_to t('doorkeeper.applications.buttons.authorize'), oauth_authorization_path(client_id: @application.uid, redirect_uri: uri, response_type: 'code', scope: @application.scopes), class: 'btn btn-success btn-sm', target: '_blank' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,394 @@
+/* start about page */
+
+body {
+  background-color: transparent;
+}
+
+#static_pages-about .true_global_exchange {
+  background-color: #fff;
+}
+
+#static_pages-about .exchange-revenue,
+#static_pages-about .summary {
+  background-color: #4f4f4c;
+}
+
+#static_pages-about .exchange-feature {
+  background-color: #dddedf
+}
+
+#static_pages-about h1,
+#static_pages-about h2 {
+  color: #060303;
+  font-weight: bold;
+}
+
+#static_pages-about .text-container span {
+  color: #060303;
+}
+
+#static_pages-about .text-container {
+  font-size: 20px;
+  color: #696a6a;
+  position: relative;
+}
+
+#static_pages-about .exchange-platform .text-container,
+#static_pages-about .exchange-feature .text-container,
+#static_pages-about .summary .text-container,
+#static_pages-about .exchange-revenue .text-container,
+#static_pages-about .distribution .text-container {
+  padding-bottom: 40px;
+}
+
+#static_pages-about .sub-container.text-center img {
+  max-width: 100%;
+}
+
+#static_pages-about .summary .text-container img {
+  position: absolute;
+  width: 400px;
+  top: 50px;
+  right: 50px;
+}
+
+#static_pages-about .distribution .text-container img {
+  opacity: 0.5;
+  position: absolute;
+  width: 300px;
+  bottom: -118px;
+  right: 5px;
+}
+
+#static_pages-about .exchange-feature .text-container img {
+  position: absolute;
+  width: 400px;
+  top: 50px;
+  right: 50px;
+}
+
+#static_pages-about .exchange-revenue .text-container h2,
+#static_pages-about .summary .text-container h2 {
+  margin-bottom: 25px;
+  text-shadow: 0px 0px 9px #fff;
+}
+
+#static_pages-about .exchange-feature .text-container h2 {
+  color: #141413;
+}
+
+#static_pages-about .exchange-revenue .text-container p,
+#static_pages-about .summary .text-container p {
+  color: #f0f0f0;
+}
+
+#static_pages-about .exchange-feature .text-container p {
+  color: #676867;
+}
+
+#static_pages-about .exchange-feature .text-container p span {
+  color: #9ec933;
+}
+
+#static_pages-about .exchange-revenue .text-container p span,
+#static_pages-about .summary .text-container p span {
+  color: #dce23a;
+}
+
+#static_pages-about .distribution .text-container p {
+  color: #4e4e4c;
+}
+
+#static_pages-about .distribution .text-container p span {
+  color: #1f8dce;
+}
+
+#static_pages-about .exchange-platform .text-container p span {
+  color: #ae8d62
+}
+
+#static_pages-about .exchange-feature .text-container ul {
+  margin-top: -16px;
+  list-style-type: none;
+}
+
+#static_pages-about .exchange-feature .text-container ul > li {
+  text-indent: -16px;
+}
+
+#static_pages-about .exchange-feature .text-container ul > li:before {
+  content: "- ";
+  text-indent: -5px;
+}
+
+#static_pages-about .exchange-platform .text-container h2 {
+  background: -webkit-linear-gradient(#0a2130, #2b588d, #081f2d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#static_pages-about .exchange-platform .text-container h3 {
+  font-weight: bolder;
+  color: #1e1f1f;
+}
+
+#static_pages-about .welcome-logo {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  img {
+    display:    block;
+    margin:     0 auto;
+    width:      auto;
+    height:     auto;
+    max-width:  500px;
+    max-height: 200px;
+  }
+}
+
+#static_pages-about .true_global_exchange {
+  padding: 80px 0px;
+}
+
+#static_pages-about .container {
+  padding: 20px 0;
+}
+
+#static_pages-about img {
+  max-width: 100%;
+}
+/* end about page */
+
+/* end index page */
+#welcome-index .true_global_exchange {
+  background-color: transparent;
+  padding: 0 5px;
+}
+
+#welcome-index .true_global_exchange img {
+  width: 100%;
+}
+
+#welcome-index .sub-container.row.data-info img {
+  width: 200px;
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+#welcome-index .sub-container.row.data-info .col-5 > div {
+  width: 70%;
+  margin: 15px auto;
+  padding: 10px;
+  border: 2px solid #f4ad82;
+  border-radius: 10px;
+  min-height: 430px;
+}
+
+#welcome-index .sub-container.row.data-info .col-5 > div p {
+  padding: 0 25px;
+  color: #ee7f47;
+}
+
+#welcome-index .sub-container.row.data-info .col-5 > div h2 {
+  color: #e83b19;
+  font-weight: bolder;
+}
+
+#welcome-index .image-container {
+  padding: 12px 10px 20px;
+  min-height: 240px;
+  position:relative;
+}
+
+#welcome-index .col-2.text-center p {
+  color: #fce2d0;
+  writing-mode: vertical-rl;
+  display: inline-block;
+  margin: 55px auto;
+  font-size: 100px;
+}
+
+#welcome-index #slideshow {
+  max-height: 790px;
+  overflow: hidden;
+}
+
+.show-xm, .show-xxm {
+  display: none;
+}
+
+#welcome-index .container.text-center img {
+  max-width: 100%;
+}
+
+/* end index page */
+
+
+/* start exchange platform page */
+#static_pages-exchage_platform .col-5 img {
+  max-width: 100%;
+}
+
+#static_pages-exchage_platform .true_global_exchange {
+  padding: 50px 0 20px;
+  background-color: #787877;
+}
+
+#static_pages-exchage_platform .true_global_exchange h1 {
+  background: -webkit-linear-gradient(#5c0235, #bb056f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
+  font-size: 38px;
+}
+
+#static_pages-exchage_platform .true_global_exchange h2 {
+  color: #202020;
+  text-shadow: -1px 0 #eae800, 0 1px #eae800, 1px 0 #eae800, 0 -1px #eae800;
+  font-weight: bolder;
+  font-size: 40px;
+}
+
+#static_pages-exchage_platform .true_global_exchange .text-container h2 {
+  color: #3e3d3d;
+  text-shadow: 0px 0px 9px #d1d1b4;
+  font-weight: bolder;
+}
+
+#static_pages-exchage_platform .true_global_exchange .row {
+  margin: 20px auto;
+}
+
+#static_pages-exchage_platform .true_global_exchange .row .col-7 > div > p {
+  color: #fff;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+  font-size: 40px;
+}
+
+#static_pages-exchage_platform .true_global_exchange .row .col-7 > div > div > p {
+  display: block;
+  width: 70%;
+  font-size: 24px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background-color: #ada5a9;
+  font-weight: bolder;
+  border: 2px solid #cfceb0;
+  color: #3e3d3d;
+  text-shadow: -1px 0 #d5fbe6, 0 1px #d5fbe6, 1px 0 #d5fbe6, 0 -1px #d5fbe6;
+}
+
+#static_pages-exchage_platform .true_global_exchange .row .col-7 > div > div > p.fx {
+  font-size: 20px;
+}
+
+#static_pages-exchage_platform .main-sub-container {
+  background-color: #cac7c8;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+#static_pages-exchage_platform .main-sub-container .row {
+  margin:0;
+  padding: 15px;
+}
+
+#static_pages-exchage_platform .main-sub-container .row .col-4 img {
+  max-width: 200px;
+}
+
+#static_pages-exchage_platform .main-sub-container .row .col-8 img {
+  width: 40px;
+  position: absolute;
+  left: -50px;
+  top: -5px;
+}
+
+#static_pages-exchage_platform .main-sub-container .row .col-8 h3 {
+  color: #4d4c4d;
+  font-weight: bolder;
+  text-shadow: -2px 0 #fff, 0 2px #fff, 2px 0 #fff, 0 -2px #fff;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+#static_pages-exchage_platform .high-performance-images {
+  position: relative;
+}
+
+#static_pages-exchage_platform .high-performance-images img:first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+#static_pages-exchage_platform .high-performance-images img:last-child {
+  position: absolute;
+  top: 165px;
+  left: 20px;
+  z-index: 1;
+}
+
+#static_pages-exchage_platform .container-fluid.text-center img {
+  max-width: 100%;
+}
+/* end exchange platform page */
+
+
+/* start terms of use page */
+#static_pages-privacy_policy .container,
+#static_pages-terms_of_use .container {
+  margin-bottom: 50px;
+}
+
+#static_pages-terms_of_use .footer-section .container {
+  margin-bottom: 0;
+}
+
+#static_pages-privacy_policy h1,
+#static_pages-terms_of_use h1 {
+  margin-top: 70px;
+  margin-bottom: 20px;
+  font-weight: bolder;
+}
+
+#static_pages-privacy_policy h2,
+#static_pages-terms_of_use h2 {
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+#static_pages-terms_of_use ul {
+  list-style: none;
+}
+
+#static_pages-terms_of_use ul li p:last-child {
+  padding-left: 20px;
+}
+
+#static_pages-privacy_policy .container > p,
+#static_pages-terms_of_use .container > p {
+  padding-left: 30px;
+}
+
+#static_pages-terms_of_use .first-part p {
+  font-weight: bold;
+}
+
+#static_pages-terms_of_use .first-part p.attention {
+  color: red;
+}
+
+#static_pages-privacy_policy .container > p.second {
+  padding-left: 60px;
+}
+
+/* end terms of use page */
+
+
+#static_pages-mining .container-fluid.text-center img {
+  max-width: 100%;
+}

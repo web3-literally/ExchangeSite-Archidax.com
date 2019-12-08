@@ -1,0 +1,1798 @@
+<div class="container text-left my-4">
+
+	<h1>Member API v2</h1>
+
+	<hr>
+
+	<p>
+		Member API is API which can be used by client application like SPA.
+	</p>
+
+	<p>
+		Version: 1.9.1-rc.10
+	</p>
+
+	<hr class="bold">
+
+	<h2>Security</h2>
+
+	<p><b>Bearer</b></p>
+	<table>
+		<thead>
+			<tr>
+				<th>apiKey</td>
+				<th><i>API Key</i></td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>Name</td>
+				<td>JWT</td>
+			</tr>
+			<tr>
+				<td>In</td>
+				<td>header</td>
+			</tr>
+		</body>
+	</table>
+
+	<hr class="bold">
+
+	<h2>/v2/accounts/{currency}</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get user account by currency</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>currency</td>
+				<td>path</td>
+				<td>The currency code.</td>
+				<td>Yes</td>
+				<td>string</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get user account by currency	</td>
+				<td><a href="#account">Account</a></td>
+			</tr>
+		</body>
+	</table>
+
+	<hr class="bold">
+
+	<h2>/v2/accounts</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get list of user accounts</p>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get list of user accounts</td>
+				<td><a href="#account">Account</a></td>
+			</tr>
+		</body>
+	</table>
+
+	<hr class="bold">
+
+	<h2>/v2/markets</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get all available markets.</p>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get all available markets.</td>
+			</tr>
+		</body>
+	</table>
+
+	<hr class="bold">
+
+	<h2>/v2/tickers/{market}</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get ticker of specific market.</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>market</td>
+				<td>path</td>
+				<td>Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/v2/markets.</td>
+				<td>Yes</td>
+				<td>string</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get ticker of specific market.</td>
+			</tr>
+		</body>
+	</table>
+
+	<hr class="bold">
+
+	<h2>/v2/tickers</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get ticker of all markets.</p>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get ticker of all markets.</td>
+			</tr>
+		</body>
+	</table>
+
+	<hr class="bold">
+
+	<h2>/v2/members/me</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get your profile and accounts info.</p>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get your profile and accounts info.</td>
+			</tr>
+		</body>
+	</table>
+
+	<hr class="bold">
+
+	<h2>/v2/deposits</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get your deposits history.</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>currency</td>
+				<td>query</td>
+				<td>Currency value contains DAI, DASH, DOGE, ETH, LTC, PIVX, WAVES, BTC</td>
+				<td>No</td>
+				<td>string</td>
+			</tr>
+			<tr>
+				<td>limit</td>
+				<td>query</td>
+				<td>Set result limit.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>state</td>
+				<td>query</td>
+				<td></td>
+				<td>No</td>
+				<td>string</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get your deposits history.</td>
+			</tr>
+		</body>
+	</table>
+
+	<hr class="bold">
+
+	<h2>/v2/deposit</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get details of specific deposit.</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>txid</td>
+				<td>query</td>
+				<td></td>
+				<td>Yes</td>
+				<td>string</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get details of specific deposit.</td>
+			</tr>
+		</body>
+	</table>
+
+	<hr class="bold">
+
+	<h2>/v2/deposit_address</h2>
+
+	<p><b><i>POST</i></b></p>
+
+	<p><b>Description:</b> Returns new deposit address for account you want to deposit to. The address may be blank because address generation process is still in progress. If this case you should try again later.</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>currency</td>
+				<td>formData</td>
+				<td>The account you want to deposit to.	</td>
+				<td>Yes</td>
+				<td>string</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>201</td>
+				<td>Returns new deposit address for account you want to deposit to. The address may be blank because address generation process is still in progress. If this case you should try again later.</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Returns deposit address for account you want to deposit to. The address may be blank because address generation process is still in progress. If this case you should try again later.</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>currency</td>
+				<td>query</td>
+				<td>The account you want to deposit to.</td>
+				<td>Yes</td>
+				<td>string</td>
+			</tr>
+			<tr>
+				<td>address_format</td>
+				<td>query</td>
+				<td>Address format legacy/cash</td>
+				<td>No</td>
+				<td>string</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Returns deposit address for account you want to deposit to. The address may be blank because address generation process is still in progress. If this case you should try again later.</td>
+			</tr>
+		</body>
+	</table>
+
+	<hr class="bold">
+
+	<h2>/v2/orders/clear</h2>
+
+	<p><b><i>POST</i></b></p>
+
+	<p><b>Description:</b> Cancel all my orders.</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>side</td>
+				<td>formData</td>
+				<td>If present, only sell orders (asks) or buy orders (bids) will be canncelled.</td>
+				<td>No</td>
+				<td>string</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>201</td>
+				<td>Cancel all my orders.</td>
+			</tr>
+		</body>
+	</table>
+
+	<hr class="bold">
+
+	<h2>/v2/orders</h2>
+
+	<p><b><i>POST</i></b></p>
+
+	<p><b>Description:</b> Create a Sell/Buy order.</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>market</td>
+				<td>formData</td>
+				<td>Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/v2/markets.	</td>
+				<td>Yes</td>
+				<td>string</td>
+			</tr>
+			<tr>
+				<td>side</td>
+				<td>formData</td>
+				<td>Either 'sell' or 'buy'.</td>
+				<td>Yes</td>
+				<td>string</td>
+			</tr>
+			<tr>
+				<td>volume</td>
+				<td>formData</td>
+				<td>The amount user want to sell/buy. An order could be partially executed, e.g. an order sell 5 btc can be matched with a buy 3 btc order, left 2 btc to be sold; in this case the order's volume would be '5.0', its remaining_volume would be '2.0', its executed volume is '3.0'.</td>
+				<td>Yes</td>
+				<td>float</td>
+			</tr>
+			<tr>
+				<td>ord_type</td>
+				<td>formData</td>
+				<td></td>
+				<td>No</td>
+				<td>string</td>
+			</tr>
+			<tr>
+				<td>price</td>
+				<td>formData</td>
+				<td>Price for each unit. e.g. If you want to sell/buy 1 btc at 3000 usd, the price is '3000.0'</td>
+				<td>Yes</td>
+				<td>float</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>201</td>
+				<td>Create a Sell/Buy order.</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get your orders, results is paginated.</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>market</td>
+				<td>query</td>
+				<td>Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/v2/markets.</td>
+				<td>Yes</td>
+				<td>string</td>
+			</tr>
+			<tr>
+				<td>state</td>
+				<td>query</td>
+				<td>Filter order by state, default to 'wait' (active orders).</td>
+				<td>No</td>
+				<td>string</td>
+			</tr>
+			<tr>
+				<td>limit</td>
+				<td>query</td>
+				<td>Limit the number of returned orders, default to 100.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>page</td>
+				<td>query</td>
+				<td>Specify the page of paginated results.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>order_by</td>
+				<td>query</td>
+				<td>If set, returned orders will be sorted in specific order, default to 'asc'.</td>
+				<td>No</td>
+				<td>string</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get your orders, results is paginated.</td>
+			</tr>
+		</body>
+	</table>
+
+	<hr class="bold">
+
+	<h2>/v2/orders/multi</h2>
+
+	<p><b><i>POST</i></b></p>
+
+	<p><b>Description:</b> Create multiple sell/buy orders.</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>market</td>
+				<td>formData</td>
+				<td>Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/v2/markets.	</td>
+				<td>Yes</td>
+				<td>string</td>
+			</tr>
+			<tr>
+				<td>orders[side]</td>
+				<td>formData</td>
+				<td>Either 'sell' or 'buy'.</td>
+				<td>Yes</td>
+				<td>[ string ]</td>
+			</tr>
+			<tr>
+				<td>orders[volume]</td>
+				<td>formData</td>
+				<td>The amount user want to sell/buy. An order could be partially executed, e.g. an order sell 5 btc can be matched with a buy 3 btc order, left 2 btc to be sold; in this case the order's volume would be '5.0', its remaining_volume would be '2.0', its executed volume is '3.0'.</td>
+				<td>Yes</td>
+				<td>[ float ]</td>
+			</tr>
+			<tr>
+				<td>orders[ord_type]</td>
+				<td>formData</td>
+				<td></td>
+				<td>No</td>
+				<td>[ string ]</td>
+			</tr>
+			<tr>
+				<td>orders[price]</td>
+				<td>formData</td>
+				<td>Price for each unit. e.g. If you want to sell/buy 1 btc at 3000 usd, the price is '3000.0'</td>
+				<td>Yes</td>
+				<td>[ float ]</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>201</td>
+				<td>Create a Sell/Buy order.</td>
+			</tr>
+		</body>
+	</table>
+
+
+	<hr class="bold">
+
+	<h2>/v2/order/delete</h2>
+
+	<p><b><i>POST</i></b></p>
+
+	<p><b>Description:</b> Cancel an order.</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>id</td>
+				<td>formData</td>
+				<td>Unique order id.</td>
+				<td>Yes</td>
+				<td>integer</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>201</td>
+				<td>Cancel an order.</td>
+			</tr>
+		</body>
+	</table>
+
+
+	<hr class="bold">
+
+	<h2>/v2/order</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get information of specified order.</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>id</td>
+				<td>query</td>
+				<td>Unique order id.</td>
+				<td>Yes</td>
+				<td>integer</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get information of specified order.</td>
+			</tr>
+		</body>
+	</table>
+
+
+	<hr class="bold">
+
+	<h2>/v2/order_book</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get the order book of specified market.</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>market</td>
+				<td>query</td>
+				<td>Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/v2/markets.</td>
+				<td>Yes</td>
+				<td>string</td>
+			</tr>
+			<tr>
+				<td>asks_limit</td>
+				<td>query</td>
+				<td>Limit the number of returned sell orders. Default to 20.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>bids_limit</td>
+				<td>query</td>
+				<td>Limit the number of returned buy orders. Default to 20.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get the order book of specified market.</td>
+			</tr>
+		</body>
+	</table>
+
+
+	<hr class="bold">
+
+
+	<h2>/v2/depth</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get depth or specified market. Both asks and bids are sorted from highest price to lowest.</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>market</td>
+				<td>query</td>
+				<td>Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/v2/markets.</td>
+				<td>Yes</td>
+				<td>string</td>
+			</tr>
+			<tr>
+				<td>limit</td>
+				<td>query</td>
+				<td>Limit the number of returned price levels. Default to 300.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get depth or specified market. Both asks and bids are sorted from highest price to lowest.</td>
+			</tr>
+		</body>
+	</table>
+
+
+	<hr class="bold">
+
+	<h2>/v2/trades/my</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get your executed trades. Trades are sorted in reverse creation order.</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>market</td>
+				<td>query</td>
+				<td>Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/v2/markets.</td>
+				<td>Yes</td>
+				<td>string</td>
+			</tr>
+			<tr>
+				<td>limit</td>
+				<td>query</td>
+				<td>Limit the number of returned trades. Default to 50.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>timestamp</td>
+				<td>query</td>
+				<td>An integer represents the seconds elapsed since Unix epoch. If set, only trades executed before the time will be returned.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>from</td>
+				<td>query</td>
+				<td>Trade id. If set, only trades created after the trade will be returned.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>to</td>
+				<td>query</td>
+				<td>Trade id. If set, only trades created before the trade will be returned.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>order_by</td>
+				<td>query</td>
+				<td>If set, returned trades will be sorted in specific order, default to 'desc'.</td>
+				<td>No</td>
+				<td>string</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get your executed trades. Trades are sorted in reverse creation order.</td>
+			</tr>
+		</body>
+	</table>
+
+
+	<hr class="bold">
+
+	<h2>/v2/trades</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get recent trades on market, each trade is included only once. Trades are sorted in reverse creation order.</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>market</td>
+				<td>query</td>
+				<td>Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/v2/markets.</td>
+				<td>Yes</td>
+				<td>string</td>
+			</tr>
+			<tr>
+				<td>limit</td>
+				<td>query</td>
+				<td>Limit the number of returned trades. Default to 50.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>timestamp</td>
+				<td>query</td>
+				<td>An integer represents the seconds elapsed since Unix epoch. If set, only trades executed before the time will be returned.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>from</td>
+				<td>query</td>
+				<td>Trade id. If set, only trades created after the trade will be returned.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>to</td>
+				<td>query</td>
+				<td>Trade id. If set, only trades created before the trade will be returned.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>order_by</td>
+				<td>query</td>
+				<td>If set, returned trades will be sorted in specific order, default to 'desc'.</td>
+				<td>No</td>
+				<td>string</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get recent trades on market, each trade is included only once. Trades are sorted in reverse creation order.</td>
+			</tr>
+		</body>
+	</table>
+
+
+	<hr class="bold">
+
+	<h2>/v2/k</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get OHLC(k line) of specific market.</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>market</td>
+				<td>query</td>
+				<td>Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/v2/markets.</td>
+				<td>Yes</td>
+				<td>string</td>
+			</tr>
+			<tr>
+				<td>limit</td>
+				<td>query</td>
+				<td>Limit the number of returned trades. Default to 30.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>period</td>
+				<td>query</td>
+				<td>Time period of K line, default to 1. You can choose between 1, 5, 15, 30, 60, 120, 240, 360, 720, 1440, 4320, 10080</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>time_from</td>
+				<td>query</td>
+				<td>An integer represents the seconds elapsed since Unix epoch. If set, only k-line data after that time will be returned.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>time_to</td>
+				<td>query</td>
+				<td>An integer represents the seconds elapsed since Unix epoch. If set, only k-line data till that time will be returned.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get OHLC(k line) of specific market.</td>
+			</tr>
+		</body>
+	</table>
+
+
+	<hr class="bold">
+
+	<h2>/v2/k_with_pending_trades</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get K data with pending trades, which are the trades not included in K data yet, because there's delay between trade generated and processed by K data generator.</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>market</td>
+				<td>query</td>
+				<td>Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btcusd'. All available markets can be found at /api/v2/markets.</td>
+				<td>Yes</td>
+				<td>string</td>
+			</tr>
+			<tr>
+				<td>trade_id</td>
+				<td>query</td>
+				<td>The trade id of the first trade you received.</td>
+				<td>Yes</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>limit</td>
+				<td>query</td>
+				<td>Limit the number of returned trades. Default to 30.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>period</td>
+				<td>query</td>
+				<td>Time period of K line, default to 1. You can choose between 1, 5, 15, 30, 60, 120, 240, 360, 720, 1440, 4320, 10080</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>time_from</td>
+				<td>query</td>
+				<td>An integer represents the seconds elapsed since Unix epoch. If set, only k-line data after that time will be returned.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>time_to</td>
+				<td>query</td>
+				<td>An integer represents the seconds elapsed since Unix epoch. If set, only k-line data till that time will be returned.</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get K data with pending trades, which are the trades not included in K data yet, because there's delay between trade generated and processed by K data generator.</td>
+			</tr>
+		</body>
+	</table>
+
+
+	<hr class="bold">
+
+	<h2>/v2/timestamp</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get server current time, in seconds since Unix epoch.</p>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get server current time, in seconds since Unix epoch.</td>
+			</tr>
+		</body>
+	</table>
+
+
+	<hr class="bold">
+
+	<h2>/v2/withdraws</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> List your withdraws as paginated collection.</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>currency</td>
+				<td>query</td>
+				<td>Any supported currencies: DAI, DASH, DOGE, ETH, LTC, PIVX, WAVES, BTC</td>
+				<td>No</td>
+				<td>string</td>
+			</tr>
+			<tr>
+				<td>page</td>
+				<td>query</td>
+				<td>Page number (defaults to 1).</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+			<tr>
+				<td>limit</td>
+				<td>query</td>
+				<td>Number of withdraws per page (defaults to 100, maximum is 1000).</td>
+				<td>No</td>
+				<td>integer</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>List your withdraws as paginated collection.</td>
+			</tr>
+		</body>
+	</table>
+
+
+	<hr class="sessions">
+
+	<h2>/v2/sessions</h2>
+
+	<p><b><i>DELETE</i></b></p>
+
+	<p><b>Description:</b> Delete all user sessions.</p>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>204</td>
+				<td>Delete all user sessions.</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b><i>POST</i></b></p>
+
+	<p><b>Description:</b> Create new user session.</p>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>201</td>
+				<td>Create new user session.</td>
+			</tr>
+		</body>
+	</table>
+
+
+	<hr class="bold">
+
+	<h2>/v2/fees/trading</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Returns trading fees for markets.</p>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Returns trading fees for markets.</td>
+			</tr>
+		</body>
+	</table>
+
+	<hr class="bold">
+
+	<h2>/v2/fees/deposit</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Returns deposit fees for currencies.</p>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Returns deposit fees for currencies.</td>
+			</tr>
+		</body>
+	</table>
+
+	<hr class="bold">
+
+	<h2>/v2/fees/withdraw</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Returns withdraw fees for currencies.</p>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Returns withdraw fees for currencies.</td>
+			</tr>
+		</body>
+	</table>
+
+	<hr class="bold">
+
+	<h2>/v2/member_levels</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Returns list of member levels and the privileges they provide.</p>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Returns list of member levels and the privileges they provide.</td>
+			</tr>
+		</body>
+	</table>
+
+	<hr class="bold">
+
+	<h2>/v2/currency/trades</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get currency trades at last 24h</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>currency</td>
+				<td>query</td>
+				<td>The currency code.</td>
+				<td>Yes</td>
+				<td>string</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get currency trades at last 24h</td>
+			</tr>
+		</body>
+	</table>
+
+	<hr class="bold">
+
+	<h2>/v2/currencies</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get list of currencies</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>type</td>
+				<td>query</td>
+				<td>Currency type</td>
+				<td>No</td>
+				<td>string</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get list of currencies</td>
+				<td><a href="#currency">[ Currency ]</a></td>
+			</tr>
+		</body>
+	</table>
+
+	<hr class="bold">
+
+	<h2>/v2/currencies/{id}</h2>
+
+	<p><b><i>GET</i></b></p>
+
+	<p><b>Description:</b> Get a currency</p>
+
+	<p><b>Parameters</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Located in</td>
+				<th>Description</td>
+				<th>Required</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>id</td>
+				<td>path</td>
+				<td>Currency code.</td>
+				<td>Yes</td>
+				<td>string</td>
+			</tr>
+		</body>
+	</table>
+
+	<p><b>Responses</b></p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Code</td>
+				<th>Description</td>
+				<th>Schema</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>200</td>
+				<td>Get a currency</td>
+				<td><a href="#currency">Currency</a></td>
+			</tr>
+		</body>
+	</table>
+
+	<hr class="bold">
+
+	<h2>Models</h2>
+
+	<hr>
+
+	<h3 id="account">Account</h3>
+
+	<p>Get list of user accounts</p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Type</td>
+				<th>Description</td>
+				<th>Required</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>currency</td>
+				<td>string</td>
+				<td>Currency code.</td>
+				<td>No</td>
+			</tr>
+			<tr>
+				<td>balance</td>
+				<td>double</td>
+				<td>Account balance.</td>
+				<td>No</td>
+			</tr>
+			<tr>
+				<td>locked</td>
+				<td>double</td>
+				<td>Account locked funds.</td>
+				<td>No</td>
+			</tr>
+		</body>
+	</table>
+
+	<h3 id="currency">Currency</h3>
+
+	<p>Get a currency</p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</td>
+				<th>Type</td>
+				<th>Description</td>
+				<th>Required</td>
+			</tr>
+		</thead>
+		<body>
+			<tr>
+				<td>id</td>
+				<td>string</td>
+				<td>Currency code.</td>
+				<td>No</td>
+			</tr>
+			<tr>
+				<td>symbol</td>
+				<td>string</td>
+				<td>Currency symbol</td>
+				<td>No</td>
+			</tr>
+			<tr>
+				<td>explorer_transaction</td>
+				<td>string</td>
+				<td>Currency transaction exprorer url template</td>
+				<td>No</td>
+			</tr>
+			<tr>
+				<td>explorer_address</td>
+				<td>string</td>
+				<td>Currency address exprorer url template</td>
+				<td>No</td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>string</td>
+				<td>Currency type</td>
+				<td>No</td>
+			</tr>
+			<tr>
+				<td>deposit_fee</td>
+				<td>string</td>
+				<td>Currency deposit fee</td>
+				<td>No</td>
+			</tr>
+			<tr>
+				<td>withdraw_fee</td>
+				<td>string</td>
+				<td>Currency withdraw fee</td>
+				<td>No</td>
+			</tr>
+			<tr>
+				<td>quick_withdraw_limit</td>
+				<td>string</td>
+				<td>Currency quick withdraw limit</td>
+				<td>No</td>
+			</tr>
+			<tr>
+				<td>base_factor</td>
+				<td>string</td>
+				<td>Currency base factor</td>
+				<td>No</td>
+			</tr>
+			<tr>
+				<td>precision</td>
+				<td>string</td>
+				<td>Currency precision</td>
+				<td>No</td>
+			</tr>
+			<tr>
+				<td>icon_url</td>
+				<td>string</td>
+				<td>Currency icon</td>
+				<td>No</td>
+			</tr>
+
+		</body>
+	</table>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

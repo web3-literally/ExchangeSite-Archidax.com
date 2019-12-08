@@ -1,0 +1,389 @@
+.io-zinnia .banner.banner-zinnia {
+  background: -moz-linear-gradient(top, #13253D 0%, #0E202E 100%) !important;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #13253D), color-stop(100%, #0E202E)) !important;
+  background: -webkit-linear-gradient(top, #13253D 0%, #0E202E 100%) !important;
+  background: -o-linear-gradient(top, #13253D 0%, #0E202E 100%) !important;
+  background: -ms-linear-gradient(top, #13253D 0%, #0E202E 100%) !important;
+  background: linear-gradient(135deg, #13253D 0%, #0E202E 100%) !important;
+}
+
+.btns li {
+  width: 220px;
+  height: 122px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.io-zinnia .navbar .btn.btn-sm {
+	border: none;
+}
+
+.site-header.has-fixed .navbar-brand {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.coin-status table {
+  width: 100%;
+  border: 2px solid #dbb70d;
+}
+
+.market-swith-container {
+  margin-top: 50px;
+  margin-bottom: -2px;
+  height: 40px;
+  display: flex;
+}
+
+.market-swith-container a {
+  border: 2px solid #dbb70d;
+  width: 150px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -2px;
+  color: #000;
+}
+
+.market-swith-container a.active {
+  background: image-url('home-tabs-list-bg.jpg') top center repeat-y;
+  color: #FFF;
+  background-size: contain;
+}
+
+.market-swith-container a:first-child {
+  margin-left: 0;
+}
+
+.market-swith-container a img {
+  width: 20px;
+  margin-right: 5px;
+}
+
+.coin-status table tr th {
+  color: #636363;
+  padding: 12px;
+  padding-top: 20px;
+}
+
+.coin-status table tr td {
+  color: #636363;
+  padding: 12px;
+}
+
+.coin-status table tr td.main {
+  color: #fff;
+  background-color: gray;
+}
+
+.coin-status table tr {
+  border-bottom: 1px solid rgba(1,46,100,0.2);
+}
+
+.coin-status table tr:nth-child(2n-1) {
+  background: #f7f7f7;
+}
+
+.coin-status table thead tr {
+	background-color: transparent !important;
+}
+
+#marketListTable_length {
+	display: none;
+}
+
+#marketListTable_filter {
+  position: absolute;
+  top: -75px;
+}
+
+.dataTables_wrapper .dataTables_filter#marketListTable_filter input {
+	margin-left: 0;
+}
+
+.markets-toggle.hide {
+	display: none;
+}
+
+.h-introduce {
+  padding: 72px 0;
+  text-align: center;
+}
+
+.h-introduce .container {
+	display: flex;
+}
+
+.h-introduce img {
+  display: block;
+  width: 46px;
+  margin: 0 auto;
+}
+
+.h-introduce h4 {
+  font-size: 18px;
+  color: #000;
+  margin: 20px 0;
+}
+
+.h-introduce .list:hover img {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
+  -webkit-transform-origin: center bottom;
+  transform-origin: center bottom;
+}
+
+.h-introduce p {
+  font-size: 14px;
+  color: #A7A9B7;
+  line-height: 22px;
+}
+
+.io-zinnia .section-bg-alt {
+	background-color: #f5f5f5;
+}
+
+.io-zinnia .footer-section {
+  background-image: none;
+  background-color: rgb(44, 37, 36);
+  color: #979ca0;
+}
+
+.io-zinnia .site-header.has-fixed .navbar {
+	background-color: rgb(44, 37, 36);
+}
+
+.io-zinnia .site-header.has-fixed .navbar-nav > li > a {
+	color: #fff;
+}
+
+img.logo-icon {
+  width: 32px !important;
+}
+
+.btns.animated {
+  background: #101b2f;
+  border-top: 1px solid #1a1f35;
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 80px;
+}
+
+.h-app-down {
+  width: 100%;
+  background: image-url('h-app-down-bg.png') center bottom no-repeat;
+  background-size: cover;
+  min-height: 420px;
+
+  i {
+    font-size: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: -2px 5px 0 0;
+    position: relative;
+  }
+
+  a {
+    color: #FFF;
+  }
+
+  .container {
+    max-width: 1260px;
+    width: 90%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    .listshow {
+      text-align: center;
+    }
+  }
+
+  .list-ld {
+    display: inline-block;
+    width: 49%;
+    position: relative;
+    vertical-align: top;
+
+    .download-btn-wrap {
+      float: left;
+      width: 420px;
+      font-size: 12px;
+      position: relative;
+      top: 12px;
+      margin-right: 10px;
+
+      .download-btn-item {
+        text-align: center;
+        width: 130px;
+        height: 36px;
+        line-height: 36px;
+        background-image: linear-gradient(180deg, #455fa2 0%, #213169 100%);
+        box-shadow: 0px 2px 4px 0px rgba(51, 51, 51, 0.1);
+        border-radius: 4px;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        color: #fff;
+      }
+
+      .download-btn-r {
+        float: right;
+      }
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 40px;
+      text-align: left;
+      margin-top: 52px;
+    }
+
+    h3 {
+      color: #fff;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    .list-icon {
+      width: 100%;
+      float: left;
+
+      .list-icon-btn {
+        position: relative;
+        width: 130px;
+        height: 36px;
+        line-height: 36px;
+        background-image: linear-gradient(180deg, #455fa2 0%, #213169 100%);
+        box-shadow: 0px 2px 4px 0px rgba(51, 51, 51, 0.1);
+        border-radius: 4px;
+        float: left;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        cursor: pointer;
+        text-align: center;
+
+        i {
+          color: #fff;
+          font-size: 18px;
+          position: absolute;
+          left: 18px;
+          top: 10px;
+        }
+
+        span {
+          color: #fff;
+          font-size: 14px;
+          padding-left: 30px;
+        }
+      }
+    }
+  }
+
+  .pc-bg {
+    position: absolute;
+    right: -100px;
+    width: 620px;
+    top: -10px;
+  }
+
+  .app-bg {
+    position: absolute;
+    left: -40px;
+    width: 320px;
+    top: 50px;
+  }
+}
+
+.footer-section {
+  font-size: 12px;
+
+  p {
+    margin: 0;
+  }
+
+  a img:first-child {
+    width: 40px;
+  }
+
+  .bk-footer-contact .sns a {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #493c3b;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+    vertical-align: middle;
+  }
+
+  .col-xs-3, .col-xs-6 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    float: left;
+  }
+
+  .col-xs-3 {
+    width: 25%;
+  }
+
+  .col-xs-6 {
+    width: 50%;
+  }
+  .bk-footer-contact {
+    padding-top: 30px;
+  }
+}
+
+.listing {
+  background-color: #152948;
+  padding: 50px 0;
+  text-align: right;
+
+  h2 a {
+    background: #101b2f;
+    border: 2px solid #1a1f35;
+    width: 250px;
+    text-align: center;
+    display: inline-block;
+    font-size: 15px;
+    padding: 10px;
+    margin-left: 20px;
+    color: #fff;
+  }
+
+  p a {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  div.listing-footer {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+}
+
+
+@import 'layouts/media';
+
+
+
+
+
+
+
+
+

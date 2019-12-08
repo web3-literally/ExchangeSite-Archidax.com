@@ -1,0 +1,12 @@
+@media (max-width: 767px) {
+	.footer-section .col-3, .footer-section .col-6 {
+		flex: 0 0 100%;
+    	max-width: 100%;
+    	text-align: center;
+	}
+	.footer-section .logo {
+		justify-content: center;
+		width: 100%;
+    	margin-bottom: 50px;
+	}
+}

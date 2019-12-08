@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= favicon_link_tag "favicon.ico" %>
+
+    <%= render 'shared/meta' %>
+    <%= render 'shared/sentry' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <%= csrf_meta_tags %>
+
+    <% stylesheet = content_for?(:stylesheet) ? yield(:stylesheet) : 'application' %>
+    <%= stylesheet_link_tag stylesheet, media: 'all' %>
+    <%= custom_stylesheet_link_tag_for :main %>
+
+    <%= include_gon %>
+    <%= javascript_include_tag "locales/#{I18n.locale}" %>
+    <%= javascript_include_tag 'application' %>
+    <%= yield(:scripts) if content_for?(:scripts) %>
+  </head>
+
+  <body class="ui-radius" data-lang="<%= locale_name %>" id="<%= body_id %>">
+
+    <%= render 'shared/left_side_menu' %>
+    <%= content_for?(:header) ? yield(:header) : render('shared/header') %>
+
+    <div id="wrap">
+      <%= content_for?(:frame) ? yield(:frame) : render('shared/frame') %>
+
+      <div id="push"></div>
+    </div>
+    <%= content_for?(:footer) ? yield(:footer) : render('shared/footer') %>
+
+  </body>
+</html>

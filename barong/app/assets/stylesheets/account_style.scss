@@ -1,0 +1,134 @@
+@font-face {
+  font-family: 'Aileron';
+  src: font-url("Aileron-Regular.otf");
+  font-weight: normal;
+  font-style: normal; 
+}
+
+body.devise {
+  height: fit-content;
+}
+
+body.devise .card {
+  position: inherit;
+  margin-bottom: 95px;
+  margin-top: 40px;
+}
+
+body.devise .card .pt-2 {
+  width: 100%;
+}
+
+.main-card {
+  min-height: 780px;
+  height: fit-content;
+}
+
+.send_code {
+  border: 1px solid #d4d4d4;
+  line-height: 100%;
+  display: inline-block;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  background: #e8b342!important;
+  border-color: #e8b342!important;
+  padding: 0.69rem;
+  margin: 0;
+}
+
+.send_code a {
+  color: #fff;
+}
+
+.submit-container input[type=submit]:disabled {
+  background: #c2c2c2 !important;
+  border-color: #c2c2c2 !important;
+}
+
+.submit-container input[type=submit] {
+  background: #e8b342!important;
+  border-color: #e8b342!important;
+}
+
+.down-arrow::after {
+  padding: 5px 10px 0 0;
+}
+
+select.form-control:not([size]):not([multiple]) {
+  height: calc(2.75rem - 6px);
+}
+
+.dropdown-menu.show {
+  position: absolute;
+  transform: translate3d(0px, -107px, 0px);
+  top: -125px !important;
+  left: -20px!important;
+  will-change: transform;
+}
+
+body.devise .card {
+  top: 50%;
+  padding: 20px 30px 40px;
+}
+
+.footer-container {
+  padding: 0;
+  margin-top: 20px;
+}
+
+@media (max-width: 590px) {
+  .main-card {
+    min-height: 500px;
+  }
+  body.devise .card {
+    top: 10px;
+    transform: none;
+    left: 0;
+    right: 0;
+    margin: 20px auto;
+    padding: 20px 15px 40px;
+  }
+  body.devise .card .wrap {
+    display: block;
+    width: 100%;
+    white-space: inherit;
+  }
+  .justify-content-center .col-xs-12.col-sm-11.col-md-6.mt-5.mb-3 {
+    margin-top: 0 !important;
+  }
+  body.devise .card form {
+    padding: 20px 0;
+    max-width: 100%;
+  }
+  .dropify-wrapper.touch-fallback .dropify-preview {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 527px) {
+  body.devise .card .d-flex.justify-content-center.px-5 {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-control {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 461px) {
+  .send_code {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+}
+
+@media (max-width: 355px) {
+  body.devise .card .d-flex.justify-content-center.px-5 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}

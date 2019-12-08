@@ -1,0 +1,27 @@
+@import "web/functions";
+@import "web/variables";
+@import "web/custom_variables";
+@import "bootstrap";
+@import "fontello";
+@import "web/devise";
+@import "web/general";
+@import "web/steps";
+@import "web/forms";
+@import "web/qrcode";
+@import "web/alerts";
+@import "bootstrap-datepicker";
+@import "dropify/src/sass/dropify";
+@import "custom/new_style";
+@import "custom/media";
+
+
+.datepicker.datepicker-dropdown.dropdown-menu {
+	top: 330px !important;
+}
+
+@font-face {
+  font-family: 'Aileron';
+  src: font-url("Aileron-Regular.otf");
+  font-weight: normal;
+  font-style: normal; 
+}
