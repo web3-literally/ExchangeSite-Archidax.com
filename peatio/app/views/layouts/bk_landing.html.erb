@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+   <head>
+      <meta charset="utf-8">
+      <meta name="author" content="Softnio">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Fav Icon  -->
+      <%= favicon_link_tag "favicon.ico" %>
+      <!-- Site Title  -->
+      <title>Archidax Exchange</title>
+      <!-- Vendor Bundle CSS -->
+      <%= stylesheet_link_tag 'theme1/vendor.bundle.css?ver=142' %>
+      <!-- Custom styles for this template -->
+      <%= stylesheet_link_tag 'theme1/style.css?ver=142' %>
+      <!-- <link rel="stylesheet" href="assets/css/style.css?ver=142"> -->
+      <%= stylesheet_link_tag 'theme1/theme-orange.css?ver=142' %>
+      <!-- <link rel="stylesheet" href="assets/css/theme-orange.css?ver=142"> -->
+
+      <%= stylesheet_link_tag 'features/landing' %>
+
+     <!-- styles for design updates -->
+     <%= stylesheet_link_tag 'updates', media: 'all' %>
+     <%= stylesheet_link_tag 'updates/carouselTicker', media: 'screen' %>
+     <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css', media: 'all' %>
+     <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', media: 'all' %>
+     <!-- ends -->
+
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" >
+
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript"  src=" https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+      <script type="text/javascript"  src=" https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
+
+     <%= javascript_include_tag 'updates/custom.js' %>
+     <%= javascript_include_tag 'updates/jquery.min.js' %>
+     <script type="text/javascript" src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+     <script type="text/javascript">
+        particlesJS("particles-js", {"particles":{"number":{"value":90,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.25,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.3,"width":1},"move":{"enable":true,"speed":3,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});var count_particles, stats, update; stats = new Stats; stats.setMode(0); stats.domElement.style.position = 'absolute'; stats.domElement.style.left = '0px'; stats.domElement.style.top = '0px'; document.body.appendChild(stats.domElement); count_particles = document.querySelector('.js-count-particles'); update = function() { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); }; requestAnimationFrame(update);;
+     </script>
+
+   </head>
+   <body class="dark_home_page" data-spy="scroll" data-target="#mainnav" data-offset="80">
+      <%= yield %>
+      <!-- JavaScript (include all script here) -->
+      <%= javascript_include_tag 'theme1/jquery.bundle.js?ver=142' %>
+      <!-- <script src="assets/js/jquery.bundle.js?ver=142"></script> -->
+      <%= javascript_include_tag 'theme1/script.js?ver=142' %>
+      <!-- <script src="assets/js/script.js?ver=142"></script> -->
+   </body>
+   <script>
+      // Get the modal
+      var modal = document.getElementById('myModal');
+      
+      // Get the button that opens the modal
+      var btn = document.getElementById("myBtn");
+      
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close");
+      
+      if (btn) {
+         // When the user clicks on the button, open the modal 
+         btn.onclick = function() {
+         modal.style.display = "block";
+         }
+      }
+      
+
+      // Get the modal
+      var modal1 = document.getElementById('myModal1');
+      
+      // Get the button that opens the modal
+      var btn1 = document.getElementById("myBtn1");
+      
+      if (btn) {
+         // When the user clicks on the button, open the modal 
+         btn1.onclick = function() {
+         modal1.style.display = "block";
+         }
+      }
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+      modal.style.display = "none";
+      modal1.style.display = "none";
+      }
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+      if (event.target == modal || event.target == modal1) {
+        modal.style.display = "none";
+        modal1.style.display = "none";
+      }
+      }
+      
+   </script>
+</html>

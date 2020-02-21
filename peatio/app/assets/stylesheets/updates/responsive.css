@@ -1,0 +1,828 @@
+/*------------------------------------------------------------------
+    File Name: responsive.css
+    Template Name: Leo.Crypto - Responsive HTML5 Template
+    Created By: PSDConvertHTML
+	Envato Profile: https://themeforest.net/user/psdconverthtml
+	Website: https://psdconverthtml.com
+	Version: 1.0 
+-------------------------------------------------------------------*/
+
+@media (min-width: 992px) and (max-width: 1199px) {
+	
+/** container **/
+.container {
+    width: 100%;
+    padding: 0 15px;
+	max-width: 950px;
+}
+	
+#cssmenu > ul > li > a {
+    padding: 17px 0;
+        padding-right: 0px;
+    font-size: 13px;
+    letter-spacing: 0px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+    text-transform: none;
+}
+#cssmenu > ul > li.has-sub > a {
+    padding-right: 35px;
+}
+ul.social-links {
+    float: left;
+    list-style: none;
+    margin: 34px 0;
+    padding: 0 15px 0 0;
+    border-right: solid #5d7387 1px;
+}
+ul.social-links li {
+    float: left;
+    font-size: 20px;
+    margin: 0;
+        margin-left: 0px;
+    margin-left: 15px;
+    transition: ease all 0.5s;
+    line-height: 28px;
+}
+.slide-text h2 {
+    font-size: 48px;
+    line-height: 54px;
+    text-transform: none;
+    letter-spacing: -2px;
+    font-weight: 600;
+    margin-bottom: 35px;
+}
+
+.full.digital_earth img {
+    width: 100%;
+}
+.digital_earth img {
+    position: relative;
+    left: 0;
+    margin-top: 150px;
+}
+.cryto_feature ul li {
+    left: 0;
+}
+.cryto_feature ul li:nth-child(2) {
+    left: 0;
+}
+.cryto_feature.right_text ul li {
+    left: 0;
+}
+.cryto_feature.right_text ul li:nth-child(2) {
+    left: 0;
+}
+.brand-list li {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    width: 16.6%;
+	padding: 0 10px;
+}
+	
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	
+/** container **/
+.container {
+    width: 100%;
+    padding: 0 15px;
+	max-width: 750px;
+}	
+.logo {
+    margin: 20px 0;
+}
+.header_top_menu li a {
+    font-size: 13px;
+}
+.cutomer_ser li {
+    margin-right: 15px;
+}
+#cssmenu > ul > li > a {
+    padding: 17px 0px;
+    font-size: 14px;
+}
+#cssmenu > ul > li.has-sub > a {
+    padding-right: 34px;
+}
+.slide-text h2 {
+    font-size: 36px;
+    line-height: 40px;
+    text-transform: none;
+    letter-spacing: -2px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.slide-text {
+    width: 100%;
+}
+.coin_formation ul li span.curr_price {
+    font-size: 22px;
+    font-weight: 300;
+    line-height: normal;
+}
+.digital_earth img {
+    width: 100%;
+}
+.digital_earth img {
+    position: relative;
+    left: 0;
+    top: 250px;
+}
+.cryto_feature ul li {
+    left: 0;
+}
+.cryto_feature ul li:nth-child(2) {
+    position: relative;
+    left: 0;
+}
+.cryto_feature.right_text ul li {
+    left: 0;
+}
+.cryto_feature.right_text ul li:nth-child(2) {
+    left: 0;
+}
+.cryto_feature.right_text ul li {
+    left: 0;
+}
+#footer.footer_main div.main-heading {
+    margin-bottom: 38px;
+    margin-top: 15px;
+}
+.brand-list li {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    width: 16.6%;
+    padding: 0 15px;
+}
+
+/** about us **/
+
+.about_bg_compu {
+    background-image: none;
+    min-height: auto;
+    background-position: right;
+    background-size: cover;
+    background-color: #f8f8f8;
+}
+
+.heading_style2 {
+    font-size: 25px;
+    line-height: 35px;
+    color: #1b334d;
+}
+
+/** team detail **/
+
+.team_img img {
+    width: 100%;
+}
+
+/** coin **/
+
+.coin_name_parchase {
+    font-size: 35px;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+/** buy & sell **/
+
+.price_coin_cal {
+    margin: 0;
+}
+
+.price_coins p.bit_coin_price {
+    font-size: 24px;
+    line-height: normal;
+    font-weight: 400;
+}
+
+.price_coins p {
+    font-size: 17px;
+    margin: 0 0 15px 0;
+}
+
+.field_set {
+    float: left;
+    width: 100%;
+    margin-bottom: 25px;
+    justify-content: center;
+    display: flex;
+}
+
+	
+}
+
+@media (min-width: 541px) and (max-width: 767px) {
+
+/** container **/
+.container {
+    width: 100%;
+    padding: 0 15px;
+	max-width: 540px;
+}	
+
+/** header top **/
+.user_login li {
+    margin: 0 15px;
+}
+
+.header_top {
+    padding: 10px 0;
+}
+
+/** header top menu **/
+.header_top_menu {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/** logo **/
+.logo img {
+    width: 180px;
+}
+
+.logo {
+    margin: 21px 0 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+/** social links **/
+ul.social-links {
+	margin: 20px 0;
+}
+
+/** search bar **/
+.search_bar {
+    margin: 15px 0 0;
+}
+
+.search_bar_inner_form {
+    padding: 20px;
+    max-width: 90%;
+}
+
+.search_bar_inner_form .field_form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.search_bar_inner_form input {
+    max-width: 80%;
+}
+
+/** slider **/
+
+.slide-text h2 {
+    font-size: 35px;
+    line-height: 45px;
+    letter-spacing: 0;
+    margin-bottom: 0;
+}
+
+.slide-text a.btn {
+    display: none;
+}
+
+#main-content {
+    background: rgba(29, 51, 75, 1);
+    position: relative;
+    z-index: 1;
+}
+
+.slide-text {
+    top: 25%;
+    height: auto;
+}
+
+/** section **/
+
+.coin_formation ul li {
+    float: left;
+    width: 50%;
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: solid rgba(0,0,0,.1) 1px;
+    padding-bottom: 15px;
+}
+
+.coin_formation ul li:nth-child(3),.coin_formation ul li:nth-child(4) {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+h2 {
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 35px;
+}
+
+.heading_main span::after {
+    margin: 15px auto -18px;
+}
+
+.rate_box {
+    width: 60%;
+    margin-left: 20%;
+}
+
+.cryto_feature ul {
+    margin-top: 0;
+}
+
+.cryto_feature ul li {
+    left: 0;
+}
+
+.cryto_feature ul li:nth-child(2) {
+    left: 0;
+}
+
+.digital_earth img {
+    width: 100%;
+    margin-bottom: 20px;
+	position: relative;
+    left: 0;
+}
+
+.cryto_feature.right_text ul li {
+    left: 0;
+}
+
+.cryto_feature.right_text ul li:nth-child(2) {
+    left: 0;
+}
+
+.testmonial_slider #quote-carousel p {
+    font-size: 12px;
+    padding: 0 25px;
+}
+.coin_price_table {
+    width: 100%;
+}
+h3 {
+    margin: 20px 0 10px;
+}
+.brand-list li {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    width: 33.33%;
+    float: left;
+    min-height: 65px;
+	margin: 0;
+}
+.brand-list {
+    list-style: none;
+    float: left;
+    margin: 0 0;
+    padding: 0;
+    width: 100%;
+    min-height: auto;
+    display: block;
+    justify-content: center;
+}
+
+.footer_desc {
+    text-align: left;
+    font-size: 13px;
+    line-height: normal;
+    margin: 0 0 25px 0;
+}
+
+.footer-menu {
+    margin-bottom: 25px;
+}
+
+#footer.footer_main div.main-heading {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.margin_bottom_30 {
+	margin-bottom: 30px;
+}
+
+.footer-bottom p {
+    margin: 25px 0;
+    padding: 0 25px;
+    line-height: normal;
+}
+
+.margin_bottom_20 {
+	margin-bottom: 20px;
+}	
+
+.table-responsive {
+	border: none;
+}
+
+table.table {
+	margin: 0;
+}
+
+.price_label.active_price {
+    transform: scale(1);
+}
+
+/** about us **/
+
+.about_bg_compu {
+    background-image: none;
+    min-height: 750px;
+    background-position: right;
+    background-size: cover;
+    background-color: #f8f8f8;
+}
+
+.heading_style2 {
+    font-size: 25px;
+    line-height: 35px;
+    color: #1b334d;
+}
+
+/** buy & sell **/
+
+.price_coin_cal {
+    margin: 0;
+}
+
+.price_coins p.bit_coin_price {
+    font-size: 24px;
+    line-height: normal;
+    font-weight: 400;
+}
+
+.price_coins p {
+    font-size: 17px;
+    margin: 0 0 15px 0;
+}
+
+.field_set {
+    float: left;
+    width: 100%;
+    margin-bottom: 25px;
+    justify-content: center;
+    display: flex;
+}
+
+/** shop **/
+
+.product_img img {
+    width: 100%;
+}
+
+.side_bar {
+    margin: 20px auto 0;
+    float: none;
+    max-width: 520px;
+}
+
+.command_cont {
+    margin: 20px 0;
+}
+
+
+}
+
+@media (max-width: 540px) {
+
+/** container **/
+.container {
+    width: 100%;
+    padding: 0 20px;
+}	
+
+/** header top **/
+.user_login li {
+    margin: 0 15px;
+}
+
+/** header top menu **/
+.header_top_menu {
+    margin: 8px 0 8px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+	
+.cutomer_ser {
+    display: none;
+}	
+
+/** logo **/
+.logo img {
+    width: 180px;
+}
+
+.logo {
+    margin: 21px 0 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+/** social links **/
+ul.social-links {
+	margin: 20px 0;
+}
+
+/** search bar **/
+.search_bar {
+    margin: 15px 0 0;
+}
+
+.search_bar_inner_form {
+    padding: 20px;
+    max-width: 90%;
+}
+
+.search_bar_inner_form .field_form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.search_bar_inner_form input {
+    max-width: 80%;
+}
+
+/** slider **/
+
+.slide-text h2 {
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: 0;
+    margin-bottom: 0;
+}
+
+.slide-text a.btn {
+    display: none;
+}
+
+#main-content {
+    background: rgba(29, 51, 75, 1);
+    position: relative;
+    z-index: 1;
+}
+
+.slide-text {
+	top: 15%;
+	height: auto;
+}
+
+/** section **/
+
+.coin_formation ul li {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: solid rgba(0,0,0,.1) 1px;
+    padding-bottom: 15px;
+}
+
+.coin_formation ul li:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 35px;
+}
+
+.heading_main span::after {
+    margin: 15px auto -18px;
+}
+
+.heading_main p {
+    font-size: 14px;
+}
+
+.cryto_feature ul {
+    margin-top: 0;
+}
+
+.cryto_feature ul li {
+    left: 0;
+}
+
+.cryto_feature ul li:nth-child(2) {
+    left: 0;
+}
+
+.digital_earth img {
+    width: 100%;
+    margin-bottom: 20px;
+	position: relative;
+    left: 0;
+}
+
+.cryto_feature.right_text ul li {
+    left: 0;
+}
+
+.cryto_feature.right_text ul li:nth-child(2) {
+    left: 0;
+}
+
+.testmonial_slider #quote-carousel p {
+    font-size: 12px;
+    padding: 0 25px;
+}
+.coin_price_table {
+    width: 100%;
+}
+h3 {
+    margin: 20px 0 10px;
+}
+.brand-list li {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    width: 33.33%;
+    float: left;
+    min-height: 65px;
+	margin: 0;
+}
+.brand-list {
+    list-style: none;
+    float: left;
+    margin: 0 0;
+    padding: 0;
+    width: 100%;
+    min-height: auto;
+    display: block;
+    justify-content: center;
+}
+
+.footer_desc {
+    text-align: left;
+    font-size: 13px;
+    line-height: normal;
+    margin: 0 0 25px 0;
+}
+
+.footer-menu {
+    margin-bottom: 25px;
+}
+
+#footer.footer_main div.main-heading {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.margin_bottom_30 {
+	margin-bottom: 30px;
+}
+
+.footer-bottom p {
+    margin: 25px 0;
+    padding: 0 25px;
+    line-height: normal;
+}
+
+.margin_bottom_20 {
+	margin-bottom: 20px;
+}	
+
+.table-responsive {
+	border: none;
+}
+
+table.table {
+	margin: 0;
+}
+
+.price_label.active_price {
+	transform: scale(1);
+}
+
+.inner_page_info {
+    margin-top: 112px;
+}
+
+.inner_page_info h3 {
+    font-size: 25px;
+}
+
+/** about us **/
+
+.about_bg_compu {
+    background-image: none;
+    min-height: 750px;
+    background-position: right;
+    background-size: cover;
+    background-color: #f8f8f8;
+}
+
+.heading_style2 {
+    font-size: 25px;
+    line-height: 35px;
+    color: #1b334d;
+}
+
+/** service **/
+
+.full.service_section > .col-md-4 {
+    padding: 45px 15px;
+}
+
+/** team **/
+
+.team_section {
+    padding: 80px 0;
+}
+	
+/** team detail **/
+
+.team_part-detail .member_info {
+    margin: 0;
+}
+
+.member_follow_detail {
+    position: relative;
+	width: 100%;
+}
+
+.qoute_testimonial {
+    font-size: 38px;
+    position: absolute;
+    margin-left: -25px;
+    margin-top: -40px;
+    color: #e9d16f;
+}
+
+.testimonial_simple_say {
+    background: #f8f8f8;
+    padding: 40px 40px 35px;
+    margin-top: 20px;
+}
+
+.team_img img {
+    width: 100%;
+}
+
+/** coin **/
+
+.coin_name_parchase {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+/** buy & sell **/
+
+.price_coin_cal {
+    margin: 0;
+}
+
+.price_coins p.bit_coin_price {
+    font-size: 24px;
+    line-height: normal;
+    font-weight: 400;
+}
+
+.price_coins p {
+    font-size: 17px;
+    margin: 0 0 15px 0;
+}
+
+.field_set {
+    float: left;
+    width: 100%;
+    margin-bottom: 25px;
+    justify-content: center;
+    display: flex;
+}
+
+/** shop **/
+
+.product_img img {
+    width: 100%;
+}
+
+/** blog **/
+
+.side_bar {
+    margin-top: 30px;
+}
+
+.command_cont {
+    margin: 20px 0;
+}
+
+}

@@ -47,3 +47,8 @@ Rails.application.config.assets.precompile.concat(
 
 Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')  
 Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
+
+Rails.application.config.assets.precompile += %w( updates.css )
+Rails.application.config.assets.precompile += %w( updates/carouselTicker.css )
+Rails.application.config.assets.precompile += %w( updates/custom.js )
+Rails.application.config.assets.precompile += %w( updates/jquery.min.js )

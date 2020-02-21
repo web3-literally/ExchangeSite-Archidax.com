@@ -47,9 +47,10 @@ Rails.application.configure do
       domain:               ENV['SMTP_DOMAIN'],
       user_name:            ENV['SMTP_EMAIL_ADDRESS'],
       password:             ENV['SMTP_EMAIL_PASSWORD'],
-      authentication:       :login,
-      :ssl                  => true,
-      :openssl_verify_mode  => 'none'
+      authentication:       :cram_md5,
+      enable_starttls_auto: false
+      #:ssl                  => true,
+      #:openssl_verify_mode  => 'none'
   }
 
   options = { host: ENV.fetch('SMTP_URL_ADDRESS', 'localhost'), :protocol => 'https' }

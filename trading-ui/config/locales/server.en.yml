@@ -128,7 +128,12 @@ en:
       volume: Volume
       amount: Amount
       time: Place Time
+    auth:
+      login_url: /auth/barong
+      register_url: /accounts/sign_up
     mask:
+      login_url: /auth/barong
+      register_url: /accounts/sign_up
       warning: <a href='/auth/barong'>Log in</a> | <a
         href='/accounts/sign_up'>Register</a>
       warning_ask_bid: <a href='/auth/barong'>Log in</a> or <a

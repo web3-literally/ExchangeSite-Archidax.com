@@ -1,28 +1,41 @@
 
-<h2 class="title"><span>Log in</span></h2>
-
 <div class="importantInfo">
   <p>
     <%= image_tag "exclamation-circle-solid.svg" %>
     Please check that you are visiting
-    <strong>https://gigaex.io</strong>
+    <strong>https://archidax.trade</strong>
   </p>
 </div>
 
 <p class="empty-field">This field is required.</p>
 
-<%= form_for(resource, as: resource_name, url: accounts_sign_in_confirm_path) do |f| %>
+<%= form_for(resource, as: resource_name, url: account_session_path) do |f| %>
   <%= devise_error_messages! %>
 
   <div id="email-form">
-    <div class="form-group">
-      <%= f.email_field :email, autofocus: true, autocomplete: 'email',
-                                  class: 'form-control required',
-                                  placeholder: 'Email', required: true %>
+    <div class="form-group text-left">
+      <label style="font-size: 0.8rem;">Email</label>
+      <div class="position-relative">
+        <div class="form-input-icon input-mail-icon mb-2"></div>
+        <%= f.email_field :email, autofocus: true, autocomplete: 'email',
+                          class: 'form-control required',
+                          placeholder: 'Enter email', required: true %>
+      </div>
     </div>
 
-    <div class="submit-container">
-      <%= f.submit 'Submit', class: 'btn btn-success', disabled: true %>
+    <div class="form-group text-left mt-3">
+      <label style="font-size: 0.8rem;">Password</label>
+      <div class="position-relative">
+        <div class="form-input-icon input-password-icon mb-2"></div>
+        <%= f.password_field :password, autofocus: true, autocomplete: 'off',
+                             class: 'form-control required',
+                             placeholder: 'Enter password' %>
+      </div>
+    </div>
+
+    <div class="submit-container mt-5 position-relative">
+      <%= f.submit 'Login', class: 'btn', disabled: true %>
+      <i class="fa fa-sign-in ml-1"></i>
     </div>
   </div>
 <% end %>

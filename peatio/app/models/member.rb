@@ -171,7 +171,7 @@ private
 end
 
 # == Schema Information
-# Schema version: 20190509030808
+# Schema version: 20190510151607
 #
 # Table name: members
 #

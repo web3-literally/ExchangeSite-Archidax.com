@@ -25,7 +25,7 @@
         <div direction="row" wrap="nowrap">
           <%= link_to t('.clear_all_html'),  "/markets/#{@data.fetch(:current_market).fetch(:id)}/orders/clear", class: 'cancel-all', remote: true, method: :post, data: {confirm: t('.confirm_clear_all')} %>
           <span class="iconfont icon-downsjsmall s15sks45-13 brDjiw">
-            <b class="caret"></b>
+            <i class="fa fa-chevron-down"></i>
             <ul>
               <li>
                 <%= link_to t('.clear_bids_html'), "/markets/#{@data.fetch(:current_market).fetch(:id)}/order_bids/clear", remote: true, method: :post, data: {confirm: t('.confirm_clear_bids')} %>

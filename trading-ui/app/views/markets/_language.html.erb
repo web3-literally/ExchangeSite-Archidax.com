@@ -1,14 +1,16 @@
 <div id="language" class="dropdown">
+  <span id="lang_name" style="padding-right: .8rem;"> <%= I18n.locale == 'en'.to_sym ? 'English' : 'Korean' %></span>
   <a class="dropdown-toggle" href="#" data-toggle="dropdown">
     <img class="lang-icon <%= I18n.locale == 'ko'.to_sym ? 'ko' : '' %>" src="/languages/<%= I18n.locale %>.png"/>
   </a>
-  <span id="lang_name"> <%= I18n.locale == 'en'.to_sym ? 'English' : 'Korean' %></span>
-  <b class="caret"></b>
-  <ul class="dropdown-menu">
+  <i class="fa fa-chevron-down" style="font-size: 1rem;"></i>
+
+  <ul class="dropdown-menu hidden">
     <% I18n.available_locales.each do |lang| %>
       <li>
         <a href="?lang=<%= lang %>">
-          <img class="lang-icon <%= lang == 'ko'.to_sym ? 'ko' : '' %>" src="/languages/<%= lang %>.png"/>
+          <span style="color: #aeb4ce;"> <%= I18n.locale == 'en'.to_sym ? 'English' : 'Korean' %></span>
+          <img class="lang-icon <%= lang == 'ko'.to_sym ? 'ko' : '' %>" src="/languages/<%= lang %>.png" style="float: right"/>
         </a>
       </li>
     <% end %>

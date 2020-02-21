@@ -1,0 +1,242 @@
+.countdownHolder {
+    width: 100%;
+    margin: 0 auto;
+    font: 42px/1.5 'Open Sans Condensed',sans-serif;
+    text-align: center;
+    letter-spacing: -3px;
+	margin-top: 25px;
+}
+
+.position {
+    display: inline-block;
+    height: 3.8em;
+    overflow: hidden;
+    position: relative;
+    width: 3em;
+    border: solid #fff 4px;
+    text-align: center;
+    margin: 0 -13px 0 0;
+}
+
+.digit {
+    position: absolute;
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    height: 100%;
+    font-size: 100px;
+    font-weight: 600;
+}
+
+
+/**
+ * You can use these classes to hide parts
+ * of the countdown that you don't need.
+ */
+
+.countDays{ float: left; }
+.countDiv0{ float: left; }
+.countHours{ float: left; }
+.countDiv1{ float: left; }
+.countMinutes{ float: left; }
+.countDiv2{ float: left; }
+.countSeconds{ float: left; }
+
+.countDays {
+    float: left;
+    margin-left: 55px;
+}
+
+.countDiv {
+    display: inline-block;
+    width: 30px;
+    height: 160px;
+    position: relative;
+    margin-left: 11px;
+}
+
+
+
+.countDiv::before, .countDiv::after {
+
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    left: 50%;
+    margin-left: -6px;
+    top: 1.5em;
+    box-shadow: 1px 1px 1px rgba(4, 4, 4, 0.5);
+    content: '';
+
+}
+
+.countDiv::after {
+    top: 48%;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+.countDays {
+    float: left;
+    margin-left: 0;
+    width: 25%;
+}
+
+.countHours {
+    float: left;
+    width: 25%;
+}
+
+.countMinutes {
+    float: left;
+    width: 25%;
+}	
+
+.countSeconds {
+    float: left;
+    width: 25%;
+}
+
+.position {
+    height: 2.8em;
+    width: 50%;
+}
+
+.countDiv {
+    display: none;
+}
+
+.digit {
+    font-size: 75px;
+}
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	
+.countDays {
+    float: left;
+    margin-left: 0;
+    width: 25%;
+}
+
+.countHours {
+    float: left;
+    width: 25%;
+}
+
+.countMinutes {
+    float: left;
+    width: 25%;
+}	
+
+.countSeconds {
+    float: left;
+    width: 25%;
+}
+
+.digit {
+    font-size: 70px;
+}
+
+.position {
+    height: 2.8em;
+    width: 50%;
+}
+
+.token_infor_section h3 {
+    font-size: 35px;
+}
+
+.countDiv {
+	display: none;
+}	
+	
+}
+
+@media (min-width: 541px) and (max-width: 767px) {
+	
+.countDays {
+    float: left;
+    margin-left: 0;
+    width: 49%;
+}
+
+.countHours {
+    float: left;
+    width: 49%;
+}
+
+.countMinutes {
+    float: left;
+    width: 49%;
+}	
+
+.countSeconds {
+    float: left;
+    width: 49%;
+}
+
+.digit {
+    font-size: 70px;
+}
+
+.position {
+    height: 2.8em;
+    width: 50%;
+}
+
+.token_infor_section h3 {
+    font-size: 35px;
+}
+
+.countDiv {
+	display: none;
+}	
+	
+}
+
+@media (max-width: 540px) {
+
+.countDays {
+    float: left;
+    margin-left: 0;
+    width: 49%;
+}
+
+.countHours {
+    float: left;
+    width: 49%;
+}
+
+.countMinutes {
+    float: left;
+    width: 49%;
+}	
+
+.countSeconds {
+    float: left;
+    width: 49%;
+}
+
+.digit {
+    font-size: 45px;
+}
+
+.position {
+    height: 1.8em;
+    width: 50%;
+}
+
+.token_infor_section h3 {
+    font-size: 35px;
+}
+
+.countDiv {
+	display: none;
+}
+
+}

@@ -120,8 +120,8 @@ Rails.application.configure do
       user_name:            ENV['SMTP_EMAIL_ADDRESS'],
       password:             ENV['SMTP_EMAIL_PASSWORD'],
       authentication:       :login,
-      :ssl                  => true,
-      :openssl_verify_mode  => 'none'
+      #:ssl                  => true,
+      #:openssl_verify_mode  => 'none'
   }
 
   options = { host: ENV.fetch('SMTP_URL_ADDRESS', 'localhost'), :protocol => 'https' }

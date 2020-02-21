@@ -31,9 +31,11 @@
         <span class="input-group-addon"><%= market.fetch(:bid_unit).upcase %></span>
       </div>
 
-      <button class="btn btn-primary btn-block text-down" type="submit">
-        <%= t('.action', currency: market.fetch(:ask_unit).upcase) %>
-      </button>
+      <% if @data[:current_member] %>
+        <button class="btn btn-primary btn-block text-down" type="submit">
+          <%= t('.action', currency: market.fetch(:ask_unit).upcase) %>
+        </button>
+      <% end %>
     <% end %>
   </div>
   <%= render partial: 'mask' %>

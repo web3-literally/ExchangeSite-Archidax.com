@@ -61,28 +61,39 @@ window.onload = function () {
     if ($(this).val().length == 0 && terms_agree() ) {
       $('.submit-container input').prop('disabled', true);
       $('.submit-container input').removeClass('enable_input');
-      $('.empty-field').css('opacity', '1')
+      $('.submit-container i').css('opacity', '0.45');
+      $('.empty-field').css('display', 'block');
       $(this).addClass('empty_input')
     } else if ( check_if_filled() && terms_agree() ) {
       $('.submit-container input').prop('disabled', false);
       $('.submit-container input').addClass('enable_input');
-      $('.empty-field').css('opacity', '0')
+      $('.submit-container i').css('opacity', '1');
+      $('.empty-field').css('display', 'none');
       $(this).removeClass('empty_input')
     } else if ( check_if_filled() && !window.location.href.includes('sign_up') ) {
       $('.submit-container input').prop('disabled', false);
       $('.submit-container input').addClass('enable_input');
-      $('.empty-field').css('opacity', '0')
+      $('.submit-container i').css('opacity', '1');
+      $('.empty-field').css('display', 'none');
       $(this).removeClass('empty_input')
     }
   });
 
   $("#agreement").change(function() {
+    if (this.checked) {
+      $('.custom-switch').addClass('custom-switch-success');
+    } else {
+      $('.custom-switch').removeClass('custom-switch-success');
+    }
+
     if( this.checked && check_if_filled() ) {
       $('.submit-container input').prop('disabled', false);
       $('.submit-container input').addClass('enable_input');
+      $('.submit-container i').css('opacity', '1');
     } else {
       $('.submit-container input').prop('disabled', true);
       $('.submit-container input').removeClass('enable_input');
+      $('.submit-container i').css('opacity', '0.45');
     }
   });
 

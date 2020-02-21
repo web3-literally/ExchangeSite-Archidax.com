@@ -6,8 +6,9 @@
         <!-- <img class="nav-img" src="<%= ENV['LOGO_URL'] || image_path('white.png') %>"> -->
       </a>
       <div class="market-switch middle-nav">
-        <%= @data.fetch(:current_market).fetch(:ask_unit).upcase %><span>&nbsp;/ <%= @data.fetch(:current_market).fetch(:bid_unit).upcase %></span>
-        <b class="caret"></b>
+        <%= @data.fetch(:current_market).fetch(:ask_unit).upcase %>&nbsp;/&nbsp;
+        <%= @data.fetch(:current_market).fetch(:bid_unit).upcase %>
+        <i class="fa fa-chevron-down" style="margin: -1px 5px; font-size: 1rem;"></i>
         <%= render partial: 'market_list' %>
       </div>
     </ul>
@@ -47,7 +48,8 @@
         <%= render partial: 'settings' %>
       <% else %>
         <p class="navbar-text">
-          <%= t('markets.mask.warning').html_safe %>
+          <%= render partial: 'auth' %>
+          <%#= t('markets.mask.warning').html_safe %>
         </p>
       <% end %>
     </ul>

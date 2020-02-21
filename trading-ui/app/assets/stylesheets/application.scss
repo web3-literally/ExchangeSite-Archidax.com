@@ -82,14 +82,14 @@ header {
 
   span.vol, span.high, span.low, span.change {
     font-family: Aileron;
-    font-size: 20px;
+    font-size: 2.1rem;
     line-height: 22px;
-    color: #728496;
+    color: #aeb4ce;
     font-weight: 300;
   }
 
   span.vol {
-    color: #FE5C5C;
+    color: #FF0000;
   }
 
   .bootstrap-switch {
@@ -307,9 +307,6 @@ header {
   }
 }
 
-#ask_entry > .mask { padding-top: 80px; }
-#bid_entry > .mask { padding-top: 80px; }
-
 .float {
   position: absolute;
   @include transition(0.1s);
@@ -439,7 +436,6 @@ header {
 
       a:hover {
         color: $link-color-hover;
-        background-color: $panel-bg;
         text-shadow: white 0 0 2px;
         text-decoration: none;
       }
@@ -476,12 +472,9 @@ header {
       min-width: 0;
       padding-left: 6px;
       margin: 0 0 0 -100%;
-      font-size: 11px;
       background-color: $panel-bg;
       border: 1px solid $panel-default-border;
       border-left: 0;
-      border-left-right-radius: 0;
-      border-left-right-radius: 0;
 
       a {
         padding: 3px 8px;
@@ -498,7 +491,6 @@ header {
 
       a:hover {
         color: $icon-color;
-        background-color: $panel-bg;
         text-shadow: white 0 0 2px;
         text-decoration: none;
         i { text-shadow: none; }
@@ -572,13 +564,10 @@ header {
       padding: 1px 4px 0px 4px;
       border-color: $border-color;
     }
-    .form-control {
-      border-color: $border-color;
-    }
 
     label.input-group-addon {
       padding: 3px 6px 0px 6px;
-      min-width: 70px;
+      min-width: 100px;
       text-align: right;
       color: $text-color;
     }
@@ -639,6 +628,9 @@ header {
 #ticker, #order_book, #market_trades, #my_orders, #market_list {
   table {
     margin-bottom: 0px;
+    font-size: 1.3rem;
+    color: #869ab8;
+    font-weight: normal;
 
     &.hidden-buy { tr.bid { display: none; } }
     &.hidden-sell { tr.ask { display: none; } }
@@ -646,10 +638,6 @@ header {
     td, th {
       padding: 0px 2px;
       border: none;
-    }
-
-    tr.highlight {
-      background-color: $highlight-color;
     }
 
     td {
@@ -713,8 +701,15 @@ table {
   }
 }
 
-.dropdown:hover .dropdown-menu {
+div.dropdown.active,
+li.dropdown.active {
+  .dropdown-menu {
     display: block;
+  }
+
+  a.dropdown-toggle {
+    background-color: #21294A !important;
+  }
 }
 
 .panel-width {

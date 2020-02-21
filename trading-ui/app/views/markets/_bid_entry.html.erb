@@ -1,13 +1,5 @@
 <div id="bid_entry" class="panel panel-default entry-right">
   <div class="panel-body">
-    <!-- <div class="row">
-      <div class="col-xs-6">
-        <span class="bid_active_market" id="bid_market">Market</span>
-      </div>
-      <div class="col-xs-6">
-        <span id="bid_limit">Limit</span>
-      </div>
-    </div> -->
     <%= form_for 'order_bid', url: "/markets/#{market.fetch(:id)}/order_bids", remote: true, html: { class: 'new_order_bid', id: 'new_order_bid' } do |f| %>
       <%= render partial: 'balance', locals: { currency: market.fetch(:bid_unit).upcase, buy_sell_currency: "Buy #{market.fetch(:ask_unit).upcase}" } %>
       <%= f.hidden_field :ord_type, value: 'limit' %>
@@ -31,9 +23,11 @@
         <span class="input-group-addon"><%= market.fetch(:bid_unit).upcase %></span>
       </div>
 
-      <button class="btn btn-primary btn-block text-up" type="submit">
-        <%= t('.action', currency: @data.fetch(:current_market).fetch(:ask_unit).upcase) %>
-      </button>
+      <% if @data[:current_member] %>
+        <button class="btn btn-primary btn-block text-up" type="submit">
+          <%= t('.action', currency: @data.fetch(:current_market).fetch(:ask_unit).upcase) %>
+        </button>
+      <% end %>
     <% end %>
   </div>
   <%= render partial: 'mask' %>

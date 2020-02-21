@@ -33,6 +33,7 @@
 #= require_tree ./templates
 
 #= require_self
+#= require ./tv-chart-widget-init
 
 $ ->
   window.notifier = new Notifier()
@@ -69,6 +70,16 @@ $ ->
 
   $('.market-switch').on 'click', ->
     $('#market_list_wrapper').toggleClass 'hidden'
+    $(this).toggleClass 'active'
+    return
+
+  $('li[id="settings"]').on 'click', ->
+    $('li[id="settings"] .dropdown-menu').toggleClass 'hidden'
+    $(this).toggleClass 'active'
+    return
+
+  $('div[id="language"]').on 'click', ->
+    $('div[id="language"] .dropdown-menu').toggleClass 'hidden'
     $(this).toggleClass 'active'
     return
 

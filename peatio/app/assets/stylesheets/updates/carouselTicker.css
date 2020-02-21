@@ -1,0 +1,58 @@
+/**
+ * CSS style for carouselTicker
+ **/
+
+.carouselTicker__list{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    overflow: hidden;
+}
+
+.carouselTicker__item {
+    margin: 15px auto;
+    float: left;
+    width: 120px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border-right: dashed #2d3e4e 1px;
+    padding: 0 25px;
+}
+
+.carouselTicker__loader{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #fff url("../images/loader.gif") center center no-repeat;
+}
+
+/**
+ * CSS style for vertical direction
+ **/
+
+.carouselTicker_vertical .carouselTicker__list{
+    margin: 0;
+}
+
+.carouselTicker_vertical .carouselTicker__item{
+    margin: 0 0 5px 0;
+    border: 4px solid red;
+    width: 100px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+
+#carouselTicker .carouselTicker__item {
+    width: auto;
+    height: auto;
+    line-height: normal;
+}
+
+.carouselTicker__item img {
+    vertical-align: top;
+}

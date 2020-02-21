@@ -4,7 +4,7 @@ window.GlobalData = flight.component ->
     symbol = gon.currencies[gon.market.bid_unit].symbol
     price  = data.last
     market = [gon.market.ask_unit, gon.market.bid_unit].join("/").toUpperCase()
-    title  = 'Peatio Exchange'
+    title  = 'Archidax Exchange'
 
     document.title = "#{price} #{market} – #{title}"
 

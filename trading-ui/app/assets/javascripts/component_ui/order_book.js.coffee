@@ -135,22 +135,22 @@
       $('#ticker').hide()
       $('#order_book_ask_container').hide()
       $('#order_book_bid').fadeIn()
-      $('.order-book-header-switch input').each ->
+      $('.order-book-header-switch ul li').each ->
         $(this).removeClass('active')
-      $('.order-book-header-switch #orders_bids input').addClass('active')
+      $('#orders_bids').addClass('active')
 
     @on $('#orders_both'), 'click', =>
       $('#ticker').fadeIn()
       $('#order_book_ask_container').fadeIn()
       $('#order_book_bid').fadeIn()
-      $('.order-book-header-switch input').each ->
+      $('.order-book-header-switch ul li').each ->
         $(this).removeClass('active')
-      $('.order-book-header-switch #orders_both input').addClass('active')
+      $('#orders_both').addClass('active')
 
     @on $('#orders_asks'), 'click', =>
       $('#ticker').hide()
       $('#order_book_ask_container').fadeIn()
       $('#order_book_bid').hide()
-      $('.order-book-header-switch input').each ->
+      $('.order-book-header-switch ul li').each ->
         $(this).removeClass('active')
-      $('.order-book-header-switch #orders_asks input').addClass('active')
+      $('#orders_asks').addClass('active')

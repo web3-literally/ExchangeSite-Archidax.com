@@ -3,15 +3,15 @@ class Reward < ActiveRecord::Base
 end
 
 # == Schema Information
-# Schema version: 20190510151607
+# Schema version: 20190612011336
 #
 # Table name: rewards
 #
 #  id             :integer          not null, primary key
 #  member_id      :integer
 #  currency_id    :string(255)
-#  amount         :decimal(10, )
-#  usd_amount     :decimal(10, )
+#  amount         :decimal(32, 16)  default(0.0)
+#  usd_amount     :decimal(32, 16)  default(0.0)
 #  ref_type       :string(255)
 #  trade_id       :integer
 #  from_member_id :integer

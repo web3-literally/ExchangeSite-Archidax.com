@@ -92,5 +92,25 @@ module APIv2
       { at: ticker[:at],
         ticker: formatted_ticker }
     end
+
+    RESOLUTION_PERIOD_MAP = {
+        '1': 1,
+        '15': 15,
+        '30': 30,
+        '60': 60,
+        'D': 1440,
+        '1D': 1440
+    }.as_json
+
+    def resolution_to_period(resolution)
+      RESOLUTION_PERIOD_MAP[resolution]
+    end
+
+    def convert_klines_to_bars(klines = [])
+      t, o, h, l, c, v = klines.transpose
+      {
+          s: 'ok', :t => t, :o => o, :h => h, :l => l, :c => c, :v => v
+      }
+    end
   end
 end

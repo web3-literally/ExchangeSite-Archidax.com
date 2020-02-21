@@ -1,0 +1,487 @@
+<!-- Header -->
+<header class="site-header is-sticky">
+  <!-- Place Particle Js -->
+  <div id="particles-js" class="particles-container particles-js"></div>
+  <!-- Navbar -->
+  <div class="navbar navbar-full navbar-expand-lg is-transparent" id="mainnav">
+    <a class="navbar-brand animated" data-animate="fadeInDown" data-delay=".65" href="./">
+      <%= image_tag 'blue.png', class: 'logo-icon' %>
+      <img class="nav-img" src="<%= ENV['LOGO_URL'] || image_path('white.png') %>">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle">
+      <span class="navbar-toggler-icon">
+        <span class="ti ti-align-justify"></span>
+      </span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarToggle">
+      <ul class="navbar-nav animated remove-animation" data-animate="fadeInDown" data-delay=".75">
+        <!-- <li class="nav-item"><a class="nav-link menu-link" href="#about">About<span class="sr-only">(current)</span></a></li>
+        <li class="nav-item"><a class="nav-link menu-link" href="#why">GIG Token</a></li>
+        <li class="nav-item"><a class="nav-link menu-link" href="#benifits">Platform</a></li>
+        <li class="nav-item"><a class="nav-link menu-link" href="#tokenSale">Trade Mining</a></li>
+        <li class="nav-item"><a class="nav-link menu-link" href="#roadmap">Roadmap</a></li>
+        <li class="nav-item"><a class="nav-link menu-link" id="myBtn1" >Airdrop Event</a></li> -->
+        <!--<li class="nav-item"><a class="nav-link menu-link" href="#faq">Faqs</a></li>
+        <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">More</a>
+           <div class="dropdown-menu">
+              <a class="dropdown-item menu-link" id="myBtn1" >Airdrop</a>
+           </div>
+        </li> -->
+        <li class="nav-item"><a class="nav-link btn btn-sm btn-outline menu-link" href="/trading/ethbtc">EXCHANGE</a></li>
+      </ul>
+      <ul class="navbar-btns animated remove-animation" data-animate="fadeInDown" data-delay=".85">
+        <% if current_user %>
+          <li class="nav-item">
+            <a class="nav-link btn btn-sm btn-outline menu-link" href="javascript:;"
+              onclick="window.open('/signout');
+              window.location.assign('/accounts/sign_out');">
+              SIGNOUT
+            </a>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "SIGNUP", '/accounts/sign_up', class: "nav-link btn btn-sm btn-outline menu-link" %>
+          </li>
+          <li class="nav-item">
+            <% provider = ENV['OAUTH2_SIGN_IN_PROVIDER'] %>
+            <% unless provider.blank? %>
+              <a class="nav-link btn btn-sm btn-outline menu-link" href="/accounts/sign_in" role="button"> LOGIN </a>
+            <% end %>
+          </li>
+        <% end %>
+        <li class="nav-item">
+          <% if current_user %>
+            <li class="nav-item">
+              <a class="nav-link btn btn-sm btn-outline menu-link" href="/settings">My Account</a>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <a class="nav-link btn btn-sm btn-outline menu-link" href="mailto:admin@gigaex.com?Subject=Level%20three%20request" target="_blank">Contact</a>
+            </li>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- End Navbar -->
+
+  <!-- Banner/Slider -->
+  <div id="header" class="banner banner-zinnia">
+    <div class="ui-shape ui-shape-light ui-shape-header"></div>
+      <%= image_tag 'banner_newversion_tilil.png' %>
+      <div class="gaps size-1x d-none d-md-block"></div>
+      <ul class="btns animated" data-animate="fadeInUp" data-delay="1.45">
+        <li>
+          <p class="text-center">
+            <%= image_tag 'banners/no1.jpg' %>
+          </p>
+        </li>
+        <li>
+          <p class="text-center">
+            <%= image_tag 'banners/no2.jpg' %>
+          </p>
+        </li>
+        <li>
+          <p class="text-center">
+            <%= image_tag 'banners/no3.jpg' %>
+          </p>
+        </li>
+        <li>
+          <p class="text-center">
+            <%= image_tag 'banners/no4.jpg' %>
+          </p>
+        </li>
+      </ul>
+    </div>
+    <!-- .container  -->
+    <ul class="hr-social hr-social-mid animated" data-animate="fadeIn" data-delay="1.55">
+      <li><a href="#" target="blank"><em class="fab fa-facebook-f"></em></a></li>
+      <li><a href="#" target="blank"><em class="fab fa-twitter"></em></a></li>
+      <li><a href="#" target="blank"><em class="fab fa-telegram"></em></a></li>
+      <!-- <li><a href="#"><em class="fab fa-youtube"></em></a></li>
+      <li><a href="#"><em class="fab fa-github"></em></a></li>
+      <li><a href="#"><em class="fab fa-bitcoin"></em></a></li>
+      <li><a href="#"><em class="fab fa-medium-m"></em></a></li> -->
+    </ul>
+  </div>
+  <!-- End Banner/Slider -->
+
+</header>
+
+<div class="gaps size-6x d-md-none"></div>
+<div class="gaps size-3x"></div>
+<!-- End Header -->
+
+
+<!-- Start Section -->
+<div class="sub-container coin-status pb-5">
+  <div class="container">
+    <div class="market-swith-container">
+        <a data-name="all" href="javascript:;" onclick='show_markets(this)' class="active" >
+          <%= t('.all_html') %>
+        </a>
+      <% swith_coins.each do |coin| %>
+        <a data-name="<%= coin %>" href="javascript:;" onclick='show_markets(this)' >
+          <%= t('.ccy_html', currency: coin.upcase) %>
+        </a>
+      <% end %>
+    </div>
+    <div class="table-content">
+      <table id="marketListTable">
+        <thead>
+          <tr>
+            <th>Pairs</th>
+            <th>Last Price</th>
+            <th>Change %</th>
+            <th class="sm-hidden">High</th>
+            <th class="sm-hidden">Low</th>
+            <th class="sm-hidden">24H Vol</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% gon.markets.each do |market| %>
+            <tr class="markets-toggle" id="market-list-<%= market[1]['id'] %>" data-quote-unit="<%= market[1]['bid_unit'] %>" data-base-unit="<%= market[1]['ask_unit'] %>" data-market="<%= market[1][:id] %>">
+              <td>
+                <%= gon.tickers[market[0]][:name] %>
+              </td>
+              <td>
+                <%= gon.tickers[market[0]][:last] %>
+              </td>
+              <td>
+                <%= price_change(gon.tickers[market[0]][:open], gon.tickers[market[0]][:last]) %>
+              </td>
+              <td class="sm-hidden">
+                <%= gon.tickers[market[0]][:high] %>
+              </td>
+              <td class="sm-hidden">
+                <%= gon.tickers[market[0]][:low] %>
+              </td>
+              <td class="sm-hidden">
+                <%= gon.tickers[market[0]][:volume] %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  function show_markets(target) {
+    var ask_coin = $(target).attr('data-name');
+    if (ask_coin == 'all') {
+      $('.markets-toggle').removeClass('hide');
+      $('.market-swith-container a').removeClass('active');
+      $(target).addClass('active');
+      $('#marketListTable_info').show();
+      $('#marketListTable_paginate').show();
+    } else {
+      $('.markets-toggle').addClass('hide');
+      $('.markets-toggle[data-quote-unit="' + ask_coin + '"]').removeClass('hide');
+      $('.market-swith-container a').removeClass('active');
+      $(target).addClass('active');
+      $('#marketListTable_info').hide();
+      $('#marketListTable_paginate').hide();
+    }
+  }
+  $('#marketListTable').DataTable({
+    language: { search: "" },
+  });
+</script>
+<!-- End Section -->
+
+
+<!-- Start Section -->
+<div class="h-app-down">
+  <div class="container">
+    <div class="listshow">
+      <div class="list-ld">
+        <h1>IOS and Android app</h1> 
+        <!-- <h3>No need to login with browserMac OS/windowsSystem</h3> 
+        <div class="list-icon">
+          <div class="list-icon-btn">
+            <a href="#">
+              <i class="fab fa-windows"></i>
+              <span>Win32Bit</span>
+            </a>
+          </div> 
+          <div class="list-icon-btn">
+            <a href="#">
+              <i class="fab fa-windows"></i>
+              <span>Win64Bit</span>
+            </a>
+          </div> 
+          <div class="list-icon-btn">
+            <a href="#">
+              <i class="fab fa-apple"></i>
+              <span>Mac</span>
+            </a>
+          </div>
+        </div>  -->
+        <h3><span>Download Archidax APP</span>  Perfect, Supports all functions</h3>
+        <div class="download-btn-wrap clearfix">
+          <div class="download-btn-item">
+            <a href="#">
+              <i class="fab fa-apple" style="left: -28px;"></i>
+              <span>IOS</span>
+            </a>
+          </div> 
+          <!-- <div class="download-btn-item">
+            <a href="#">
+              <i class="fab fa-apple" style="left: -6px;"></i>
+              <span>App Store</span>
+            </a>
+          </div>  -->
+          <div class="download-btn-item">
+            <a href="#">
+              <i class="fab fa-android" style="left: -14px;"></i>
+              <span>Android</span>
+            </a>
+          </div> 
+          <!-- <div class="download-btn-item">
+            <a href="#">
+              <i class="fab fa-google"></i>
+              <span>Google play</span>
+            </a>
+          </div> -->
+        </div> 
+        <!-- <img src="https://vip.zb.com/service/qrcode?code=https://www.beta.gigaex.io&amp;width=72&amp;height=72" alt="" class="code-paper"> -->
+      </div> 
+      <%= image_tag 'app-bg.png', class: 'app-bg' %>
+      <%= image_tag 'pc-bg.png', class: 'pc-bg' %>
+    </div>
+  </div>
+</div>
+<!-- End Section -->
+
+
+<!-- Start Section -->
+<div class="h-introduce">
+  <div class="container">
+    <div class="list">
+      <div class="pic-show">
+        <%= image_tag 'home-n-pic1.png' %>
+      </div> 
+      <h4>Spot/Margin Trading</h4> 
+      <p>
+        Support multiple coins trading and high liquid markets
+        <br> Support 3x leverage trading and High-performance matching trading
+      </p>
+    </div>
+    <div class="list">
+      <div class="pic-show">
+        <%= image_tag 'home-n-pic2.png' %>
+      </div> 
+      <h4>
+        OTC
+      </h4> 
+      <p>
+        Support multiple fiat currency tradings
+        <br>Platform guarantees, fast and secure
+      </p>
+    </div>
+    <div class="list">
+      <div class="pic-show">
+        <%= image_tag 'home-n-pic3.png' %>
+      </div> 
+      <h4>
+        Financial security systems
+      </h4> 
+      <p>
+        Multi-level and multi-cluster system architecture
+        <br>More than 4 years of safe, stable infrastructure operating
+      </p>
+    </div>
+    <div class="list">
+      <div class="pic-show">
+        <%= image_tag 'home-n-pic4.png' %>
+      </div> 
+      <h4>
+        Professional customer service
+      </h4> 
+      <p>
+        24 hour online customer service has served millions of users
+        <br>Quick response to user’s questions
+      </p>
+    </div>
+  </div>
+</div>
+<!-- End Section -->
+
+<!-- Start Section -->
+<div class="listing" >
+  <div class="container">
+    <h2>
+      Submit your Token for Listing
+      <a href="#">Start Listing Process</a>
+    </h2>
+    <h2>
+      Start Trading Today!
+      <a href="/accounts/sign_up">Sign Up</a>
+    </h2>
+    <p>
+      Already have an account? 
+      <a href="/accounts/sign_in">Log in</a>
+    </p>
+    <div class="listing-footer">
+      <p>
+        As a verified user of this site you will be able to trade.
+      </p>
+    </div>
+  </div>
+</div>
+<!-- End Section -->
+
+<!-- Start Section -->
+<div class="section section-pad-md section-bg-alt" id="contact">
+   <div class="ui-shape ui-shape-s7"></div>
+   <div class="container">
+      <div class="row text-center">
+         <div class="col">
+            <div class="section-head-s7">
+               <h2 class="section-title-s7 animated" data-animate="fadeInUp" data-delay=".1">Contact ARCHIDAX</h2>
+               <p class="animated" data-animate="fadeInUp" data-delay=".2">Any question? Reach out to us and we’ll get back to you shortly.</p>
+            </div>
+         </div>
+         <!-- .col -->
+      </div>
+      <!-- .row -->
+      <div class="row justify-content-center">
+         <div class="col-lg-10">
+            <ul class="contact-info">
+               <li class="animated" data-animate="fadeInUp" data-delay=".3"><em class="fa fa-envelope"></em><span>Info@archidax.co</span></li>
+               <li class="animated" data-animate="fadeInUp" data-delay=".4"><em class="fa fa-envelope"></em><span>Info@archidax.co</span></li>
+               <li class="animated" data-animate="fadeInUp" data-delay=".5"><em class="fa fa-paper-plane"></em><span>Join us on Telegram</span></li>
+            </ul>
+         </div>
+         <!-- .col -->
+      </div>
+      <!-- .row -->
+   </div>
+   <!-- .container -->
+</div>
+<!-- End Section -->
+
+<!-- Start Section -->
+<div class="section footer-section section-pad-md no-pb">
+  <div class="ui-shape ui-shape-light ui-shape-footer"></div>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-xs-3">
+        <div class="bk-footer-contact">
+          <h5>
+            <a href="/" target="_self" class="logo">
+              <%= image_tag 'blue.png' %>
+              <%= image_tag 'white.png', style: "height:56px;width:130px;margin-bottom:20px;" %>
+            </a>
+          </h5>
+          <p class="sns">
+            <a href="#" role="button" data-toggle="popover" data-placement="top" data-html="true" data-trigger="hover" data-content="Facebook" data-original-title="" title="">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" target="_blank" role="button" data-toggle="popover" data-placement="top" data-html="true" data-trigger="hover" data-content="Twitter" data-original-title="" title="">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" target="_blank" role="button" data-toggle="popover" data-placement="top" data-html="true" data-trigger="hover" data-content="Telegram" data-original-title="" title="">
+              <i class="fab fa-telegram-plane"></i>
+            </a>
+          </p>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="col-xs-6">
+          <div class="bk-footer-contact">
+            <h5>
+              UTILITY
+            </h5>
+            <p class="link">
+              <a href="/api" target="_blank">
+                API
+              </a>
+            </p>
+            <p class="link">
+              <a href="/mobile_app" target="_blank">
+                Mobile App
+              </a>
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="bk-footer-contact">
+            <h5>
+              Customer Service
+            </h5>
+            <p class="link">
+              <a href="/help_center" target="_blank">
+                Help Center
+              </a>
+            </p>
+            <p class="link">
+              <a href="/faq" target="_blank">
+                FAQ
+              </a>
+            </p>
+            <p class="link">
+              <a href="/terms" target="_blank">
+                Term of use
+              </a>
+            </p>
+            <p class="link">
+              <a href="/fees" target="_blank">
+                Fees
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-3">
+        <div class="bk-footer-contact">
+          <h5>
+            Contact Us
+          </h5>
+          <p class="contlink">
+            Service：<a href="mail:Info@archidax.co" target="_self">Info@archidax.co</a>
+          </p>
+          <p class="contlink">
+            Business：<a href="mail:Info@archidax.co" target="_self">Info@archidax.co</a>
+          </p>
+          <p class="contlink">
+            Listing Cryptocurrency Request：<a href="mail:Info@archidax.co" target="_self">Info@archidax.co</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- end row -->
+
+    <div class="footer-bottom">
+       <div class="row align-items-center">
+          <div class="col-sm-6 res-m-bttm">
+
+          </div>
+          <div class="col-sm-6 text-sm-right">
+             <span class="copyright-text"> &copy; 2017 - 2018 Archidax.trade. All rights reserved</span>
+          </div>
+       </div>
+    </div>
+  </div>
+  <!-- .container -->
+</div>
+<!-- End Section -->
+<!-- Preloader !remove please if you do not want -->
+<div id="preloader">
+   <div id="loader"></div>
+   <div class="loader-section loader-top"></div>
+   <div class="loader-section loader-bottom"></div>
+</div>
+<!-- Preloader End -->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+   <!-- Modal content -->
+   <div class="modal-content">
+      <span class="close">&times;</span>
+      <%= image_tag("transaction-fee.png", alt:"cover") %>
+   </div>
+</div>

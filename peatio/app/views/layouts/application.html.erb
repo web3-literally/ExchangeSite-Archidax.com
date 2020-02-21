@@ -10,6 +10,7 @@
 
     <% stylesheet = content_for?(:stylesheet) ? yield(:stylesheet) : 'application' %>
     <%= stylesheet_link_tag stylesheet, media: 'all' %>
+
     <%= custom_stylesheet_link_tag_for :main %>
 
     <%= include_gon %>
@@ -18,7 +19,7 @@
     <%= yield(:scripts) if content_for?(:scripts) %>
   </head>
 
-  <body class="ui-radius" data-lang="<%= locale_name %>" id="<%= body_id %>">
+  <body id="default_theme" class="ui-radius" data-lang="<%= locale_name %>" id="<%= body_id %>">
 
     <%= render 'shared/left_side_menu' %>
     <%= content_for?(:header) ? yield(:header) : render('shared/header') %>

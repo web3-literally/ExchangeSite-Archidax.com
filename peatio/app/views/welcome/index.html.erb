@@ -1,487 +1,333 @@
-<!-- Header -->
-<header class="site-header is-sticky">
-  <!-- Place Particle Js -->
-  <div id="particles-js" class="particles-container particles-js"></div>
-  <!-- Navbar -->
-  <div class="navbar navbar-full navbar-expand-lg is-transparent" id="mainnav">
-    <a class="navbar-brand animated" data-animate="fadeInDown" data-delay=".65" href="./">
-      <%= image_tag 'blue.png', class: 'logo-icon' %>
-      <img class="nav-img" src="<%= ENV['LOGO_URL'] || image_path('white.png') %>">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle">
-      <span class="navbar-toggler-icon">
-        <span class="ti ti-align-justify"></span>
-      </span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-between" id="navbarToggle">
-      <ul class="navbar-nav animated remove-animation" data-animate="fadeInDown" data-delay=".75">
-        <!-- <li class="nav-item"><a class="nav-link menu-link" href="#about">About<span class="sr-only">(current)</span></a></li>
-        <li class="nav-item"><a class="nav-link menu-link" href="#why">GIG Token</a></li>
-        <li class="nav-item"><a class="nav-link menu-link" href="#benifits">Platform</a></li>
-        <li class="nav-item"><a class="nav-link menu-link" href="#tokenSale">Trade Mining</a></li>
-        <li class="nav-item"><a class="nav-link menu-link" href="#roadmap">Roadmap</a></li>
-        <li class="nav-item"><a class="nav-link menu-link" id="myBtn1" >Airdrop Event</a></li> -->
-        <!--<li class="nav-item"><a class="nav-link menu-link" href="#faq">Faqs</a></li>
-        <li class="nav-item dropdown">
-           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">More</a>
-           <div class="dropdown-menu">
-              <a class="dropdown-item menu-link" id="myBtn1" >Airdrop</a>
-           </div>
-        </li> -->
-        <li class="nav-item"><a class="nav-link btn btn-sm btn-outline menu-link" href="/trading/ethbtc">EXCHANGE</a></li>
-      </ul>
-      <ul class="navbar-btns animated remove-animation" data-animate="fadeInDown" data-delay=".85">
-        <% if current_user %>
-          <li class="nav-item">
-            <a class="nav-link btn btn-sm btn-outline menu-link" href="javascript:;"
-              onclick="window.open('/signout');
-              window.location.assign('/accounts/sign_out');">
-              SIGNOUT
-            </a>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "SIGNUP", '/accounts/sign_up', class: "nav-link btn btn-sm btn-outline menu-link" %>
-          </li>
-          <li class="nav-item">
-            <% provider = ENV['OAUTH2_SIGN_IN_PROVIDER'] %>
-            <% unless provider.blank? %>
-              <a class="nav-link btn btn-sm btn-outline menu-link" href="/accounts/sign_in" role="button"> LOGIN </a>
-            <% end %>
-          </li>
-        <% end %>
-        <li class="nav-item">
-          <% if current_user %>
-            <li class="nav-item">
-              <a class="nav-link btn btn-sm btn-outline menu-link" href="/settings">My Account</a>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <a class="nav-link btn btn-sm btn-outline menu-link" href="mailto:admin@gigaex.com?Subject=Level%20three%20request" target="_blank">Contact</a>
-            </li>
-          <% end %>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!-- End Navbar -->
-
-  <!-- Banner/Slider -->
-  <div id="header" class="banner banner-zinnia">
-    <div class="ui-shape ui-shape-light ui-shape-header"></div>
-      <%= image_tag 'banner_newversion_tilil.png' %>
-      <div class="gaps size-1x d-none d-md-block"></div>
-      <ul class="btns animated" data-animate="fadeInUp" data-delay="1.45">
-        <li>
-          <p class="text-center">
-            <%= image_tag 'banners/no1.jpg' %>
-          </p>
-        </li>
-        <li>
-          <p class="text-center">
-            <%= image_tag 'banners/no2.jpg' %>
-          </p>
-        </li>
-        <li>
-          <p class="text-center">
-            <%= image_tag 'banners/no3.jpg' %>
-          </p>
-        </li>
-        <li>
-          <p class="text-center">
-            <%= image_tag 'banners/no4.jpg' %>
-          </p>
-        </li>
-      </ul>
-    </div>
-    <!-- .container  -->
-    <ul class="hr-social hr-social-mid animated" data-animate="fadeIn" data-delay="1.55">
-      <li><a href="#" target="blank"><em class="fab fa-facebook-f"></em></a></li>
-      <li><a href="#" target="blank"><em class="fab fa-twitter"></em></a></li>
-      <li><a href="#" target="blank"><em class="fab fa-telegram"></em></a></li>
-      <!-- <li><a href="#"><em class="fab fa-youtube"></em></a></li>
-      <li><a href="#"><em class="fab fa-github"></em></a></li>
-      <li><a href="#"><em class="fab fa-bitcoin"></em></a></li>
-      <li><a href="#"><em class="fab fa-medium-m"></em></a></li> -->
-    </ul>
-  </div>
-  <!-- End Banner/Slider -->
-
-</header>
-
-<div class="gaps size-6x d-md-none"></div>
-<div class="gaps size-3x"></div>
-<!-- End Header -->
-
-
-<!-- Start Section -->
-<div class="sub-container coin-status pb-5">
-  <div class="container">
-    <div class="market-swith-container">
-        <a data-name="all" href="javascript:;" onclick='show_markets(this)' class="active" >
-          <%= t('.all_html') %>
-        </a>
-      <% swith_coins.each do |coin| %>
-        <a data-name="<%= coin %>" href="javascript:;" onclick='show_markets(this)' >
-          <%= t('.ccy_html', currency: coin.upcase) %>
-        </a>
-      <% end %>
-    </div>
-    <div class="table-content">
-      <table id="marketListTable">
-        <thead>
-          <tr>
-            <th>Pairs</th>
-            <th>Last Price</th>
-            <th>Change %</th>
-            <th class="sm-hidden">High</th>
-            <th class="sm-hidden">Low</th>
-            <th class="sm-hidden">24H Vol</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% gon.markets.each do |market| %>
-            <tr class="markets-toggle" id="market-list-<%= market[1]['id'] %>" data-quote-unit="<%= market[1]['bid_unit'] %>" data-base-unit="<%= market[1]['ask_unit'] %>" data-market="<%= market[1][:id] %>">
-              <td>
-                <%= gon.tickers[market[0]][:name] %>
-              </td>
-              <td>
-                <%= gon.tickers[market[0]][:last] %>
-              </td>
-              <td>
-                <%= price_change(gon.tickers[market[0]][:open], gon.tickers[market[0]][:last]) %>
-              </td>
-              <td class="sm-hidden">
-                <%= gon.tickers[market[0]][:high] %>
-              </td>
-              <td class="sm-hidden">
-                <%= gon.tickers[market[0]][:low] %>
-              </td>
-              <td class="sm-hidden">
-                <%= gon.tickers[market[0]][:volume] %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
+<!-- loader -->
+<div class="bg_load">
+  <%= image_tag 'updates/loader.png', class: 'loader_animation', alt: '#' %>
 </div>
-
-<script>
-  function show_markets(target) {
-    var ask_coin = $(target).attr('data-name');
-    if (ask_coin == 'all') {
-      $('.markets-toggle').removeClass('hide');
-      $('.market-swith-container a').removeClass('active');
-      $(target).addClass('active');
-      $('#marketListTable_info').show();
-      $('#marketListTable_paginate').show();
-    } else {
-      $('.markets-toggle').addClass('hide');
-      $('.markets-toggle[data-quote-unit="' + ask_coin + '"]').removeClass('hide');
-      $('.market-swith-container a').removeClass('active');
-      $(target).addClass('active');
-      $('#marketListTable_info').hide();
-      $('#marketListTable_paginate').hide();
-    }
-  }
-  $('#marketListTable').DataTable({
-    language: { search: "" },
-  });
-</script>
-<!-- End Section -->
-
-
-<!-- Start Section -->
-<div class="h-app-down">
-  <div class="container">
-    <div class="listshow">
-      <div class="list-ld">
-        <h1>IOS and Android app</h1> 
-        <!-- <h3>No need to login with browserMac OS/windowsSystem</h3> 
-        <div class="list-icon">
-          <div class="list-icon-btn">
-            <a href="#">
-              <i class="fab fa-windows"></i>
-              <span>Win32Bit</span>
-            </a>
-          </div> 
-          <div class="list-icon-btn">
-            <a href="#">
-              <i class="fab fa-windows"></i>
-              <span>Win64Bit</span>
-            </a>
-          </div> 
-          <div class="list-icon-btn">
-            <a href="#">
-              <i class="fab fa-apple"></i>
-              <span>Mac</span>
-            </a>
-          </div>
-        </div>  -->
-        <h3><span>Download Gigaex APP</span>  Perfect, Supports all functions</h3> 
-        <div class="download-btn-wrap clearfix">
-          <div class="download-btn-item">
-            <a href="#">
-              <i class="fab fa-apple" style="left: -28px;"></i>
-              <span>IOS</span>
-            </a>
-          </div> 
-          <!-- <div class="download-btn-item">
-            <a href="#">
-              <i class="fab fa-apple" style="left: -6px;"></i>
-              <span>App Store</span>
-            </a>
-          </div>  -->
-          <div class="download-btn-item">
-            <a href="#">
-              <i class="fab fa-android" style="left: -14px;"></i>
-              <span>Android</span>
-            </a>
-          </div> 
-          <!-- <div class="download-btn-item">
-            <a href="#">
-              <i class="fab fa-google"></i>
-              <span>Google play</span>
-            </a>
-          </div> -->
-        </div> 
-        <!-- <img src="https://vip.zb.com/service/qrcode?code=https://www.beta.gigaex.io&amp;width=72&amp;height=72" alt="" class="code-paper"> -->
-      </div> 
-      <%= image_tag 'app-bg.png', class: 'app-bg' %>
-      <%= image_tag 'pc-bg.png', class: 'pc-bg' %>
-    </div>
-  </div>
-</div>
-<!-- End Section -->
-
-
-<!-- Start Section -->
-<div class="h-introduce">
-  <div class="container">
-    <div class="list">
-      <div class="pic-show">
-        <%= image_tag 'home-n-pic1.png' %>
-      </div> 
-      <h4>Spot/Margin Trading</h4> 
-      <p>
-        Support multiple coins trading and high liquid markets
-        <br> Support 3x leverage trading and High-performance matching trading
-      </p>
-    </div>
-    <div class="list">
-      <div class="pic-show">
-        <%= image_tag 'home-n-pic2.png' %>
-      </div> 
-      <h4>
-        OTC
-      </h4> 
-      <p>
-        Support multiple fiat currency tradings
-        <br>Platform guarantees, fast and secure
-      </p>
-    </div>
-    <div class="list">
-      <div class="pic-show">
-        <%= image_tag 'home-n-pic3.png' %>
-      </div> 
-      <h4>
-        Financial security systems
-      </h4> 
-      <p>
-        Multi-level and multi-cluster system architecture
-        <br>More than 4 years of safe, stable infrastructure operating
-      </p>
-    </div>
-    <div class="list">
-      <div class="pic-show">
-        <%= image_tag 'home-n-pic4.png' %>
-      </div> 
-      <h4>
-        Professional customer service
-      </h4> 
-      <p>
-        24 hour online customer service has served millions of users
-        <br>Quick response to user’s questions
-      </p>
-    </div>
-  </div>
-</div>
-<!-- End Section -->
-
-<!-- Start Section -->
-<div class="listing" >
-  <div class="container">
-    <h2>
-      Submit your Token for Listing
-      <a href="#">Start Listing Process</a>
-    </h2>
-    <h2>
-      Start Trading Today!
-      <a href="/accounts/sign_up">Sign Up</a>
-    </h2>
-    <p>
-      Already have an account? 
-      <a href="/accounts/sign_in">Log in</a>
-    </p>
-    <div class="listing-footer">
-      <p>
-        As a verified user of this site you will be able to trade.
-      </p>
-    </div>
-  </div>
-</div>
-<!-- End Section -->
-
-<!-- Start Section -->
-<div class="section section-pad-md section-bg-alt" id="contact">
-   <div class="ui-shape ui-shape-s7"></div>
-   <div class="container">
-      <div class="row text-center">
-         <div class="col">
-            <div class="section-head-s7">
-               <h2 class="section-title-s7 animated" data-animate="fadeInUp" data-delay=".1">Contact GIGAEX</h2>
-               <p class="animated" data-animate="fadeInUp" data-delay=".2">Any question? Reach out to us and we’ll get back to you shortly.</p>
-            </div>
-         </div>
-         <!-- .col -->
-      </div>
-      <!-- .row -->
-      <div class="row justify-content-center">
-         <div class="col-lg-8">
-            <ul class="contact-info">
-               <li class="animated" data-animate="fadeInUp" data-delay=".3"><em class="fa fa-envelope"></em><span>info@gigaex.io</span></li>
-               <li class="animated" data-animate="fadeInUp" data-delay=".4"><em class="fa fa-envelope"></em><span>sale@gigaex.io</span></li>
-               <li class="animated" data-animate="fadeInUp" data-delay=".5"><em class="fa fa-paper-plane"></em><span>Join us on Telegram</span></li>
+<!-- end loader -->
+<!-- header -->
+<header id="default_header" class="header_style_1">
+  <div class="header_top">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <div class="full">
+            <ul class="pull-left header_top_menu cutomer_ser">
+              <li><a href="#"><i class="fa fa-life-ring" aria-hidden="true"></i> Customer Support</a></li>
+              <li><a href="#"><i class="fa fa-pie-chart"></i> Trading Fees: 0.05% Taker / -0.54% Market</a></li>
             </ul>
-         </div>
-         <!-- .col -->
-      </div>
-      <!-- .row -->
-   </div>
-   <!-- .container -->
-</div>
-<!-- End Section -->
-
-<!-- Start Section -->
-<div class="section footer-section section-pad-md no-pb">
-  <div class="ui-shape ui-shape-light ui-shape-footer"></div>
-  <div class="container">
-    
-    <div class="row">
-      <div class="col-xs-3">
-        <div class="bk-footer-contact">
-          <h5>
-            <a href="/" target="_self" class="logo">
-              <%= image_tag 'blue.png' %>
-              <%= image_tag 'white.png', style: "height:56px;width:130px;margin-bottom:20px;" %>
-            </a>
-          </h5>
-          <p class="sns">
-            <a href="#" role="button" data-toggle="popover" data-placement="top" data-html="true" data-trigger="hover" data-content="Facebook" data-original-title="" title="">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" target="_blank" role="button" data-toggle="popover" data-placement="top" data-html="true" data-trigger="hover" data-content="Twitter" data-original-title="" title="">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" target="_blank" role="button" data-toggle="popover" data-placement="top" data-html="true" data-trigger="hover" data-content="Telegram" data-original-title="" title="">
-              <i class="fab fa-telegram-plane"></i>
-            </a>
-          </p>
-        </div>
-      </div>
-      <div class="col-xs-6">
-        <div class="col-xs-6">
-          <div class="bk-footer-contact">
-            <h5>
-              UTILITY
-            </h5>
-            <p class="link">
-              <a href="/api" target="_blank">
-                API
-              </a>
-            </p>
-            <p class="link">
-              <a href="/mobile_app" target="_blank">
-                Mobile App
-              </a>
-            </p>
           </div>
         </div>
-        <div class="col-xs-6">
-          <div class="bk-footer-contact">
-            <h5>
-              Customer Service
-            </h5>
-            <p class="link">
-              <a href="/help_center" target="_blank">
-                Help Center
-              </a>
-            </p>
-            <p class="link">
-              <a href="/faq" target="_blank">
-                FAQ
-              </a>
-            </p>
-            <p class="link">
-              <a href="/terms" target="_blank">
-                Term of use
-              </a>
-            </p>
-            <p class="link">
-              <a href="/fees" target="_blank">
-                Fees
-              </a>
-            </p>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="full">
+            <ul class="pull-right header_top_menu user_login">
+              <li><a href="/accounts/sign_in"><i class="fa fa-sign-in"></i> Login</a></li>
+              <li><a href="/accounts/sign_up"><i class="fa fa-lock"></i> Register</a></li>
+            </ul>
           </div>
         </div>
       </div>
-      <div class="col-xs-3">
-        <div class="bk-footer-contact">
-          <h5>
-            Contact Us
-          </h5>
-          <p class="contlink">
-            Service：<a href="mail:support@gigaex.io" target="_self">support@gigaex.io</a>
-          </p>
-          <p class="contlink">
-            Business：<a href="mail:info@gigaex.io" target="_self">info@gigaex.io</a>
-          </p>
-          <p class="contlink">
-            Listing Cryptocurrency Request：<a href="mail:listing@gigaex.io" target="_self">listing@gigaex.io</a>
-          </p>
-        </div>
-      </div>
-    </div>
-    <!-- end row -->
-
-    <div class="footer-bottom">
-       <div class="row align-items-center">
-          <div class="col-sm-6 res-m-bttm">
-
-          </div>
-          <div class="col-sm-6 text-sm-right">
-             <span class="copyright-text"> &copy; 2017 - 2018 Gigaex.io. All rights reserved</span>
-          </div>
-       </div>
     </div>
   </div>
-  <!-- .container -->
+  <div class="container">
+    <div class="row">
+      <div class="full">
+        <div class="col-md-2 col-sm-3 col-xs-12">
+          <!-- logo -->
+          <div class="logo">
+            <a href="./"><%= image_tag 'updates/logo.png', class: 'img-responsive', alt: 'logo' %></a>
+          </div>
+          <!-- end logo -->
+        </div>
+        <div class="col-md-7 col-sm-9 col-xs-12">
+          <!-- menu -->
+          <div class="main_menu">
+            <div id="cssmenu" class="dark_menu">
+              <ul>
+                <li>
+                  <a href="./">Home</a>
+                </li>
+                <li>
+                  <a href="/trading/ethbtc">Market</a>
+                </li>
+                <li>
+                  <a href="#">Add Bitcoin / Token</a>
+                </li>
+                <li>
+                  <a href="#">IEO</a>
+                </li>
+                <li>
+                  <a href="#">News</a>
+                </li>
+                <li>
+                  <a href="#">Earn</a>
+                  <ul>
+                    <li><a href="#">Coin / Token Lending</a></li>
+                    <li><a href="#">Staking Program</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- end menu -->
+        </div>
+        <div class="col-md-3 hidden-sm col-xs-12">
+          <!-- right header section -->
+          <ul class="social-links">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+          </ul>
+          <div class="search_bar">
+            <button type="button" class="search_btn" data-toggle="modal" data-target="#search_form"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </div>
+          <!-- end right header section -->
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- end header -->
+<!-- market value slider -->
+<section id="main-content">
+  <div id="demos">
+    <h3 style="display:none;">heading</h3>
+  </div>
+</section>
+<!-- market value slider end -->
+<!-- full slider parallax section -->
+<section id="full_slider" class="full_slider_inner padding_0">
+  <div class="main_slider">
+    <div id="bootstrap-touch-slider" class="carousel bs-slider slide  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000">
+      <!-- Wrapper For Slides -->
+      <div class="carousel-inner" role="listbox">
+        <!-- first Slide -->
+        <div class="item active">
+          <!-- Slide Background -->
+          <%= image_tag 'updates/slider_img2.jpg', class: 'slide-image', alt: 'Bootstrap Touch Slider' %>
+          <div class="container">
+            <div class="row">
+              <!-- Slide Text Layer -->
+              <div class="slide-text slide_style_left white_fonts">
+                <h2 data-animation="animated">Archidax <span style="color: #e9d16f;">Exchange</span><br>Digital Asset<br>Market & Trade</h2>
+                <a href="/accounts/sign_up" class="btn btn-default active">Get started</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of Slide -->
+        <!-- second Slide -->
+        <div class="item">
+          <!-- Slide Background -->
+          <%= image_tag 'updates/slider_img1.jpg', class: 'slide-image', alt: 'Bootstrap Touch Slider' %>
+          <div class="container">
+            <div class="row">
+              <!-- Slide Text Layer -->
+              <div class="slide-text slide_style_left white_fonts">
+                <h2 data-animation="animated">Archidax <span style="color: #e9d16f;">Exchange</span><br>Digital Asset<br>Market & Trade</h2>
+                <a href="/accounts/sign_up" class="btn btn-default active">Get started</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- second of Slide -->
+      </div>
+      <!-- End of Wrapper For Slides -->
+      <!-- Left Control -->
+      <a class="left carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="prev">
+        <span class="fa fa-angle-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <!-- Right Control -->
+      <a class="right carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="next">
+        <span class="fa fa-angle-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <!-- End  bootstrap-touch-slider Slider -->
+  </div>
+</section>
+<!-- end full slider parallax section -->
+<!-- section -->
+<section class="layout_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="full our_work_type">
+          <div class="center"><%= image_tag 'updates/icon_1.png', alt: '#' %></div>
+          <div class="center">
+            <h4>Licensed in Luxembourg</h4>
+          </div>
+          <div class="center">
+            <p>Taking the time to manage your money really pay off.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="full our_work_type">
+          <div class="center"><%= image_tag 'updates/icon_2.png', alt: '#' %></div>
+          <div class="center">
+            <h4>No Hidden Fees</h4>
+          </div>
+          <div class="center">
+            <p>Taking the time to manage your money really pay off.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="full our_work_type">
+          <div class="center"><%= image_tag 'updates/icon_3.png', alt: '#' %></div>
+          <div class="center">
+            <h4>Instant Trading</h4>
+          </div>
+          <div class="center">
+            <p>Taking the time to manage your money really pay off.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="full our_work_type">
+          <div class="center"><%= image_tag 'updates/icon_4.png', alt: '#' %></div>
+          <div class="center">
+            <h4>Secure and Transparent</h4>
+          </div>
+          <div class="center">
+            <p>Taking the time to manage your money really pay off.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- end section -->
+<!-- section -->
+<section class="layout_padding dark_bg white_fonts">
+  <div id="particles-js"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="full">
+          <div class="heading_main">
+            <h2><span>Archidax Exchange</span></h2>
+            <p>Investments and employment of the Blockchain Technologies. Optimize your business<br>case with blockchain technology and Smart Contracts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-top:20px;">
+
+      <div class="col-md-12 col-sm-12 col-xs-12" style="height: 320px;">
+
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- end section -->
+<section class="trading_view_data content_bg_new">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="full">
+          <div class="heading_main">
+            <h2><span>Trading Time</span></h2>
+            <p>Archidax is a convenient, reliable and secure exchange platform for trading digital assets using fiat currencies</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container" style="margin: 0 auto;">
+          <div class="tradingview-widget-container__widget"></div>
+          <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/cryptocurrencies/prices-all/" rel="noopener" target="_blank"><span class="blue-text">Cryptocurrency Markets</span></a> by TradingView</div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+              {
+                  "width": 1000,
+                  "height": 490,
+                  "defaultColumn": "overview",
+                  "screener_type": "crypto_mkt",
+                  "displayCurrency": "BTC",
+                  "colorTheme": "dark",
+                  "locale": "en",
+                  "isTransparent": true
+              }
+          </script>
+        </div>
+        <!-- TradingView Widget END -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer" class="footer_main">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="footer_logo">
+          <%= image_tag 'updates/logo.png', alt: '#' %>
+        </div>
+        <p class="footer_desc">Investments and employment Blockchain Technologies. Optimize your business blockchain technology and Smart Contracts.</p>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="main-heading left_text">
+          <h2>Quick links</h2>
+        </div>
+        <ul class="footer-menu" style="width:100%;">
+          <li><a href="./"><i class="fa fa-angle-right"></i> Home</a></li>
+          <li><a href="/trading/ethbtc"><i class="fa fa-angle-right"></i> Market</a></li>
+          <li><a href="#"><i class="fa fa-angle-right"></i> Add Bitcoin/Token</a></li>
+          <li><a href="#"><i class="fa fa-angle-right"></i> IEO</a></li>
+          <li><a href="#"><i class="fa fa-angle-right"></i> News</a></li>
+          <li><a href="#"><i class="fa fa-angle-right"></i> Earn</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <!--<div class="main-heading left_text">
+            <h2>Contact us</h2>
+        </div>
+        <p>123 Second Street Fifth Avenue,<br>Manhattan, New York<br><span style="font-size:18px;"><a href="tel:+00412584896587">+00 41 258 489 6587</a></span><br><a href="emailto:info@demo.com">info@demo.com</a></p>-->
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="main-heading left_text">
+          <h2>Newsletter Signup</h2>
+        </div>
+        <p style="font-size: 17px;line-height: 24px;margin: 0;letter-spacing: 0px;">Get latest updates, news, surveys & offers</p>
+        <div class="footer_mail-section" style="width: 90%;">
+          <form>
+            <fieldset>
+              <div class="field">
+                <input placeholder="Email" type="text">
+                <button class="button_custom"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12 pull-left">
+        <p class="text-center">Archidax Exchange. 2020 All Rights Reserved.</p>
+      </div>
+    </div>
+  </div>
 </div>
-<!-- End Section -->
-<!-- Preloader !remove please if you do not want -->
-<div id="preloader">
-   <div id="loader"></div>
-   <div class="loader-section loader-top"></div>
-   <div class="loader-section loader-bottom"></div>
-</div>
-<!-- Preloader End -->
-<!-- The Modal -->
-<div id="myModal" class="modal">
-   <!-- Modal content -->
-   <div class="modal-content">
-      <span class="close">&times;</span>
-      <%= image_tag("transaction-fee.png", alt:"cover") %>
-   </div>
+<!-- search form -->
+<!-- Modal -->
+<div class="modal fade" id="search_form" role="dialog">
+  <button type="button" class="cross_btn close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+  <div class="search_bar_inner">
+    <form class="search_bar_inner_form" action="./">
+      <div class="field_form">
+        <input type="text" placeholder="Search" />
+        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+      </div>
+    </form>
+  </div>
 </div>

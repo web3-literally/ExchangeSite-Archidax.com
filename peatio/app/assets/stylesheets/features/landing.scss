@@ -8,8 +8,8 @@
 }
 
 .btns li {
-  width: 220px;
-  height: 122px;
+  width: 285px;
+  height: 175px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,12 +149,12 @@
 
 .io-zinnia .footer-section {
   background-image: none;
-  background-color: rgb(44, 37, 36);
+  background-color: #101b2f;
   color: #979ca0;
 }
 
 .io-zinnia .site-header.has-fixed .navbar {
-	background-color: rgb(44, 37, 36);
+	background-color: #101b2f;
 }
 
 .io-zinnia .site-header.has-fixed .navbar-nav > li > a {
@@ -162,7 +162,7 @@
 }
 
 img.logo-icon {
-  width: 32px !important;
+  width: 50px !important;
 }
 
 .btns.animated {
@@ -310,7 +310,7 @@ img.logo-icon {
   }
 
   a img:first-child {
-    width: 40px;
+    width: 65px;
   }
 
   .bk-footer-contact .sns a {

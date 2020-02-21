@@ -460,7 +460,7 @@ body, p, ul, li, div, a {
   font-size: 13px;
   white-space: nowrap;
   user-select: none;
-  background: image-url('header_background.png') left center repeat-x rgb(38, 38, 38);
+  //background: image-url('header_background.png') left center repeat-x #101b2f;
 }
 
 .navbar-expand-md {
@@ -486,12 +486,12 @@ header .navbar-brand {
 header .nav-img {
   width: 160px;
   vertical-align: middle;
-  left: 30px;
+  left: 45px;
   max-height: 40px;
 }
 
 header .nav-icon {
-  width: 26px;
+  width: 50px;
 }
 
 .btn.btn-secondary.dropdown-toggle {

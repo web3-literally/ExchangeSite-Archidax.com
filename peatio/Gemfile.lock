@@ -243,7 +243,6 @@ GEM
     parallel (1.12.1)
     parser (2.5.3.0)
       ast (~> 2.4.0)
-    passgen (1.0.2)
     peatio (0.4.4)
       amqp
       bunny
@@ -464,7 +463,6 @@ DEPENDENCIES
   omniauth-barong (~> 0.1.4)
   omniauth-google-oauth2 (~> 0.5.3)
   omniauth-referral-barong (~> 0.1.4)
-  passgen (~> 1.0.2)
   peatio (~> 0.4.3)
   pry-byebug (~> 3.6)
   puma (~> 3.11.4)

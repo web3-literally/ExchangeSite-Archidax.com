@@ -7,6 +7,7 @@
 </audio>
 
 <%= render partial: 'header' %>
+
 <div id="wrap">
   <div class="left-column">
     <div class="top-left-column">
@@ -46,13 +47,20 @@
             <li class="active" data-name="market" id="active_market"><span>Market</span></li>
             <li data-name="limit" id="active_limit"><span>Limit</span></li>
           </ul>
-          <ul class="ml-auto">
+        </div>
+        <div class="place-order-boxes-continer">
+          <%= render partial: 'bid_entry', locals: { market: @data.fetch(:current_market) } %>
+        </div>
+      </div>
+
+      <div class="place-order-container">
+        <div class="place-order-type">
+          <ul>
             <li class="active" data-name="buy" id="buy_form"><span>Buy</span></li>
             <li data-name="sell" id="sell_form"><span>Sell</span></li>
           </ul>
         </div>
         <div class="place-order-boxes-continer">
-          <%= render partial: 'bid_entry', locals: { market: @data.fetch(:current_market) } %>
           <%= render partial: 'ask_entry', locals: { market: @data.fetch(:current_market) } %>
         </div>
       </div>
@@ -60,3 +68,5 @@
   </div>
 
 </div>
+
+<%= render partial: 'footer' %>

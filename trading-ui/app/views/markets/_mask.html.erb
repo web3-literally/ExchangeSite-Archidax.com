@@ -1,5 +1,7 @@
 <% unless @data[:current_member] %>
   <div class="mask">
-    <p class="text-center"><%= t('.warning', frontend_url: ENV['FRONTEND_ROOT_URL']).html_safe %></p>
+    <a href="<%= t('.login_url') %>">Login</a>
+    <a href="<%= t('.register_url') %>">Register</a>
+<!--    <p class="text-center"><%#= t('.warning', frontend_url: ENV['FRONTEND_ROOT_URL']).html_safe %></p>-->
   </div>
 <% end %>
