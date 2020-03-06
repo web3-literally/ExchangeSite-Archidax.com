@@ -1,103 +1,152 @@
-<div class="page-sidebar fixedscroll">
+<!--<div class="page-sidebar fixedscroll">-->
+    <!-- MAIN MENU - START -->
+<!--    <div class="page-sidebar-wrapper crypto ps-container ps-active-y" id="main-menu-wrapper" style="height: 526px;">-->
 
-        <!-- MAIN MENU - START -->
-        <div class="page-sidebar-wrapper crypto ps-container ps-active-y" id="main-menu-wrapper" style="height: 526px;">
+<!--        <ul class="wraplist" style="height: auto;">-->
+<!--            <li class="menusection">Main</li>-->
+<!--            <li class="">-->
+<!--                <a href="/dashboard">-->
+<!--                    <i class="img relative crypto-ic ">-->
+                        <%#= image_tag 'crypto-dash/icons/1.png', class: "ic1 width-20" %>
+<!--                    </i>-->
+<!--                    <span class="title">Dashboard</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="">-->
+<!--                <a href="/funds">-->
+<!--                    <i class="img">-->
+                        <%#= image_tag 'crypto-dash/icons/2.png', class: "width-20" %>
+<!--                    </i>-->
+<!--                    <span class="title">Crypto Wallet</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="">-->
+<!--                <a href="#">-->
+<!--                    <i class="img">-->
+                        <%#= image_tag 'crypto-dash/icons/6.png', class: "width-20" %>
+<!--                    </i>-->
+<!--                    <span class="title">Buy &amp; Sell</span>-->
+<!--                </a>-->
+<!--            </li>-->
+            <%# if is_admin? %>
+<!--                <li class="">-->
+<!--                    <a href="<%#= admin_dashboard_path %>">-->
+<!--                        <i class="img">-->
+                            <%#= image_tag 'crypto-dash/icons/4.png', class: "width-20" %>
+<!--                        </i>-->
+<!--                        <span class="title">ICO Admin</span>-->
+<!--                    </a>-->
+<!--                </li>-->
+            <%# end %>
+<!--            <li class="">-->
+<!--                <a href="#">-->
+<!--                    <i class="img">-->
+                        <%#= image_tag 'crypto-dash/icons/8.png', class: "width-20" %>
+<!--                    </i>-->
+<!--                    <span class="title">Affiliate Program</span>-->
+<!--                </a>-->
+<!--            </li>-->
 
-            <ul class="wraplist" style="height: auto;">
-                <li class="menusection">Main</li>
-                <li class="">
-                    <a href="/dashboard">
-                        <i class="img relative crypto-ic ">
-                            <%= image_tag 'crypto-dash/icons/1.png', class: "ic1 width-20" %>
-                        </i>
-                        <span class="title">Dashboard</span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="/funds">
-                        <i class="img">
-                            <%= image_tag 'crypto-dash/icons/2.png', class: "width-20" %>
-                        </i>
-                        <span class="title">Crypto Wallet</span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="#">
-                        <i class="img">
-                            <%= image_tag 'crypto-dash/icons/6.png', class: "width-20" %>
-                        </i>
-                        <span class="title">Buy &amp; Sell</span>
-                    </a>
-                </li>
-                <% if is_admin? %>
-                    <li class="">
-                        <a href="<%= admin_dashboard_path %>">
-                            <i class="img">
-                                <%= image_tag 'crypto-dash/icons/4.png', class: "width-20" %>
-                            </i>
-                            <span class="title">ICO Admin</span>
-                        </a>
-                    </li>
-                <% end %>
-                <li class="">
-                    <a href="#">
-                        <i class="img">
-                            <%= image_tag 'crypto-dash/icons/8.png', class: "width-20" %>
-                        </i>
-                        <span class="title">Affiliate Program</span>
-                    </a>
-                </li>
+<!--            <li class="">-->
+<!--                <a href="<%#= order_history_path %>">-->
+<!--                    <i class="img">-->
+                        <%#= image_tag 'crypto-dash/icons/6.png', class: "width-20" %>
+<!--                    </i>-->
+<!--                    <span class="title">My Hisotry</span>-->
+<!--                </a>-->
+<!--            </li>-->
 
-                <li class="">
-                    <a href="<%= order_history_path %>">
-                        <i class="img">
-                            <%= image_tag 'crypto-dash/icons/6.png', class: "width-20" %>
-                        </i>
-                        <span class="title">My Hisotry</span>
-                    </a>
-                </li>
+<!--            <li class="">-->
+<!--                <a href="#">-->
+<!--                    <i class="img">-->
+                        <%#= image_tag 'crypto-dash/icons/12.png', class: "width-20" %>
+<!--                    </i>-->
+<!--                    <span class="title">Support</span>-->
+<!--                </a>-->
+<!--            </li>-->
 
-                <li class="">
-                    <a href="#">
-                        <i class="img">
-                            <%= image_tag 'crypto-dash/icons/12.png', class: "width-20" %>
-                        </i>
-                        <span class="title">Support</span>
-                    </a>
-                </li>
+<!--            <li class="">-->
+<!--                <a href="/settings">-->
+<!--                    <i class="img">-->
+                        <%#= image_tag 'crypto-dash/icons/11.png', class: "ic1 width-20" %>
+<!--                    </i>-->
+<!--                    <span class="title">Settings</span>-->
+<!--                </a>-->
+<!--            </li>-->
 
-                <li class="">
-                    <a href="/settings">
-                        <i class="img">
-                            <%= image_tag 'crypto-dash/icons/11.png', class: "ic1 width-20" %>
-                        </i>
-                        <span class="title">Settings</span>
-                    </a>
-                </li>
+<!--            <li class="">-->
+<!--                <a href="javascript:;">-->
+<!--                    <i class="img">-->
+                        <%#= image_tag 'crypto-dash/icons/9.png', class: "width-20" %>
+<!--                    </i>-->
+<!--                    <span class="title">Access Pages</span>-->
+<!--                    <span><i class="fas fa-angle-left"></i></span>-->
+<!--                </a>-->
+<!--                <ul class="sub-menu">-->
+<!--                    <li>-->
+<!--                        <a class="" href="/accounts/sign_in">Login</a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a class="" href="/accounts/sign_up">Registration</a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--        </ul>-->
 
-                <li class="">
-                    <a href="javascript:;">
-                        <i class="img">
-                            <%= image_tag 'crypto-dash/icons/9.png', class: "width-20" %>
-                        </i>
-                        <span class="title">Access Pages</span>
-                        <span><i class="fas fa-angle-left"></i></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a class="" href="/accounts/sign_in">Login</a>
-                        </li>
-                        <li>
-                            <a class="" href="/accounts/sign_up">Registration</a>
-                        </li>
-                    </ul>
-                </li>
+<!--    <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 526px; right: 3px;"><div class="ps-scrollbar-y" style="top: 0px; height: 276px;"></div></div></div>-->
+    <!-- MAIN MENU - END -->
+
+    <%#= javascript_include_tag 'dashboard/perfect-scrollbar.min.js' %>
+    <%#= javascript_include_tag 'dashboard/swiper' %>
+    <%#= javascript_include_tag 'dashboard/scripts.js' %>
+<!--</div>-->
+
+<!-- Left Sidenav -->
+<div class="left-sidenav">
+  <div class="main-icon-menu">
+    <nav class="nav">
+      <a href="#ArchidaxMenu" class="nav-link leftmenu-sm-item bg-pink shadow-pink" data-toggle="tooltip-custom" data-placement="right" title="" data-original-title="Analytics">
+        <svg class="nav-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+          <g>
+            <path d="M184,448h48c4.4,0,8-3.6,8-8V72c0-4.4-3.6-8-8-8h-48c-4.4,0-8,3.6-8,8v368C176,444.4,179.6,448,184,448z"/>
+            <path class="svg-primary" d="M88,448H136c4.4,0,8-3.6,8-8V296c0-4.4-3.6-8-8-8H88c-4.4,0-8,3.6-8,8V440C80,444.4,83.6,448,88,448z"/>
+            <path class="svg-primary" d="M280.1,448h47.8c4.5,0,8.1-3.6,8.1-8.1V232.1c0-4.5-3.6-8.1-8.1-8.1h-47.8c-4.5,0-8.1,3.6-8.1,8.1v207.8
+                                        C272,444.4,275.6,448,280.1,448z"/>
+            <path d="M368,136.1v303.8c0,4.5,3.6,8.1,8.1,8.1h47.8c4.5,0,8.1-3.6,8.1-8.1V136.1c0-4.5-3.6-8.1-8.1-8.1h-47.8
+                                        C371.6,128,368,131.6,368,136.1z"/>
+          </g>
+        </svg>
+      </a><!--end MetricaAnalytic-->
+    </nav><!--end nav-->
+  </div><!--end main-icon-menu-->
+
+  <div class="main-menu-inner">
+    <div class="menu-body slimscroll">
+      <div id="ArchidaxMenu" class="main-icon-menu-pane active">
+        <div class="title-box">
+          <h6 class="menu-title">Main</h6>
+        </div>
+        <ul class="nav metismenu" id="main_menu_side_nav">
+          <li class="nav-item"><a class="nav-link" href="/dashboard"><i class="dripicons-meter"></i>Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="/funds"><i class="dripicons-wallet"></i>Crypto Wallet</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="dripicons-basket"></i>Buy & Sell</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-history"></i>IEO History</a></li>
+          <li class="nav-item"><a class="nav-link" href="<%= admin_dashboard_path %>"><i class="fas fa-chart-bar"></i>Admin Access</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-rocketchat"></i>Affiliate Program</a></li>
+          <li class="nav-item"><a class="nav-link" href="<%= order_history_path %>"><i class="fas fa-history"></i>My History</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="dripicons-user"></i>Support</a></li>
+          <li class="nav-item"><a class="nav-link" href="/settings"><i class="mdi mdi-cogs"></i>Settings</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-window-restore"></i><span class="w-100">Access Page</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+            <ul class="nav-second-level" aria-expanded="true">
+              <li><a href="/accounts/sign_in">Login</a></li>
+              <li><a href="/accounts/sign_up">Register</a></li>
             </ul>
-
-        <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 526px; right: 3px;"><div class="ps-scrollbar-y" style="top: 0px; height: 276px;"></div></div></div>
-        <!-- MAIN MENU - END -->
-
-        <%= javascript_include_tag 'dashboard/perfect-scrollbar.min.js' %>
-        <%= javascript_include_tag 'dashboard/swiper' %>
-        <%= javascript_include_tag 'dashboard/scripts.js' %>
-    </div>
+          </li>
+        </ul><!--end nav-->
+      </div><!-- end Others -->
+    </div><!--end menu-body-->
+  </div><!-- end main-menu-inner-->
+</div>
+<!-- end left-sidenav-->

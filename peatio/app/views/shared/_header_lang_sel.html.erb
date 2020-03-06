@@ -1,12 +1,29 @@
-<li class="nav-item dropdown app-path" id="settings">
-  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-    <img src="/languages/<%= I18n.locale %>.png"/>
+<!--<li class="nav-item dropdown app-path" id="settings">-->
+<!--  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">-->
+<!--    <img src="/languages/<%#= I18n.locale %>.png"/>-->
+    <%#= I18n.locale == 'en'.to_sym ? 'English' : 'Korean' %>
+<!--  </a>-->
+<!--  <div id="languages" class="dropdown-menu">-->
+    <%# I18n.available_locales.each do |lang| %>
+<!--      <a class="dropdown-item" href="?lang=<%#= lang %>">-->
+<!--        <img src="/languages/<%#= lang || I18n.locale %>.png"/> <%#= (lang || I18n.locale).capitalize %>-->
+<!--      </a>-->
+    <%# end %>
+<!--  </div>-->
+<!--</li>-->
+
+
+<li class="hidden-sm">
+  <a class="nav-link dropdown-toggle waves-effect waves-light" data-toggle="dropdown"
+     href="javascript: void(0);" role="button" aria-haspopup="false" aria-expanded="false">
     <%= I18n.locale == 'en'.to_sym ? 'English' : 'Korean' %>
+    <img src="<%= image_path("languages/#{I18n.locale}.jpg") %>" class="ml-2" height="16" alt=""/> <i class="mdi mdi-chevron-down"></i>
   </a>
-  <div id="languages" class="dropdown-menu">
+  <div class="dropdown-menu dropdown-menu-right">
     <% I18n.available_locales.each do |lang| %>
-      <a class="dropdown-item" href="?lang=<%= lang %>">
-        <img src="/languages/<%= lang || I18n.locale %>.png"/> <%= (lang || I18n.locale).capitalize %>
+      <a class="dropdown-item" href="javascript: void(0);">
+        <span> <%= (lang || I18n.locale).capitalize %> </span>
+        <img src="<%= image_path("languages/#{lang || I18n.locale}.jpg") %>" alt="" class="ml-2 float-right" height="14"/>
       </a>
     <% end %>
   </div>

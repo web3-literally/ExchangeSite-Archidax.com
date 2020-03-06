@@ -1,58 +1,115 @@
-<header class="bg-dark">
-  <nav class="navbar navbar-expand-md navbar-dark" style="line-height: 2">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="<%= root_path %>">
-        <%= image_tag 'blue.png', class: 'nav-icon' %>
-        <img class="nav-img" src="<%= ENV['LOGO_URL'] || image_path('white.png') %>">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-navbar" aria-controls="top-navbar" aria-expanded="false" aria-label="Toggle navigation" style="line-height: inherit"><span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse" id="top-navbar">
-        <ul class="navbar-nav">
-          <div class="dropdown text-center hidden-sm">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag "th-solid.svg" %>
-            </button>
-          </div>
-          <li class="app-path">
-            <%= link_to 'Exchange', '/trading/ethbtc' %>
-          </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-          <% if current_user %>
-            <li class="app-path">
-              <%= link_to 'Funds', funds_path %>
-            </li>
-          <% end %>
-          <li class="app-path hidden-sm">
-            <%= link_to 'Support', '#' %>
-          </li>
-          <li class="app-path hidden-sm">
-            <%= link_to 'Notice', '#' %>
-          </li>
-          <% if current_user %>
-            <li class="account-info app-path">
-                <%= render partial: 'shared/header_profile_setting' %>
-            </li>
-          <% else %>
-            <li class="account-info">
-              <div class="signin-signup-container">
-                <% provider = ENV['OAUTH2_SIGN_IN_PROVIDER'] %>
-                <% unless provider.blank? %>
-                  <a href="/auth/<%= provider == 'google' ? 'google_oauth2' : provider %>" role="button">
-                    Log In
-                  </a>
-                  <span>
-                    or
-                    <%= link_to "Register", '/accounts/sign_up' %>
-                  </span>
-                <% end %>
-              </div>
-            </li>
-          <% end %>
-          <%= render partial: 'shared/header_lang_sel' %>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-</header>
+<!-- Top Bar Start -->
+<div class="topbar">
+
+  <!-- LOGO -->
+  <div class="topbar-left">
+    <a href="<%= root_path %>" class="logo">
+      <span><img src="<%= image_path('logo_archidax.png') %>" alt="logo-small" style="width: 155px;"></span>
+    </a>
+  </div>
+  <!--end logo-->
+  <!-- Navbar -->
+  <nav class="navbar-custom">
+    <ul class="list-unstyled topbar-nav float-right mb-0">
+      <% if current_user %>
+        <li>
+          <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="<%= funds_path %>" role="button"
+             aria-haspopup="false" aria-expanded="false">
+            <span class="ml-1 nav-user-name hidden-sm">Funds</span>
+          </a>
+        </li>
+      <% end %>
+      <li>
+        <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+           aria-haspopup="false" aria-expanded="false">
+          <span class="ml-1 nav-user-name hidden-sm">Support</span>
+        </a>
+      </li>
+      <li style="border-right: 2px solid #151833;">
+        <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+           aria-haspopup="false" aria-expanded="false">
+          <span class="ml-1 nav-user-name hidden-sm">Notice</span>
+        </a>
+      </li>
+
+      <%= render partial: 'shared/header_lang_sel' %>
+
+      <li class="dropdown notification-list">
+        <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button"
+           aria-haspopup="false" aria-expanded="false">
+          <i class="dripicons-bell noti-icon"></i>
+          <span class="badge badge-danger badge-pill noti-icon-badge">2</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-lg">
+          <!-- item-->
+          <h6 class="dropdown-item-text">
+            Notifications (18)
+          </h6>
+          <div class="slimscroll notification-list">
+            <!-- item-->
+            <a href="javascript:void(0);" class="dropdown-item notify-item active">
+              <div class="notify-icon bg-success"><i class="mdi mdi-cart-outline"></i></div>
+              <p class="notify-details">Your order is placed<small class="text-muted">Dummy text of the printing and typesetting industry.</small></p>
+            </a>
+            <!-- item-->
+            <a href="javascript:void(0);" class="dropdown-item notify-item">
+              <div class="notify-icon bg-warning"><i class="mdi mdi-message"></i></div>
+              <p class="notify-details">New Message received<small class="text-muted">You have 87 unread messages</small></p>
+            </a>
+            <!-- item-->
+            <a href="javascript:void(0);" class="dropdown-item notify-item">
+              <div class="notify-icon bg-info"><i class="mdi mdi-glass-cocktail"></i></div>
+              <p class="notify-details">Your item is shipped<small class="text-muted">It is a long established fact that a reader will</small></p>
+            </a>
+            <!-- item-->
+            <a href="javascript:void(0);" class="dropdown-item notify-item">
+              <div class="notify-icon bg-primary"><i class="mdi mdi-cart-outline"></i></div>
+              <p class="notify-details">Your order is placed<small class="text-muted">Dummy text of the printing and typesetting industry.</small></p>
+            </a>
+            <!-- item-->
+            <a href="javascript:void(0);" class="dropdown-item notify-item">
+              <div class="notify-icon bg-danger"><i class="mdi mdi-message"></i></div>
+              <p class="notify-details">New Message received<small class="text-muted">You have 87 unread messages</small></p>
+            </a>
+          </div>
+          <!-- All-->
+          <a href="javascript:void(0);" class="dropdown-item text-center text-primary">
+            View all <i class="fi-arrow-right"></i>
+          </a>
+        </div>
+      </li>
+
+      <% if current_user %>
+        <%= render partial: 'shared/header_profile_setting' %>
+      <% else %>
+        <li class="account-info">
+          <div class="signin-signup-container">
+            <% provider = ENV['OAUTH2_SIGN_IN_PROVIDER'] %>
+            <% unless provider.blank? %>
+              <a href="/auth/<%= provider == 'google' ? 'google_oauth2' : provider %>" role="button">Log In</a>
+              <span>or<%= link_to "Register", '/accounts/sign_up' %></span>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+
+    </ul><!--end topbar-nav-->
+
+    <ul class="list-unstyled topbar-nav mb-0">
+      <li>
+        <button class="button-menu-mobile nav-link waves-effect waves-light">
+          <i class="dripicons-menu nav-icon"></i>
+        </button>
+      </li>
+      <li>
+        <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="/trading/ethbtc" role="button"
+           aria-haspopup="false" aria-expanded="false">
+          <span class="ml-1 nav-user-name hidden-sm">Exchange</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- end navbar-->
+</div>
+<!-- Top Bar End -->

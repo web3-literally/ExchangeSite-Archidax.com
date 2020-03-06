@@ -52,3 +52,5 @@ Rails.application.config.assets.precompile += %w( updates.css )
 Rails.application.config.assets.precompile += %w( updates/carouselTicker.css )
 Rails.application.config.assets.precompile += %w( updates/custom.js )
 Rails.application.config.assets.precompile += %w( updates/jquery.min.js )
+
+Rails.application.config.assets.precompile += %w( custom.css )

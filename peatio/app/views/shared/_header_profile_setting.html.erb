@@ -1,34 +1,28 @@
-<div class="dropdown text-center" id="account-dropdown">
-
-  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownUserMenuButton">
-    <i class="fa fa-user"></i>
+<li class="dropdown">
+  <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+     aria-haspopup="false" aria-expanded="false">
+    <img src="<%= image_path('users/user-4.jpg') %>" alt="profile-user" class="rounded-circle" />
+    <span class="ml-1 nav-user-name hidden-sm">User Archidax <i class="mdi mdi-chevron-down"></i> </span>
   </a>
-  <div class="dropdown-menu" aria-labelledby="dropdownUserMenuButton">
+  <div class="dropdown-menu dropdown-menu-right">
     <a class="dropdown-item" href="<%= settings_path %>">
-      <span>Account</span>
-      <br />
-      <strong><%= current_user.email %></strong>
-      <%= image_tag 'chevron-right-solid.svg' %>
+      <i class="dripicons-user text-muted mr-2"></i> Account <br />
+      <i class="dripicons-mail text-muted mr-2"></i> <span class="text-success"><%= current_user.email %></span>
     </a>
+    <div class="dropdown-divider"></div>
     <% if is_admin? %>
       <a class="dropdown-item" href="<%= admin_dashboard_path %>">
-        <span><%= t('header.admin') %></span>
-        <%= image_tag 'chevron-right-solid.svg' %>
+        <i class="dripicons-user text-muted mr-2"></i>
+        <%= t('header.admin') %>
       </a>
     <% end %>
-    <!-- <a class="dropdown-item" href="<%#= referrals_path %>">
-      <span><%#= t('header.referrals') %></span>
-      <%#= image_tag 'chevron-right-solid.svg' %>
-    </a> -->
     <a class="dropdown-item" href="<%= order_history_path %>">
-      <span><%= t('header.history') %></span>
-      <%= image_tag 'chevron-right-solid.svg' %>
+      <i class="dripicons-user text-muted mr-2"></i>
+      <%= t('header.history') %>
     </a>
     <a class="dropdown-item" href="javascript:;" onclick="window.open('/signout');
-      window.location.assign('/accounts/sign_out');">
-      <span>Logout</span>
-      <%= image_tag 'chevron-right-solid.svg' %>
+        window.location.assign('/accounts/sign_out');">
+      <i class="dripicons-exit text-muted mr-2"></i> Logout
     </a>
   </div>
-
-</div>
+</li>
