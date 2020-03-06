@@ -207,7 +207,13 @@
                                     </div>
                                     
                                     <h5 class="coin-name boldy"><%= account.currency.name %></h5>
-                                    <h5 class="coin-price boldy">$<%= Gon.tickers["#{account.currency_id}usd"][:last].round(2) %></h5>
+                                    <h5 class="coin-price boldy">$
+                                      <% if Gon.tickers.has_key? "#{account.currency_id}btc" %>
+                                        <%= Gon.tickers["#{account.currency_id}btc"][:last].round(2) %>
+                                      <% else %>
+                                        0
+                                      <% end %>
+                                    </h5>
                                     <p class="mb-0 <%= market_change >= 0 ? 'green-text' : 'red-text' %>"><%= calc_change(account) %>%<i class="complete fa fa-arrow-<%= market_change >= 0 ? 'up' : 'down' %> ml-10"></i></p>
                                 </div>
                             <% end %>

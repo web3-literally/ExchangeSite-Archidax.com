@@ -289,7 +289,8 @@
 }
 
 .content_bg_new {
-    background-image: url(../images/bgimg.jpg) !important;
+    /*background-image: url(/assets/images/bgimg.jpg) !important;*/
+    background-image: url(bgimg.jpg) !important;
     height: auto;
     background-repeat: no-repeat !important;
     background-attachment: fixed !important;

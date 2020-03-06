@@ -76,6 +76,10 @@ private
 
   def twilio_errors(exception)
     Rails.logger.error "Twilio Client Error: #{exception.message}"
+    Rails.logger.error "account sid #{Rails.application.secrets.twilio_account_sid}"
+    Rails.logger.error "account token #{Rails.application.secrets.twilio_auth_token}"
+    Rails.logger.error "account phone #{Rails.application.secrets.twilio_phone_number}"
+
     render json: { error: 'Something wrong with Twilio Client' }
   end
 end

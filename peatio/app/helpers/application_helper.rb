@@ -145,8 +145,10 @@ module ApplicationHelper
   def check_deposit_sum(member)
     sum = 0
     Deposit.where(member: member, aasm_state: :accepted).each do |deposit|
-      if deposit.currency_id != 'usd'
-        sum += deposit.amount.to_f * Gon.tickers["#{deposit.currency_id}usd"][:last].to_f
+      if deposit.currency_id != 'btc'
+        if Gon.tickers.has_key? "#{deposit.currency_id}btc"
+          sum += deposit.amount.to_f * Gon.tickers["#{deposit.currency_id}btc"][:last].to_f
+        end
       else
         sum += deposit.amount.to_f
       end
@@ -157,8 +159,10 @@ module ApplicationHelper
   def calc_total_balance(member)
     sum = 0
     member.accounts.each do |account|
-      if account.currency_id != 'usd'
-        sum += account.balance.to_f * Gon.tickers["#{account.currency_id}usd"][:last].to_f
+      if account.currency_id != 'btc'
+        if Gon.tickers.has_key? "#{account.currency_id}btc"
+          sum += account.balance.to_f * Gon.tickers["#{account.currency_id}btc"][:last].to_f
+        end
       else
         sum += account.balance.to_f
       end
@@ -167,8 +171,14 @@ module ApplicationHelper
   end
 
   def calc_change(account)
-    open_price = Gon.tickers["#{account.currency_id}usd"][:open].to_f
-    last_price = Gon.tickers["#{account.currency_id}usd"][:last].to_f
+    if Gon.tickers.has_key? "#{account.currency_id}btc"
+      open_price = Gon.tickers["#{account.currency_id}btc"][:open].to_f
+      last_price = Gon.tickers["#{account.currency_id}btc"][:last].to_f
+    else
+      open_price = 0
+      last_price = 0
+    end
+
     if open_price > 0
       percent =  (100*(last_price-open_price)/open_price).round(2)
     else
