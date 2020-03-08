@@ -1,7 +1,5 @@
-<%= content_for :scripts do %>
-  <%= stylesheet_link_tag 'layouts/dashboard' %>
-<% end %>
 
+<!-- Updated design for settings page -->
 <% barong_domain = ENV['BARONG_DOMAIN'] %>
 
 <div class="card">
@@ -18,186 +16,186 @@
   <% end %>
 </div>
 
-<div class="container">
-
-  <div class="row gray-border header-part">
-    <div class="col-6">
-      <div class="row">
-        <div class="col-4">
-          <div>
-            <%= show_svg 'icons/user.svg' %>
-          </div>
+<div class="container-fluid">
+  <!-- Page-Title -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-title-box">
+        <div class="float-right">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0);">Main</a></li>
+            <li class="breadcrumb-item active">Settings</li>
+          </ol>
         </div>
-        <div class="col-8 text-center">
-          <h3 class="text-yellow">Membership Level: General</h3>
-          <p class="text-yellow"><%= current_user.email %></p>
-          <p>Last Login Time: <%= current_user.login_time %></p>
-          <p>IP: <span class="text-yellow"><%= current_user.login_ip %></span></p>
-          <%# unless barong_domain.blank? %>
-            <div>
-              <p>Using <span class="text-yellow">BGC</span> to pay for fees (30% discount) </p>
-              <a href="#" data-remote="true" rel="nofollow" data-method="post">
-              <span class="switch switch-sm">
-                <input type="checkbox" class="switch" <%#= "#{'checked' if current_user.house_fee }" %> id="switch-id" >
-                <label for="switch-id"></label>
-              </span>
-              </a>
-            </div>
-          <%# end %>
-        </div>
-      </div>
-    </div>
-    <div class="col-6 explain-level-container">
-      <h3 class="dash">
-        <span class="<%= current_user.level == 1 ? 'active' : '' %>"><%= show_svg "icons/gem.svg" %> Lv.1</span>
-        <span class="<%= current_user.level == 2 ? 'active' : '' %>"><%= show_svg "icons/gem.svg" %> Lv.2</span>
-        <span class="<%= current_user.level == 3 ? 'active' : '' %>"><%= show_svg "icons/gem.svg" %> Lv.3</span>
-      </h3>
-      <div class="explain-level text-yellow">
-        <span></span>
-        <span><%= link_to current_user.level == 2 ? 'Change phone' : "Verify phone", '/users/phones/new' %></span>
-        <span>
-          <%= link_to 'Submit Verification Documents (General)', '/users/profiles/new' %>
-        </span>
-      </div>
-    </div>
-  </div>
+        <h4 class="page-title">Settings</h4>
+      </div><!--end page-title-box-->
+    </div><!--end col-->
+  </div><!--end row-->
+  <!-- end page title end breadcrumb -->
 
-  <div class="row settings-part">
-
-    <div class="col-6">
-      <div class="gray-border security-container">
-        <div>
-          <div>
-            <div>
-              <%= show_svg 'icons/mobile.svg' %>
-            </div>
-            <div class="text-conteiner">
-              <p>SMS Authentication</p>
-              <p>Used for withdrawals and security modifications</p>
-            </div>
-          </div>
-          <div>
-            <%= link_to 'Enable', "/users/phones/new", class: 'enable-button' %>
-          </div>
-        </div>
-        <div>
-          <div>
-            <div>
-              <%= show_svg 'icons/2fa.svg' %>
-            </div>
-            <div class="text-conteiner">
-              <p>Google Authentication</p>
-              <p>Used for withdrawals and security modifications</p>
-            </div>
-          </div>
-          <div>
-            <%= link_to 'Enable', "/users/security", class: 'enable-button' %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-6">
-      <div class="gray-border password-container">
-        <div>
-          <%= show_svg "icons/unlock-alt-solid.svg" %>
-          Login Password
-        </div>
-        <div>
-          <%= link_to 'Change', '/accounts/edit', class: "gray-border" %>
-        </div>
-      </div>
-<!--       <div class="gray-border com-info-container">-->
-<!--         <div>-->
-<!--          <div class="text-center"><%#= number_with_precision(Referral.total_rewards(current_user.id), precision: 5) %></div>-->
-<!--          <div class="text-center"><%#= Member.where(referral_code: current_user.code).count %>/<%#= current_user.check_lvl_two_refferals%></div>-->
-<!--          <div class="text-center"><%#= current_user.calc_referral_bonus %></div>-->
-<!--        </div>-->
-<!--        <div>-->
-<!--          <div class="text-yellow text-center">My hold GIG <br /> (total GIG amount)</div>-->
-<!--          <div class="text-yellow text-center">Referral Member <br /> (level 1 / level 2)</div>-->
-<!--          <div class="text-yellow text-center">Referral Reward <br /> (total GIG amount)</div>-->
-<!--        </div>-->
-<!--       </div>-->
-       <div class="gray-border referal-link-container">
-         <div>
-          <% unless barong_domain.blank? %>
-            <div class="qr-code">
-
-            </div>
-
-            <div class="referal-content row">
-              <div class="col-3 text-right pr-0 pl-0">
-                <div>
-                  My referal ID:
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body" style="margin: 30px;">
+            <div class="row">
+              <div class="col-md-2">
+                <div class="avatar-box align-self-center mr-2" style="width: 150px;height: 150px;font-size: 55px;font-weight: 700;">
+                  <span class="avatar-title bg-soft-primary rounded-circle">AE</span>
                 </div>
-                <div>Referral Link:</div>
-                <div>Share: </div>
               </div>
-              <div class="col-9">
-                <div>
-                  <span class="text-yellow"><%= current_user.code %></span>
-                  <div class="hidden-xs">Your commission rate: <span class="text-yellow">80%</span></div>
+              <div class="col-md-5" align="center">
+                <h3>Member Level : General</h3>
+                <span class="text-primary"><%= current_user.email %></span>
+                <h5>Last Login Time : <%= current_user.login_time %></h5>
+                <h5>IP : <span class="text-primary"><%= current_user.login_ip %></span></h5>
+                <div class="row">
+                  <div class="col-md-10">
+                    <h5>Using <span class="text-primary">BGC</span> to pay for fees (30% discount)</h5>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="custom-control custom-switch switch-primary switch-lg mt-2">
+                      <input type="checkbox" class="custom-control-input" id="customSwitchPrimary"
+                             <%= "#{'checked' if current_user.house_fee }" %>>
+                      <label class="custom-control-label" for="customSwitchPrimary"></label>
+                    </div>
+                  </div>
                 </div>
-                <div class="referal-input-container">
-                  <input type="text" name="" value='https://<%= barong_domain %>/accounts/sign_up?referral_code=<%= current_user.code %>' id="referral_link" readonly>
-                  <button class="clipboard-btn" data-clipboard-action="copy" data-clipboard-target="#referral_link"><%= show_svg 'icons/copy-solid.svg' %></button>
+              </div>
+              <div class="col-md-5" align="center">
+                <div class="row">
+                  <div class="col-md-4">
+                    <h1><img src="<%= current_user.level == 1 ? image_path("diamond-active.png")
+                                          : image_path("diamond-non-active.png") %>"></br />Lv.1</h1>
+                  </div>
+                  <div class="col-md-4">
+                    <h1><img src="<%= current_user.level == 2 ? image_path("diamond-active.png")
+                                          : image_path("diamond-non-active.png") %>"></br />Lv.2</h1>
+                    <small class="text-danger">
+                      <%= link_to current_user.level >= 2 ? 'Change phone' : "Verify phone", '/users/phones/new', class: 'text-danger' %>
+                    </small>
+                  </div>
+                  <div class="col-md-4">
+                    <h1><img src="<%= current_user.level == 3 ? image_path("diamond-active.png")
+                                          : image_path("diamond-non-active.png") %>"></br />Lv.3</h1>
+                    <small class="text-danger">
+                      <%= link_to 'Submit Verification Documents (General)', '/users/profiles/new', class: 'text-danger' %>
+                    </small>
+                  </div>
                 </div>
-                <div class="social-media">
-                  <div><%= show_svg 'icons/facebook.svg' %></div>
-                  <div><%= show_svg 'icons/twitter.svg' %></div>
-                  <div><%= show_svg 'icons/linkedin.svg' %></div>
+              </div>
+            </div>
+          </div><!--end card-body-->
+        </div><!--end card-->
+      </div><!--end col-->
+
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="row mb-4">
+              <div class="col-md-2">
+                <i class="mdi mdi-cellphone-iphone" style="font-size: 4rem"></i>
+              </div>
+              <div class="col-md-7 mt-1">
+                <h5>SMS Authentication</h5>
+                <smal>Used for withdrawals and security modifications</smal>
+              </div>
+              <div class="col-md-3 mt-3">
+                <%= link_to 'Enable', "/users/phones/new", class: 'btn btn-danger' %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2">
+                <img src="<%= image_path('authenticator.png') %>" width="65">
+              </div>
+              <div class="col-md-7 mt-1">
+                <h5>Google Authentication</h5>
+                <small>Used for withdrawals and security modifications</small>
+              </div>
+              <div class="col-md-3 mt-3">
+                <%= link_to 'Enable', "/users/security", class: 'btn btn-danger' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-2">
+                <i class="em em-lock" style="font-size: 2.5rem"></i>
+              </div>
+              <div class="col-md-7 mt-3">
+                <h4>Login Password</h4>
+              </div>
+              <div class="col-md-3 mt-3">
+                <%= link_to 'Change', '/accounts/edit', class: 'btn btn-primary' %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <% unless barong_domain.blank? %>
+            <div class="card-body" style="margin:20px;">
+              <div class="row mb-4">
+                <div class="col-md-3">
+                  My referral ID :
+                </div>
+                <div class="col-md-3">
+                  <span class="text-warning"><%= current_user.code %></span>
+                </div>
+                <div class="col-md-6">
+                  Your commission rate: <span class="text-warning">80%</span>
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col-md-3 mt-2">
+                  Referral Link :
+                </div>
+                <div class="col-md-9">
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="clipboardInput"
+                           value="<%= barong_domain %>accounts/sign_up?referral_code=<%= current_user.code %>" >
+                    <div class="input-group-append">
+                      <button type="button" class="btn btn-gradient-secondary btn-clipboard" data-clipboard-action="copy" data-clipboard-target="#clipboardInput">
+                        <i class="far fa-copy"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-3 mt-2">
+                  Share :
+                </div>
+                <div class="col-md-9">
+                  <div class="button-list btn-social-icon">
+                    <button type="button" class="btn btn-blue btn-round">
+                      <i class="fab fa-facebook-f"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-secondary btn-round ml-2">
+                      <i class="fab fa-twitter"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-pink btn-round  ml-2">
+                      <i class="fab fa-linkedin"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           <% end %>
         </div>
-       </div>
-    </div>
+      </div>
+    </div><!--end row-->
   </div>
-    
 
-  <!-- <div class="row rewards-status gray-border">
-    <div class="header-container">
-      <h3>Rewards Status</h3>
-      <p class="text-yellow">Return your transaction fee to 100% GIG token reward</p>
-    </div>
-    <div class="row">
-      <div class="col-8">
-        <div>
-          <table>
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Order id</th>
-                <th>Ref type</th>
-                <th>Rewards</th>
-                <th>At</th>
-                <th colspan="4"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <%# @referrals.each do |referral| %>
-                <tr>
-                  <td><%#= referral.id %></td>
-                  <td><%#= referral.order_id %></td>
-                  <td><%#= referral.ref_type %></td>
-                  <td><%#= referral.rewards %></td>
-                  <td><%#= referral.created_at %></td>
-                  <td><%#= link_to 'Show', referral %></td>
-                </tr>
-              <%# end %>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="col-4">
-        <div class="total-trade-reward-container">
-          <p class="text-center">TOTAL TRADE REWARD AMOUNT: <%#= number_with_precision(Referral.total_rewards(current_user.id), precision: 5) %></p>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
-</div>
+
+</div><!-- container -->

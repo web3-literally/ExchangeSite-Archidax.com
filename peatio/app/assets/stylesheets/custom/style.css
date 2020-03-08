@@ -3824,7 +3824,7 @@ dt {
 
 .custom-select,
 .custom-select:focus {
-  background: url(../images/arrow.svg) no-repeat right 0.75rem center;
+  background: image-url('arrow.svg') no-repeat right 0.75rem center;
   background-color: #1c233f;
   border-color: #283158;
   -webkit-box-shadow: none;

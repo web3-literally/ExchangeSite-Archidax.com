@@ -1,69 +1,98 @@
-<h3>Blockchain info</h3>
 
 <% @blockchain_clients = [['Bitcoin', 'bitcoin'], ['Bitcoin Cash', 'bitcoincash'], ['Dash', 'dash'], ['Ethereum', 'ethereum'], ['Litecoin', 'litecoin'], ['Ripple', 'ripple']] %>
 
-<%= form_for @blockchain, url: @blockchain.new_record? ? admin_blockchains_url : admin_blockchain_url(@blockchain.id) do |f| %>
-  <div class="card-deck float-left col-lg-<%= @blockchain.new_record? ? '12' : '10' %>">
-    <div class="card col-lg-6 ml-0">
-      <div class="card-body">
-        <div class="form-group">
-          <label>Name</label>
-          <%= f.text_field :name, class: 'form-control mb-3' %>
+<div class="container-fluid">
+  <!-- Page-Title -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-title-box">
+        <div class="float-right">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Blockchain</li>
+          </ol>
+        </div>
+        <h4 class="page-title">Blockchain Info</h4>
+      </div><!--end page-title-box-->
+    </div><!--end col-->
+  </div><!--end row-->
+  <!-- end page title end breadcrumb -->
 
-          <label>Client</label>
-          <%= f.select :client, options_for_select(@blockchain_clients, selected: @blockchain.client), {}, class: 'form-control mb-3' %>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <%= form_for @blockchain, url: @blockchain.new_record? ? admin_blockchains_url : admin_blockchain_url(@blockchain.id) do |f| %>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Name</label>
+                  <%= f.text_field :name, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label>Client</label>
+                  <%= f.select :client, options_for_select(@blockchain_clients, selected: @blockchain.client),
+                               {}, class: 'custom-select' %>
+                </div>
+                <div class="form-group">
+                  <label>Server</label>
+                  <%= f.text_field :server, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <% if @blockchain.new_record? %>
+                    <label>Height</label>
+                    <%= f.number_field :height, class: 'form-control' %>
+                  <% end %>
+                </div>
+                <div class="form-group">
+                  <label>Min Confirmations</label>
+                  <%= f.number_field :min_confirmations, class: 'form-control' %>
+                </div>
+              </div>
 
-          <label>Server</label>
-          <%= f.text_field :server, class: 'form-control mb-3' %>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Key</label>
+                  <%= f.text_field :key, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label>Explorer Address</label>
+                  <%= f.text_field :explorer_address, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label>Explorer Transaction</label>
+                  <%= f.text_field :explorer_transaction, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label>Status</label>
+                  <%= f.select :status, options_for_select([['Active', 'active'], ['Disabled', 'disabled']],
+                                                           selected: @blockchain.status), {}, {class: "custom-select"} %>
+                </div>
+              </div>
 
-          <% if @blockchain.new_record? %>
-            <label>Height</label>
-            <%= f.number_field :height, class: 'form-control mb-3' %>
+              <div class="col-md-12 mt-4">
+                <%= f.submit 'Submit', class: 'btn btn-primary btn-lg mt-3' %>
+              </div>
+            </div>
           <% end %>
 
-          <label>Min Confirmations</label>
-          <%= f.number_field :min_confirmations, class: 'form-control mb-3' %>
-        </div>
-      </div>
-    </div>
+          <% unless @blockchain.new_record? %>
+            <div class="card-deck col-lg-2 float-left">
+              <%= form_for @blockchain, url: admin_blockchain_url(@blockchain.id), html: {id: 'blockchain_height_form'} do |f| %>
+                <div class="card border-danger">
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label>Height</label>
+                      <%= f.number_field :height, class: 'form-control mb-3' %>
+                    </div>
+                    <%= f.submit 'Reset', class: 'btn btn-danger btn-lg mt-3' %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
 
-    <div class="card col-lg-6">
-      <div class="card-body">
-        <div class="form-group">
-          <label>Key</label>
-          <%= f.text_field :key, class: 'form-control mb-3' %>
-
-          <label>Explorer Address</label>
-          <%= f.text_field :explorer_address, class: 'form-control mb-3' %>
-
-          <label>Explorer Transaction</label>
-          <%= f.text_field :explorer_transaction, class: 'form-control mb-3' %>
-
-          <label>Status</label>
-          <%= f.select :status, options_for_select([['Active', 'active'], ['Disabled', 'disabled']], selected: @blockchain.status), {}, {class: "form-control mb-3"} %>
-        </div>
-      </div>
-    </div>
-
-    <div class="row col-12 float-left">
-      <%= f.submit 'Submit', class: 'btn btn-primary btn-lg mt-3' %>
-    </div>
-  </div>
-
-<% end %>
-
-<% unless @blockchain.new_record? %>
-  <div class="card-deck col-lg-2 float-left">
-    <%= form_for @blockchain, url: admin_blockchain_url(@blockchain.id), html: {id: 'blockchain_height_form'} do |f| %>
-      <div class="card border-danger">
-        <div class="card-body">
-          <div class="form-group">
-            <label>Height</label>
-            <%= f.number_field :height, class: 'form-control mb-3' %>
-          </div>
-          <%= f.submit 'Reset', class: 'btn btn-danger btn-lg mt-3' %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+        </div><!--end card-body-->
+      </div><!--end card-->
+    </div><!--end col-->
+  </div><!--end row-->
+</div><!-- container -->

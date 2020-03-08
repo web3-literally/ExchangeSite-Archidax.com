@@ -1,19 +1,48 @@
-<div class="row">
-  <div class="col-6">
-    <h3>Deposits for the last 24 hours</h3>
-  </div>
-  <div class="col-6">
-    <%= link_to raw("<i class='fa fa-plus mr-2'></i> New Deposit"), new_admin_deposit_path(currency: currency.code), class: "btn btn-primary float-right mb-3" %>
-  </div>
-</div>
 
-<div class="card">
-  <%= render partial: 'table', locals: {deposits: @latest_deposits} %>
-</div>
+<div class="container-fluid">
+  <!-- Page-Title -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-title-box">
+        <div class="float-right">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Deposits</li>
+          </ol>
+        </div>
+        <h4 class="page-title">Deposits</h4>
+      </div><!--end page-title-box-->
+    </div><!--end col-->
+  </div><!--end row-->
+  <!-- end page title end breadcrumb -->
 
-<hr>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <h4>Deposits for the last 24 hours</h4>
+            </div>
 
-<h3>All deposits</h3>
-<div class="card">
-  <%= render partial: 'table', locals: {deposits: @all_deposits} %>
-</div>
+            <div class="col-md-6">
+              <%= link_to raw("<i class='fas fa-plus'></i> New Deposit"),
+                          new_admin_deposit_path(currency: currency.code), class: "btn btn-primary float-right" %>
+            </div>
+
+            <div class="table-responsive">
+              <%= render partial: 'table', locals: {deposits: @latest_deposits} %>
+            </div>
+
+            <div class="col-md-12">
+              <h4 class="header-title mt-0 mb-3">All deposits</h4>
+            </div>
+            <div class="table-responsive">
+              <%= render partial: 'table', locals: {deposits: @all_deposits} %>
+            </div>
+
+          </div>
+        </div><!--end card-body-->
+      </div><!--end card-->
+    </div><!--end col-->
+  </div><!--end row-->
+</div><!-- container -->

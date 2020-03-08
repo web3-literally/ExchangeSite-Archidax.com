@@ -160,7 +160,7 @@ dt {
 
 .custom-select, 
 .custom-select:focus {
-  background: url(../images/arrow.svg) no-repeat right 0.75rem center;
+  background: image-url('arrow.svg') no-repeat right 0.75rem center;
   background-color: $card;
   border-color: $border;
   -webkit-box-shadow: none;

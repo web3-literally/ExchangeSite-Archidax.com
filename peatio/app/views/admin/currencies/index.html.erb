@@ -1,42 +1,65 @@
-<div class="row">
-  <div class="col-6">
-    <h3>Currencies</h3>
-  </div>
-  <div class="col-6">
-    <%= link_to raw("<i class='fa fa-plus mr-2'></i> New currency"), new_admin_currency_path, class: "btn btn-primary float-right mb-3" %>
-  </div>
-</div>
+<div class="container-fluid">
+  <!-- Page-Title -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-title-box">
+        <div class="float-right">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Currencies</li>
+          </ol>
+        </div>
+        <h4 class="page-title">Currencies</h4>
+      </div><!--end page-title-box-->
+    </div><!--end col-->
+  </div><!--end row-->
+  <!-- end page title end breadcrumb -->
 
-<div class="card">
-  <%= table_for @currencies, class: 'table table-condensed table-striped' do |t| %>
-    <% t.column 'Code' do |x| %>
-      <%= x.code.upcase %>
-    <% end %>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <%= link_to raw("<i class='mdi mdi-plus-circle-outline mr-2'></i> New currency"),
+                          new_admin_currency_path, class: "btn btn-primary px-4 float-right mt-0 mb-3" %>
+              <h4 class="header-title mt-0 mb-3">Currencies</h4>
+              <div class="table-responsive">
+                <%= table_for @currencies, class: 'table table-bordered table-hover mb-0' do |t| %>
+                  <% t.column 'Code' do |x| %>
+                    <%= x.code.upcase %>
+                  <% end %>
 
-    <% t.column 'Name' do |x| %>
-      <%= x.name %>
-    <% end %>
+                  <% t.column 'Name' do |x| %>
+                    <%= x.name %>
+                  <% end %>
 
-    <% t.column 'Symbol' do |x| %>
-      <span class="h5"><%= x.symbol %></span>
-    <% end %>
+                  <% t.column 'Symbol' do |x| %>
+                    <%= x.symbol %>
+                  <% end %>
 
-    <% t.column 'Type' do |x| %>
-      <%= x.type.capitalize %>
-    <% end %>
+                  <% t.column 'Type' do |x| %>
+                    <%= x.type.capitalize %>
+                  <% end %>
 
-    <% t.column 'Created at' do |x| %>
-      <%= l(x.created_at, format: :long) %>
-    <% end %>
+                  <% t.column 'Created at' do |x| %>
+                    <%= l(x.created_at, format: :long) %>
+                  <% end %>
 
-    <% t.column 'Enabled' do |x| %>
-      <%= x.enabled? ? 'Yes' : 'No' %>
-    <% end %>
+                  <% t.column 'Enabled' do |x| %>
+                    <%= x.enabled? ? 'Yes' : 'No' %>
+                  <% end %>
 
-    <% t.column 'Actions' do |x| %>
-      <%= link_to 'View', admin_currency_path(x) %>
-    <% end %>
-  <% end %>
+                  <% t.column 'Actions' do |x| %>
+                    <%= link_to 'View', admin_currency_path(x), class: 'text-success' %>
+                  <% end %>
+                <% end %>
 
-  <%= paginate @currencies %>
-</div>
+                <%= paginate @currencies %>
+              </div><!--end /div-->
+            </div>
+          </div>
+        </div><!--end card-body-->
+      </div><!--end card-->
+    </div><!--end col-->
+  </div><!--end row-->
+</div><!-- container -->

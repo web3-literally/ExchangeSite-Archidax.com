@@ -1,34 +1,76 @@
-<div class="row">
-  <div class="col-6">
-  <%= link_to raw("All deposits"), admin_deposit_index_path(state: 'all'), class: 'btn btn-primary  mb-3' %>
-  <%= link_to raw("Latest deposits"), admin_deposit_index_path(state: 'latest'), class: 'btn btn-primary  mb-3' %>
-  <%= link_to raw("Uncollected deposits"), admin_deposit_index_path(state: 'uncollected'), class: 'btn btn-primary  mb-3' %>
-  </div>
-</div>
-<% if @latest_deposits %>
-  <h3><%= currency.code.upcase %> Deposits for the last 24 hours</h3>
-  <div class="card">
-    <%= render partial: 'table', locals: {deposits: @latest_deposits} %>
-  </div>
-  <div class="float-right">
-  <%= paginate @latest_deposits, params: { route: :admin_deposit_index } %>
-  </div>
-<% end %>
-<% if @all_deposits %>
-  <h3> <%= currency.code.upcase %> All deposits</h3>
-  <div class="card">
-    <%= render partial: 'table', locals: {deposits: @all_deposits} %>
-  </div>
-  <div class="float-right">
-  <%= paginate @all_deposits, params: { route: :admin_deposit_index } %>
-  </div>
-<% end %>
-<% if @uncollected_deposits %>
-  <h3> <%= currency.code.upcase %> Uncollected deposits</h3>
-  <div class="card">
-    <%= render partial: 'table', locals: {deposits: @uncollected_deposits} %>
-  </div>
-  <div class="float-right">
-  <%= paginate @uncollected_deposits, params: { route: :admin_deposit_index } %>
-  </div>
-<% end %>
+<div class="container-fluid">
+  <!-- Page-Title -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-title-box">
+        <div class="float-right">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Deposits</li>
+          </ol>
+        </div>
+        <h4 class="page-title">Deposits</h4>
+      </div><!--end page-title-box-->
+    </div><!--end col-->
+  </div><!--end row-->
+  <!-- end page title end breadcrumb -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <!-- Nav tabs -->
+              <ul class="nav nav-pills nav-justified mb-4" role="tablist">
+                <li>
+                  <%= link_to raw("All deposits"), admin_deposit_index_path(state: 'all'),
+                              { class: "btn btn-primary text-white mr-1 #{@all_deposits ? 'active' : ''}" } %>
+                </li>
+                <li>
+                  <%= link_to raw("Latest deposits"), admin_deposit_index_path(state: 'latest'),
+                              { class: "btn btn-primary text-white mr-1 #{@latest_deposits ? 'active' : ''}" } %>
+                </li>
+                <li>
+                  <%= link_to raw("Uncollected deposits"), admin_deposit_index_path(state: 'uncollected'),
+                              { class: "btn btn-primary text-white mr-1 #{@uncollected_deposits ? 'active' : ''}" } %>
+                </li>
+              </ul>
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="all-deposits" role="tabpanel">
+                  <% if @latest_deposits %>
+                    <h4><%= currency.code.upcase %> Deposits for the last 24 hours</h4>
+                    <div class="table-responsive">
+                      <%= render partial: 'table', locals: {deposits: @latest_deposits} %>
+                    </div>
+                    <div class="float-right">
+                      <%= paginate @latest_deposits, params: { route: :admin_deposit_index } %>
+                    </div>
+                  <% end %>
+                  <% if @all_deposits %>
+                    <h4> <%= currency.code.upcase %> All deposits</h4>
+                    <div class="table-responsive">
+                      <%= render partial: 'table', locals: {deposits: @all_deposits} %>
+                    </div>
+                    <div class="float-right">
+                      <%= paginate @all_deposits, params: { route: :admin_deposit_index } %>
+                    </div>
+                  <% end %>
+                  <% if @uncollected_deposits %>
+                    <h4> <%= currency.code.upcase %> Uncollected deposits</h4>
+                    <div class="table-responsive">
+                      <%= render partial: 'table', locals: {deposits: @uncollected_deposits} %>
+                    </div>
+                    <div class="float-right">
+                      <%= paginate @uncollected_deposits, params: { route: :admin_deposit_index } %>
+                    </div>
+                  <% end %>
+                </div>
+              </div> <!-- BATAS TABS -->
+            </div>
+          </div>
+        </div><!--end card-body-->
+      </div><!--end card-->
+    </div><!--end col-->
+  </div><!--end row-->
+</div><!-- container -->

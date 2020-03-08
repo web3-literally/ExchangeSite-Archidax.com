@@ -1,46 +1,67 @@
-<div class="row">
-  <div class="col-6">
-    <h3>Wallets</h3>
-  </div>
-  <% if can? :create, Wallet %>
-    <div class="col-6">
-      <%= link_to raw("<i class='fa fa-plus mr-2'></i> New Wallet"), new_admin_wallet_path, class: 'btn btn-primary float-right mb-3' %>
-    </div>
-  <% end %>
-</div>
+<div class="container-fluid">
+  <!-- Page-Title -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-title-box">
+        <div class="float-right">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Wallets</li>
+          </ol>
+        </div>
+        <h4 class="page-title">Wallets</h4>
+      </div><!--end page-title-box-->
+    </div><!--end col-->
+  </div><!--end row-->
+  <!-- end page title end breadcrumb -->
 
-<div class="card">
-  <%= table_for @wallets, class: 'table table-condensed table-striped' do |t| %>
-    <% t.column :id, 'ID' %>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <%= link_to raw("<i class='mdi mdi-plus-circle-outline mr-2'></i> New Wallet"), new_admin_wallet_path,
+                          class: 'btn btn-primary px-4 float-right mt-0 mb-3' %>
+              <h4 class="header-title mt-0 mb-3">Wallets</h4>
+              <% if can? :create, Wallet %>
+                <div class="table-responsive">
+                  <%= table_for @wallets, class: 'table table-bordered table-hover mb-0' do |t| %>
+                    <% t.column :id, 'ID' %>
 
-    <% t.column 'Currency Id' do |x| %>
-      <%= x.currency_id.upcase %>
-    <% end %>
+                    <% t.column 'Currency Id' do |x| %>
+                      <%= x.currency_id.upcase %>
+                    <% end %>
 
-    <% t.column :name, 'Name' %>
+                    <% t.column :name, 'Name' %>
 
-    <% t.column 'Address' do |x| %>
-      <a href="<%= x.wallet_url %>" target="_blank">
-        <code class="text-info"><%= x.address%></code>
-      </a>
-    <% end %>
+                    <% t.column 'Address' do |x| %>
+                      <a href="<%= x.wallet_url %>" target="_blank"><%= x.address%></a>
+                    <% end %>
 
-    <% t.column 'Kind' do |x| %>
-      <%= x.kind.titleize %>
-    <% end %>
+                    <% t.column 'Kind' do |x| %>
+                      <%= x.kind.titleize %>
+                    <% end %>
 
-    <% t.column 'Status' do |x| %>
-      <%= x.status.titleize %>
-    <% end %>
+                    <% t.column 'Status' do |x| %>
+                      <%= x.status.titleize %>
+                    <% end %>
 
-    <% t.column 'Created At' do |x| %>
-      <%= l(x.created_at, format: :long) %>
-    <% end %>
+                    <% t.column 'Created At' do |x| %>
+                      <%= l(x.created_at, format: :long) %>
+                    <% end %>
 
-    <% t.column 'Actions' do |x| %>
-      <%= link_to 'View', admin_wallet_path(x) %>
-    <% end %>
-  <% end %>
+                    <% t.column 'Actions' do |x| %>
+                      <%= link_to 'View', admin_wallet_path(x), class: 'text-success' %>
+                    <% end %>
+                  <% end %>
+                </div><!--end /div-->
+              <% end %>
+            </div>
+          </div>
+        </div><!--end card-body-->
+      </div><!--end card-->
+    </div><!--end col-->
+  </div><!--end row-->
 
-</div>
+</div><!-- container -->
 <%= paginate @wallets %>

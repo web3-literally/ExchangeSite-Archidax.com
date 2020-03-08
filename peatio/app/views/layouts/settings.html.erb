@@ -10,30 +10,27 @@
     <%= stylesheet_link_tag 'custom', media: 'all' %>
 
     <%= custom_stylesheet_link_tag_for :main %>
-    <%= stylesheet_link_tag 'layouts/new_landing_page' %>
     <%= include_gon %>
 
-<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"-->
-<!--            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
     <%= javascript_include_tag "locales/#{I18n.locale}" %>
-    <%#= javascript_include_tag 'application' %>
     <%= yield(:scripts) if content_for?(:scripts) %>
   </head>
 
   <body id="<%= body_id %>" data-lang="<%= locale_name %>">
     <div class="page-wrapper">
+      <!-- Left Sidenav -->
       <%= render 'shared/left_side_menu' %>
       <%= content_for?(:header) ? yield(:header) : render('shared/header') %>
 
-      <div id="wrap">
+      <!-- Page Content -->
+      <div class="page-content">
         <%= yield %>
         <div id="push"></div>
+
+        <%= render 'shared/footer' %>
       </div>
     </div>
 
-    <%= render 'shared/footer' %>
-
-<!--    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.min.js"></script>-->
     <%= javascript_include_tag 'custom' %>
 
   </body>

@@ -1,4 +1,4 @@
-<%= table_for withdraws, class: 'table table-bordered table-striped', model: Withdraws::Coin do |t| %>
+<%= table_for withdraws, class: 'table table-bordered table-hover mb-0', model: Withdraws::Coin do |t| %>
   <% t.column :id %>
   <% t.column :txid do |x| %>
     <a href="<%= x.transaction_url %>" target="_blank">

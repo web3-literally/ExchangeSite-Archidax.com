@@ -99,8 +99,6 @@
         });
     }
 
-    
-
     function init() {
         initSlimscroll();
         initMetisMenu();

@@ -3,7 +3,7 @@
   <%= javascript_include_tag 'dashboard/swiper' %>
 <% end %>
 
-<div class="wrapper container main-wrapper row" style="">
+<div class="wrapper container main-wrapper row " style="display: none;">
 
     <div class="col-lg-11 mt-15 mb-15">
         <section class="wra">
@@ -195,7 +195,7 @@
                     <i class="box_close fas fa-times"></i>
                 </div>
             </header>
-            <div class="content-body">    
+            <div class="content-body">
                 <div class="row">
                     <div class="col-12">
                         <% @accounts.each do |account| %>
@@ -219,7 +219,7 @@
                             <% end %>
                         <% end %>
 
-                    </div>      
+                    </div>
                 </div> <!-- End .row -->
             </div>
         </section>
@@ -582,3 +582,207 @@
     <%= javascript_include_tag 'dashboard/swiper' %>
     <%= javascript_include_tag 'dashboard/dashboard-crypto.js' %>
 </div>
+
+
+
+
+<!-- Updated design for dashboard page -->
+<% barong_domain = ENV['BARONG_DOMAIN'] %>
+
+<div class="card">
+  <% unless alert.blank? %>
+    <span class="alert alert-danger mb-0">
+      <i class="icon icon-cancel-circled"></i> <h3><%= alert %></h3>
+    </span>
+  <% end %>
+
+  <% unless notice.blank? %>
+    <span class="alert alert-success mb-0">
+      <i class="icon icon-cancel-circled"></i> <h3><%= notice %></h3>
+    </span>
+  <% end %>
+</div>
+
+<div class="container-fluid">
+  <!-- Page-Title -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-title-box">
+        <div class="float-right">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0);">Main</a></li>
+            <li class="breadcrumb-item active">Dashboard</li>
+          </ol>
+        </div>
+        <h4 class="page-title">Dashboard</h4>
+      </div><!--end page-title-box-->
+    </div><!--end col-->
+  </div><!--end row-->
+  <!-- end page title end breadcrumb -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body" style="margin: 30px;">
+            <div class="row">
+              <div class="col-md-2">
+                <div class="avatar-box align-self-center mr-2" style="width: 150px;height: 150px;font-size: 55px;font-weight: 700;">
+                  <span class="avatar-title bg-soft-primary rounded-circle">AE</span>
+                </div>
+              </div>
+              <div class="col-md-5" align="center">
+                <h3>Member Level : General</h3>
+                <span class="text-primary"><%= current_user.email %></span>
+                <h5>Last Login Time : <%= current_user.login_time %></h5>
+                <h5>IP : <span class="text-primary"><%= current_user.login_ip %></span></h5>
+                <div class="row">
+                  <div class="col-md-10">
+                    <h5>Using <span class="text-primary">BGC</span> to pay for fees (30% discount)</h5>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="custom-control custom-switch switch-primary switch-lg mt-2">
+                      <input type="checkbox" class="custom-control-input" id="customSwitchPrimary"
+                             <%= "#{'checked' if current_user.house_fee }" %>>
+                      <label class="custom-control-label" for="customSwitchPrimary"></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5" align="center">
+                <div class="row">
+                  <div class="col-md-4">
+                    <h1><img src="<%= current_user.level == 1 ? image_path("diamond-active.png")
+                                          : image_path("diamond-non-active.png") %>"></br />Lv.1</h1>
+                  </div>
+                  <div class="col-md-4">
+                    <h1><img src="<%= current_user.level == 2 ? image_path("diamond-active.png")
+                                          : image_path("diamond-non-active.png") %>"></br />Lv.2</h1>
+                    <small class="text-danger">
+                      <%= link_to current_user.level >= 2 ? 'Change phone' : "Verify phone", '/users/phones/new', class: 'text-danger' %>
+                    </small>
+                  </div>
+                  <div class="col-md-4">
+                    <h1><img src="<%= current_user.level == 3 ? image_path("diamond-active.png")
+                                          : image_path("diamond-non-active.png") %>"></br />Lv.3</h1>
+                    <small class="text-danger">
+                      <%= link_to 'Submit Verification Documents (General)', '/users/profiles/new', class: 'text-danger' %>
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!--end card-body-->
+        </div><!--end card-->
+      </div><!--end col-->
+
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="row mb-4">
+              <div class="col-md-2">
+                <i class="mdi mdi-cellphone-iphone" style="font-size: 4rem"></i>
+              </div>
+              <div class="col-md-7 mt-1">
+                <h5>SMS Authentication</h5>
+                <smal>Used for withdrawals and security modifications</smal>
+              </div>
+              <div class="col-md-3 mt-3">
+                <%= link_to 'Enable', "/users/phones/new", class: 'btn btn-danger' %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2">
+                <img src="<%= image_path('authenticator.png') %>" width="65">
+              </div>
+              <div class="col-md-7 mt-1">
+                <h5>Google Authentication</h5>
+                <small>Used for withdrawals and security modifications</small>
+              </div>
+              <div class="col-md-3 mt-3">
+                <%= link_to 'Enable', "/users/security", class: 'btn btn-danger' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-2">
+                <i class="em em-lock" style="font-size: 2.5rem"></i>
+              </div>
+              <div class="col-md-7 mt-3">
+                <h4>Login Password</h4>
+              </div>
+              <div class="col-md-3 mt-3">
+                <%= link_to 'Change', '/accounts/edit', class: 'btn btn-primary' %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <% unless barong_domain.blank? %>
+            <div class="card-body" style="margin:20px;">
+              <div class="row mb-4">
+                <div class="col-md-3">
+                  My referral ID :
+                </div>
+                <div class="col-md-3">
+                  <span class="text-warning"><%= current_user.code %></span>
+                </div>
+                <div class="col-md-6">
+                  Your commission rate: <span class="text-warning">80%</span>
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col-md-3 mt-2">
+                  Referral Link :
+                </div>
+                <div class="col-md-9">
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="clipboardInput"
+                           value="<%= barong_domain %>accounts/sign_up?referral_code=<%= current_user.code %>" >
+                    <div class="input-group-append">
+                      <button type="button" class="btn btn-gradient-secondary btn-clipboard" data-clipboard-action="copy" data-clipboard-target="#clipboardInput">
+                        <i class="far fa-copy"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-3 mt-2">
+                  Share :
+                </div>
+                <div class="col-md-9">
+                  <div class="button-list btn-social-icon">
+                    <button type="button" class="btn btn-blue btn-round">
+                      <i class="fab fa-facebook-f"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-secondary btn-round ml-2">
+                      <i class="fab fa-twitter"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-pink btn-round  ml-2">
+                      <i class="fab fa-linkedin"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div><!--end row-->
+  </div>
+
+
+
+</div><!-- container -->

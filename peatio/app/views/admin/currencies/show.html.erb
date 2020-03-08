@@ -1,126 +1,170 @@
-<%= form_for @currency, url: @currency.new_record? ? admin_currencies_url : admin_currency_url(@currency.id) do |f| %>
-  <div class="row row-eq-height">
-    <div class="col-lg-6 col-md-12 mb-4">
-      <div class="card h-100">
-        <div class="card-header">
-          <span>Currency info</span>
+
+<div class="container-fluid">
+  <!-- Page-Title -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-title-box">
+        <div class="float-right">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Currency</li>
+          </ol>
         </div>
-        <dd class="card-body">
-          <dl class="dl-horizontal dl-member">
-            <dt>Code</dt>
-            <% if @currency.new_record? %>
-              <dd><%= f.text_field :code, class: 'form-control' %></dd>
-            <% else %>
-              <dd><%= @currency.code.upcase %></dd>
-            <% end %>
+        <h4 class="page-title">Currency Info</h4>
+      </div><!--end page-title-box-->
+    </div><!--end col-->
+  </div><!--end row-->
+  <!-- end page title end breadcrumb -->
 
-            <dt>Name</dt>
-            <dd><%= f.text_field :name, class: 'form-control' %></dd>
-
-            <dt>Symbol</dt>
-            <dd><%= f.text_field :symbol, maxlength: 1, class: 'form-control' %></dd>
-
-            <dt>Type</dt>
-            <% if @currency.new_record? %>
-              <dd><%= f.select :type, Currency.types, {}, {class: 'form-control'} %></dd>
-            <% else %>
-              <dd><%= @currency.type.titleize %></dd>
-            <% end %>
-
-            <dt>Deposit fee (fiat only)</dt>
-            <dd><%= f.text_field :deposit_fee, class: 'form-control' %></dd>
-
-            <dt>Min deposit amount</dt>
-            <dd><%= f.text_field :min_deposit_amount, class: 'form-control' %></dd>
-
-            <dt>Min collection amount</dt>
-            <dd><%= f.text_field :min_collection_amount, class: 'form-control' %></dd>
-
-            <dt>Withdraw fee</dt>
-            <dd><%= f.text_field :withdraw_fee, class: 'form-control' %></dd>
-
-            <dt>Min withdraw amount</dt>
-            <dd><%= f.text_field :min_withdraw_amount, class: 'form-control' %></dd>
-
-            <dt>24h withdraw limit</dt>
-            <dd><%= f.text_field :withdraw_limit_24h, class: 'form-control' %></dd>
-
-            <dt>72h withdraw limit</dt>
-            <dd><%= f.text_field :withdraw_limit_72h, class: 'form-control' %></dd>
-
-            <dt>Enabled?</dt>
-            <dd><%= f.check_box :enabled %></dd>
-
-            <dt>Base factor</dt>
-            <% if @currency.new_record? %>
-              <dd><%= f.number_field :base_factor, class: 'form-control' %></dd>
-            <% else %>
-              <dd><%= @currency.base_factor %></dd>
-            <% end %>
-
-            <dt>Icon URL</dt>
-            <dd><%= f.text_field :icon_url, class: 'form-control' %></dd>
-
-            <dt>Precision</dt>
-            <% if @currency.new_record? %>
-              <dd><%= f.number_field :precision, class: 'form-control' %></dd>
-            <% else %>
-              <dd><%= @currency.precision %></dd>
-            <% end %>
-
-            <dt>Blockchain Key</dt>
-            <dd><%= f.select :blockchain_key, Blockchain.all.map(&:key), {prompt: "Select Blockchain Key"}, {class: 'form-control'} %></dd>
-
-            <%= f.hidden_field :options, id: "currency_options" %>
-          </dl>
-      </div>
-    </div>
-    <div class="col-lg-6 col-md-12 mb-4">
-      <div class="card h-100">
-        <dd class="card-body">
-          <dl>
-            <div class="row">
-              <div class="col-12">
-                <div id="json_editor" data-enabled="<%= @currency.coin? || @currency.new_record? %>"></div>
-              </div>
-            </div>
-          </dl>
-      </div>
-    </div>
-  </div>
   <div class="row">
     <div class="col-12">
-      <%= f.submit 'Submit', class: 'btn btn-primary' %>
-    </div>
-  </div>
-<% end %>
-<script>
-    $(document).ready(function() {
-        elem = $('#json_editor');
-        if(elem.length){
-            json_editor = new JSONEditor(document.getElementById('json_editor'), {
-                // form_name_root: 'currency[options]',
-                disable_collapse: true,
-                theme: 'bootstrap3',
-                iconlib: 'fontawesome4',
-                disable_array_reorder: true,
-                required: jQuery.parseJSON('<%= raw Currency::OPTIONS_ATTRIBUTES.map(&:to_s) %>'),
-                disable_array_delete_last_row: true,
-                schema: {
-                    title: 'Options',
-                    type: 'object',
-                    properties: jQuery.parseJSON('<%= raw @currency.build_options_schema.to_json %>')
-                }
-            });
-            json_editor.setValue(jQuery.parseJSON('<%= raw @currency.set_options_values.to_json %>'));
+      <div class="card">
+        <div class="card-body">
+          <%= form_for @currency, url: @currency.new_record? ? admin_currencies_url : admin_currency_url(@currency.id) do |f| %>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Code</label>
+                  <% if @currency.new_record? %>
+                    <%= f.text_field :code, class: 'form-control' %>
+                  <% else %>
+                    <%= @currency.code.upcase %>
+                  <% end %>
+                </div>
 
-            if(elem.data("enabled") === false){
-                json_editor.disable();
-            }
+                <div class="form-group">
+                  <label>Name</label>
+                  <%= f.text_field :name, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label>Symbol</label>
+                  <%= f.text_field :symbol, maxlength: 1, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label>Type</label>
+                  <% if @currency.new_record? %>
+                    <%= f.select :type, Currency.types, {}, {class: 'custom-select'} %>
+                  <% else %>
+                    <%= f.text_field :type, { class: 'form-control', value: "#{ @currency.type.titleize }", readonly: true } %>
+                  <% end %>
+                </div>
+                <div class="form-group">
+                  <label>Deposit fee (fiat only)</label>
+                  <%= f.text_field :deposit_fee, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label>Min deposit amount</label>
+                  <%= f.text_field :min_deposit_amount, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label>Min collection amount</label>
+                  <%= f.text_field :min_collection_amount, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label>Withdraw fee</label>
+                  <%= f.text_field :withdraw_fee, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label>Min withdraw amount</label>
+                  <%= f.text_field :min_withdraw_amount, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label>24h withdraw limit</label>
+                  <%= f.text_field :withdraw_limit_24h, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label>72h withdraw limit</label>
+                  <%= f.text_field :withdraw_limit_72h, class: 'form-control' %>
+                </div>
+                <div class="form-group mb-0 row">
+                  <label class="col-md-3 my-2 control-label">Enabled?</label>
+                  <div class="col-md-9">
+                    <div class="form-check-inline my-2">
+                      <div class="custom-control custom-checkbox">
+                        <%= f.check_box :enabled, { class: 'custom-control-input', id: 'customCheck6',
+                                                    data: { parsley: { multiple: 'groups', mincheck: '1' } } } %>
+                        <label class="custom-control-label" for="customCheck6">&nbsp;</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Base factor</label>
+                  <% if @currency.new_record? %>
+                    <%= f.number_field :base_factor, class: 'form-control' %>
+                  <% else %>
+                    <%= f.number_field :base_factor, { class: 'form-control', readonly: true, value: "#{@currency.base_factor}" } %>
+                  <% end %>
+                </div>
 
-            json_editor.on('change',function() {
-                $('#currency_options').val(JSON.stringify(json_editor.getValue()));
-            });
-        }
-    });
-</script>
+                <div class="form-group">
+                  <label>Icon URL</label>
+                  <%= f.text_field :icon_url, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label>Precision</label>
+                  <% if @currency.new_record? %>
+                    <%= f.number_field :precision, class: 'form-control' %>
+                  <% else %>
+                    <%= f.number_field :precision, { class: 'form-control', readonly: true, value: "#{@currency.precision}" } %>
+                  <% end %>
+                </div>
+                <div class="form-group">
+                  <label>Blockchain Key</label>
+                  <%= f.select :blockchain_key, Blockchain.all.map(&:key),
+                               {prompt: "Select Blockchain Key"}, {class: 'custom-select'} %>
+                </div>
+
+                <%= f.hidden_field :options, id: "currency_options" %>
+              </div>
+
+              <div class="col-md-6">
+                <dl>
+                  <div class="row">
+                    <div class="col-12">
+                      <div id="json_editor" data-enabled="<%= @currency.coin? || @currency.new_record? %>"></div>
+                    </div>
+                  </div>
+                </dl>
+              </div>
+
+              <div class="col-md-12 mt-4">
+                <%= f.submit 'Submit', class: 'btn btn-primary' %>
+              </div>
+            </div>
+          <% end %>
+        </div><!--end card-body-->
+      </div><!--end card-->
+    </div><!--end col-->
+  </div><!--end row-->
+</div><!-- container -->
+
+<!--<script>-->
+<!--    $(document).ready(function() {-->
+<!--        elem = $('#json_editor');-->
+<!--        if(elem.length){-->
+<!--            json_editor = new JSONEditor(document.getElementById('json_editor'), {-->
+<!--                // form_name_root: 'currency[options]',-->
+<!--                disable_collapse: true,-->
+<!--                theme: 'bootstrap3',-->
+<!--                iconlib: 'fontawesome4',-->
+<!--                disable_array_reorder: true,-->
+<!--                required: jQuery.parseJSON('<%= raw Currency::OPTIONS_ATTRIBUTES.map(&:to_s) %>'),-->
+<!--                disable_array_delete_last_row: true,-->
+<!--                schema: {-->
+<!--                    title: 'Options',-->
+<!--                    type: 'object',-->
+<!--                    properties: jQuery.parseJSON('<%= raw @currency.build_options_schema.to_json %>')-->
+<!--                }-->
+<!--            });-->
+<!--            json_editor.setValue(jQuery.parseJSON('<%= raw @currency.set_options_values.to_json %>'));-->
+
+<!--            if(elem.data("enabled") === false){-->
+<!--                json_editor.disable();-->
+<!--            }-->
+
+<!--            json_editor.on('change',function() {-->
+<!--                $('#currency_options').val(JSON.stringify(json_editor.getValue()));-->
+<!--            });-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->

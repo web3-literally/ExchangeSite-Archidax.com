@@ -12,42 +12,28 @@
   <%= render 'shared/meta' %>
   <%= render 'shared/sentry' %>
   <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag 'admin', media: 'all' %>
+
+  <%= stylesheet_link_tag 'custom', media: 'all' %>
   <%= custom_stylesheet_link_tag_for :admin %>
-  <%= javascript_include_tag 'admin' %>
 </head>
 
-<body class="ui-radius" id="<%= body_id %>">
+<body id="<%= body_id %>" data-lang="<%= locale_name %>">
 
+  <div class="page-wrapper">
+    <!-- Left Sidenav -->
+    <%= render "layouts/admin_sidebar" %>
+    <%= render "layouts/admin_header" %>
 
-  <div class="dashboard-wrapper">
+    <!-- Page Content -->
+    <div class="page-content">
+      <%= render 'shared/flash' %>
+      <%= yield %>
 
-    <!-- SIDEBAR -->
-      <nav class="dashboard-sidebar bg-dark h-100">
-        <%= render "layouts/admin_sidebar" %>
-      </nav>
-
-    <!-- RIGHT PART -->
-    <div class="w-100">
-      <div class="bg-body">
-        <!-- HEADER -->
-        <%= render "layouts/admin_header" %>
-
-        <!-- CONTENT -->
-        <div class="p-4">
-          <%= render 'shared/flash' %>
-          <%= yield %>
-        </div>
-      </div>
-
-      <!-- FOOTER -->
+      <%= render 'shared/footer' %>
     </div>
   </div>
 
-  <footer class="dashboard-footer section-white border-top p-4">
-    © <%= Time.now.year %> Archidax.trade
-  </footer>
-
+  <%= javascript_include_tag 'custom' %>
 
 </body>
 </html>

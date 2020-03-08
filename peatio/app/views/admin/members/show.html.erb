@@ -1,8 +1,30 @@
-<div class="row row-eq-height">
-  <div class="col-6">
-    <%= render partial: 'shared/admin/member', locals: { member: @member } %>
-  </div>
-</div>
-<div class="row row-eq-height">
-  <%= render partial: 'shared/admin/member_accounts', locals: { member: @member } %>
-</div>
+<div class="container-fluid">
+  <!-- Page-Title -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-title-box">
+        <div class="float-right">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Members Info</li>
+          </ol>
+        </div>
+        <h4 class="page-title">Members Info</h4>
+      </div><!--end page-title-box-->
+    </div><!--end col-->
+  </div><!--end row-->
+  <!-- end page title end breadcrumb -->
+
+  <div class="p-4">
+    <div class="flash-message"></div>
+
+    <div class="row row-eq-height">
+      <div class="col-6">
+        <%= render partial: 'shared/admin/member', locals: { member: @member } %>
+      </div>
+    </div>
+    <div class="row row-eq-height">
+      <%= render partial: 'shared/admin/member_accounts', locals: { member: @member } %>
+    </div>
+
+  </div><!--end row-->
+</div><!-- container -->

@@ -1,125 +1,93 @@
-<!-- LOGO -->
-<div class="sidebar-header bg-primary">
-  <div class="p-4">
-    <%= link_to image_tag("blue.png"), main_app.admin_dashboard_path, class: "top-logo-icon" %>
-    <%= link_to image_tag("white.png"), main_app.admin_dashboard_path, class: "top-logo" %>
-  </div>
-</div>
 
-<div class="sidebar-content has-scrollbar position-relative">
+<!-- Left Sidenav -->
+<div class="left-sidenav">
+  <div class="main-icon-menu">
+    <nav class="nav">
+      <a href="#MetricaAnalytic" class="nav-link leftmenu-sm-item bg-pink shadow-pink" data-toggle="tooltip-custom" data-placement="right" title="" data-original-title="Analytics">
+        <svg class="nav-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+          <g>
+            <path d="M184,448h48c4.4,0,8-3.6,8-8V72c0-4.4-3.6-8-8-8h-48c-4.4,0-8,3.6-8,8v368C176,444.4,179.6,448,184,448z"/>
+            <path class="svg-primary" d="M88,448H136c4.4,0,8-3.6,8-8V296c0-4.4-3.6-8-8-8H88c-4.4,0-8,3.6-8,8V440C80,444.4,83.6,448,88,448z"/>
+            <path class="svg-primary" d="M280.1,448h47.8c4.5,0,8.1-3.6,8.1-8.1V232.1c0-4.5-3.6-8.1-8.1-8.1h-47.8c-4.5,0-8.1,3.6-8.1,8.1v207.8
+                                        C272,444.4,275.6,448,280.1,448z"/>
+            <path d="M368,136.1v303.8c0,4.5,3.6,8.1,8.1,8.1h47.8c4.5,0,8.1-3.6,8.1-8.1V136.1c0-4.5-3.6-8.1-8.1-8.1h-47.8
+                                        C371.6,128,368,131.6,368,136.1z"/>
+          </g>
+        </svg>
+      </a><!--end MetricaAnalytic-->
+    </nav><!--end nav-->
+  </div><!--end main-icon-menu-->
 
-  <!--  PROFILE -->
-  <div class="bg-dark">
-    <div class="user-name">
-      <div class="d-flex justify-content-between p-4">
-        <div class="col-3 d-flex align-items-center pr-1 pl-0">
-          <%= image_tag "default-profile.png", class: "img-fluid rounded-circle" %>
+  <div class="main-menu-inner">
+    <div class="menu-body slimscroll">
+      <div id="MetricaAnalytic" class="main-icon-menu-pane active">
+        <div class="title-box">
+          <h6 class="menu-title">Admin Access</h6>
         </div>
-        <div class="col d-flex align-items-center">
-          <div>
-            <h2 class="h5 m-0"><%= current_user.email.truncate(12) %></h2>
-            <% if is_admin? %>
-            <h3 class="h6 text-muted mt-1 mb-0">Administrator</h3>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- NAVIGATION -->
-  <div>
-    <ul class="list-icon sidebar-menu">
-
-      <li class="list-icon-item <%= check_active('dashboard') %>">
-        <%= link_to main_app.admin_dashboard_path do %>
-        <i class="icon fa fa-tachometer-alt"></i>
-        <span class="menu-text"><%= t('header.dashboard') %></span>
-        <% end %>
-      </li>
-
-      <% if can? :manage, Blockchain %>
-        <li class="list-icon-item <%= check_active('blockchains') %>">
-          <%= link_to admin_blockchains_path do %>
-            <i class="icon fa fa-link"></i>
-            <span class="menu-text">Blockchains</span>
+        <ul class="nav metismenu" id="main_menu_side_nav">
+          <li class="nav-item"><a class="nav-link" href="<%= main_app.admin_dashboard_path %>">
+            <i class="dripicons-meter"></i><%= t('header.dashboard') %></a>
+          </li>
+          <% if can? :manage, Blockchain %>
+            <li class="nav-item"><a class="nav-link" href="<%= admin_blockchains_path %>">
+              <i class="dripicons-link"></i>Blockchain</a>
+            </li>
           <% end %>
-        </li>
-      <% end %>
-
-      <li class="list-icon-item <%= check_active('currencies') %>">
-        <%= link_to admin_currencies_path do %>
-          <i class="icon fa fa-dollar-sign"></i>
-          <span class="menu-text">Currencies</span>
-        <% end %>
-      </li>
-
-      <% if can? :manage, Market %>
-        <li class="list-icon-item <%= check_active('markets') %>">
-          <%= link_to admin_markets_path do %>
-            <i class="icon fa fa-chart-line"></i>
-            <span class="menu-text">Markets</span>
+          <li class="nav-item"><a class="nav-link" href="<%= admin_currencies_path %>">
+            <i class="mdi mdi-currency-usd"></i>Currencies</a>
+          </li>
+          <% if can? :manage, Market %>
+            <li class="nav-item"><a class="nav-link" href="<%= admin_markets_path %>">
+              <i class="dripicons-store"></i>Markets</a>
+            </li>
           <% end %>
-        </li>
-      <% end %>
-
-      <% if can? :manage, Wallet %>
-        <li class="list-icon-item <%= check_active('wallets') %>">
-          <%= link_to admin_wallets_path do %>
-            <i class="icon fa fa-money-bill-wave"></i>
-            <span class="menu-text">Wallets</span>
+          <% if can? :manage, Wallet %>
+            <li class="nav-item"><a class="nav-link" href="<%= admin_wallets_path %>"><i class="dripicons-wallet"></i>Wallets</a></li>
           <% end %>
-        </li>
-      <% end %>
+          <li class="nav-item"><a class="nav-link" href="ieo"><i class="dripicons-web"></i>IEO</a></li>
 
-      <% if can? :menu, Deposit %>
-        <li class="list-icon-item <%= check_active('deposits') %>">
-          <%= link_to "javascript:void(0);", class: 'has-arrow waves-effect waves-dark has-sub-menu', 'aria-expanded': 'false', data: {toggle: 'popover'} do %>
-            <i class="icon fa fa-level-up-alt"></i>
-            <span class="menu-text"><%= t('admin_header.deposits') %></span>
+          <% if can? :menu, Deposit %>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="dripicons-mail"></i>
+                <span class="w-100">Deposits</span>
+                <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span>
+              </a>
+              <ul class="nav-second-level" aria-expanded="false">
+                <% Currency.ordered.codes.each do |c| %>
+                  <li><%= link_to c.upcase, admin_deposit_index_path(c) %></li>
+                <% end %>
+              </ul>
+            </li><!--end nav-item-->
           <% end %>
-          <div class="sub-menu hidden">
-            <ul class="list-unstyled list-menu mb-0">
-              <% Currency.ordered.codes.each do |c| %>
-                <li><%= link_to c.upcase, admin_deposit_index_path(c) %></li>
-              <% end %>
-            </ul>
-          </div>
-        </li>
-      <% end %>
 
-      <% if can? :menu, Withdraw %>
-        <li class="list-icon-item <%= check_active('withdraws') %>">
-          <%= link_to "javascript:void(0);", class: 'has-arrow waves-effect waves-dark has-sub-menu', 'aria-expanded': "false", data: { toggle: 'popover' } do %>
-            <i class="icon fa fa-level-down-alt"></i>
-            <span class="menu-text"><%= t('admin_header.withdraws') %></span>
+          <% if can? :menu, Withdraw %>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="dripicons-mail"></i>
+                <span class="w-100">Withdraws</span>
+                <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span>
+              </a>
+              <ul class="nav-second-level" aria-expanded="false">
+                <% Currency.ordered.codes.each do |c| %>
+                  <li><%= link_to c.upcase, admin_withdraw_index_path(c) %></li>
+                <% end %>
+              </ul>
+            </li><!--end nav-item-->
           <% end %>
-          <div class="sub-menu hidden">
-            <ul class="list-unstyled list-menu mb-0">
-              <% Currency.ordered.codes.each do |c| %>
-                <li><%= link_to c.upcase, admin_withdraw_index_path(c) %></li>
-              <% end %>
-            </ul>
-          </div>
-        </li>
-      <% end %>
 
-      <% if can? :manage, Member %>
-        <li class="list-icon-item <%= check_active('members') %>">
-          <%= link_to admin_members_path do %>
-            <i class="icon fa fa-users"></i>
-            <span class="menu-text"><%= t('.menus.sections.members') %></span>
+          <% if can? :manage, Member %>
+            <li class="nav-item"><a class="nav-link" href="<%= admin_members_path %>">
+              <i class="dripicons-user-group"></i><%= t('.menus.sections.members') %></a>
+            </li>
           <% end %>
-        </li>
-      <% end %>
-
-      <li class="list-icon-item <%= check_active('rewards') %>">
-        <%= link_to admin_rewards_path do %>
-          <i class="icon fa fa-users"></i>
-          <span class="menu-text">Rewards</span>
-        <% end %>
-      </li>
-
-    </ul>
-  </div>
+          <li class="nav-item"><a class="nav-link" href="<%= admin_rewards_path %>">
+            <i class="dripicons-star"></i>Rewards</a>
+          </li>
+        </ul><!--end nav-->
+      </div><!-- end Analytic -->
+    </div><!--end menu-body-->
+  </div><!-- end main-menu-inner-->
 </div>
+<!-- end left-sidenav-->

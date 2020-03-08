@@ -1,28 +1,61 @@
 <% content_for :frame do %>
-  <div class="container history-pages">
-    <%= render 'tabs', active: :reward %>
-
-    <div class="card card-default" id="trades">
-      <div class="card-body">
-        <div class="col-24">
-          <table class="table table-condensed table-striped">
-            <thead>
-            <tr>
-              <th><%= t('.amount') %></th>
-              <th><%= t('.currency') %></th>
-              <th><%= t('.from') %></th>
-              <th><%= t('.created_at') %></th>
-            </tr>
-            </thead>
-            <tbody class="list">
-            <%= render partial: 'reward', collection: @rewards %>
-            </tbody>
-          </table>
+  <div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="page-title-box">
           <div class="float-right">
-            <%= paginate @rewards %>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="javascript:void(0);">Main</a></li>
+              <li class="breadcrumb-item active">History</li>
+            </ol>
           </div>
-        </div>
-      </div>
+          <h4 class="page-title">History</h4>
+        </div><!--end page-title-box-->
+      </div><!--end col-->
+    </div><!--end row-->
+    <!-- end page title end breadcrumb -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body" style="margin: 30px;">
+              <%= render 'tabs', active: :reward %>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane p-3 active">
+                  <p class="text-muted mb-0">
+                  <div class="table-responsive">
+                    <table class="table table-striped mb-0">
+                      <thead>
+                        <tr>
+                          <th><%= t('.amount') %></th>
+                          <th><%= t('.currency') %></th>
+                          <th><%= t('.from') %></th>
+                          <th><%= t('.created_at') %></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <% if @rewards.size == 0 %>
+                        <tr><td colspan="8" align="center">No History</td></tr>
+                      <% else %>
+                        <%= render partial: 'reward', collection: @rewards %>
+                      <% end %>
+                      </tbody>
+                    </table><!--end /table-->
+                    <div class="float-right">
+                      <%= paginate @rewards %>
+                    </div>
+                  </div>
+                  </p>
+                </div>
+              </div>
+            </div><!--end card-body-->
+          </div><!--end card-->
+        </div><!--end col-->
+      </div><!--end row-->
     </div>
-  </div>
+  </div><!-- container -->
 <% end %>

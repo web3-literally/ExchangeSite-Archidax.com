@@ -1,19 +1,49 @@
-<div class="admin-header bg-white border-bottom navbar navbar-light p-0 sticky-top">
-  <div class="w-100 d-flex justify-content-between">
-    <div>
-      <div class="hide-on-closed-sidebar">
-        <div class="p-4 d-flex align-items-center">
-          <i class="h5-font-size mr-2 text-primary toggle-sidebar-icon fa fa-caret-left"></i>
-          <a href="javascript:void(0);" id="sidebarCollapse" class="text-dark">
-            <h1 class="h4 m-0 brand"><i class="fa fa-bars"></i></h1>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div>
-      <ul class="float-right list-unstyled mt-3 pt-1">
-        <%= render partial: 'shared/header_profile_setting' if current_user %>
-      </ul>
-    </div>
+<!-- Top Bar Start -->
+<div class="topbar">
+
+  <!-- LOGO -->
+  <div class="topbar-left">
+    <a href="index.html" class="logo">
+      <span>
+          <img src="<%= image_path('logo_archidax.png') %>" alt="logo-large" height="55">
+      </span>
+    </a>
   </div>
+  <!--end logo-->
+  <!-- Navbar -->
+  <nav class="navbar-custom">
+    <ul class="list-unstyled topbar-nav float-right mb-0">
+      <%= render partial: 'shared/header_lang_sel' %>
+      <%= render partial: 'shared/notification_list' %>
+      <% if current_user %>
+        <%= render partial: 'shared/header_profile_setting' %>
+      <% else %>
+        <li class="account-info">
+          <div class="signin-signup-container">
+            <% provider = ENV['OAUTH2_SIGN_IN_PROVIDER'] %>
+            <% unless provider.blank? %>
+              <a href="/auth/<%= provider == 'google' ? 'google_oauth2' : provider %>" role="button">Log In</a>
+              <span>or<%= link_to "Register", '/accounts/sign_up' %></span>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul><!--end topbar-nav-->
+
+    <ul class="list-unstyled topbar-nav mb-0">
+      <li>
+        <button class="button-menu-mobile nav-link waves-effect waves-light">
+          <i class="dripicons-menu nav-icon"></i>
+        </button>
+      </li>
+      <li class="hide-phone app-search">
+        <form role="search" class="">
+          <input type="text" placeholder="Search..." class="form-control">
+          <a href=""><i class="fas fa-search"></i></a>
+        </form>
+      </li>
+    </ul>
+  </nav>
+  <!-- end navbar-->
 </div>
+<!-- Top Bar End -->

@@ -8,28 +8,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <%= csrf_meta_tags %>
 
-    <% stylesheet = content_for?(:stylesheet) ? yield(:stylesheet) : 'application' %>
-    <%= stylesheet_link_tag stylesheet, media: 'all' %>
+    <%= stylesheet_link_tag 'custom', media: 'all' %>
 
     <%= custom_stylesheet_link_tag_for :main %>
 
     <%= include_gon %>
     <%= javascript_include_tag "locales/#{I18n.locale}" %>
-    <%= javascript_include_tag 'application' %>
     <%= yield(:scripts) if content_for?(:scripts) %>
   </head>
 
-  <body id="default_theme" class="ui-radius" data-lang="<%= locale_name %>" id="<%= body_id %>">
 
-    <%= render 'shared/left_side_menu' %>
-    <%= content_for?(:header) ? yield(:header) : render('shared/header') %>
+  <body id="<%= body_id %>" data-lang="<%= locale_name %>">
+    <div class="page-wrapper">
+      <!-- Left Sidenav -->
+      <%= render 'shared/left_side_menu' %>
+      <%= content_for?(:header) ? yield(:header) : render('shared/header') %>
 
-    <div id="wrap">
-      <%= content_for?(:frame) ? yield(:frame) : render('shared/frame') %>
+      <!-- Page Content -->
+      <div class="page-content">
+        <%= content_for?(:frame) ? yield(:frame) : render('shared/frame') %>
+        <div id="push"></div>
 
-      <div id="push"></div>
+        <%= render 'shared/footer' %>
+      </div>
     </div>
-    <%= content_for?(:footer) ? yield(:footer) : render('shared/footer') %>
+
+  <%= javascript_include_tag 'custom' %>
 
   </body>
+
 </html>

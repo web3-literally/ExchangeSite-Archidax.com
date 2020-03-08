@@ -1,40 +1,65 @@
-<div class="row">
-  <div class="col-6">
-    <h3>Blockchains</h3>
-  </div>
-  <% if can? :create, Blockchain %>
-    <div class="col-6">
-      <%= link_to raw("<i class='fa fa-plus mr-2'></i> New Blockchain"), new_admin_blockchain_path, class: 'btn btn-primary float-right mb-3' %>
-    </div>
-  <% end  %>
-</div>
+<div class="container-fluid">
+  <!-- Page-Title -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-title-box">
+        <div class="float-right">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Blockchain</li>
+          </ol>
+        </div>
+        <h4 class="page-title">Blockchain</h4>
+      </div><!--end page-title-box-->
+    </div><!--end col-->
+  </div><!--end row-->
+  <!-- end page title end breadcrumb -->
 
-<div class="card">
-  <%= table_for @blockchains, class: 'table table-condensed table-striped' do |t| %>
-    <% t.column :id, 'ID' %>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <% if can? :create, Blockchain %>
+                <div class="col-12">
+                  <%= link_to raw("<i class='mdi mdi-plus-circle-outline mr-2'></i> New Blockchain"),
+                              new_admin_blockchain_path, class: 'btn btn-primary px-4 float-right mt-0 mb-3' %>
+                </div>
+              <% end  %>
 
-    <% t.column :key, 'Key' %>
+              <h4 class="header-title mt-0 mb-3">Blockchain Summary</h4>
+              <div class="table-responsive">
+                <%= table_for @blockchains, class: 'table table-bordered table-hover mb-0' do |t| %>
+                  <% t.column :id, 'ID' %>
 
-    <% t.column :name, 'Name' %>
+                  <% t.column :key, 'Key' %>
 
-    <% t.column 'Client' do |x| %>
-      <%= x.client.upcase %>
-    <% end %>
+                  <% t.column :name, 'Name' %>
 
-    <% t.column :height, 'Height' %>
+                  <% t.column 'Client' do |x| %>
+                    <%= x.client.upcase %>
+                  <% end %>
 
-    <% t.column 'Status' do |x| %>
-      <%= x.status.titleize %>
-    <% end %>
+                  <% t.column :height, 'Height' %>
 
-    <% t.column 'Created At' do |x| %>
-      <%= l(x.created_at, format: :long) %>
-    <% end %>
+                  <% t.column 'Status' do |x| %>
+                    <%= x.status.titleize %>
+                  <% end %>
 
-    <% t.column 'Actions' do |x| %>
-      <%= link_to 'View', admin_blockchain_path(x) %>
-    <% end %>
-  <% end %>
+                  <% t.column 'Created At' do |x| %>
+                    <%= l(x.created_at, format: :long) %>
+                  <% end %>
 
-</div>
-<%= paginate @blockchains %>
+                  <% t.column 'Actions' do |x| %>
+                    <%= link_to 'View', admin_blockchain_path(x), class: 'text-success' %>
+                  <% end %>
+                <% end %>
+              </div><!--end /div-->
+              <%= paginate @blockchains %>
+            </div>
+          </div>
+        </div><!--end card-body-->
+      </div><!--end card-->
+    </div><!--end col-->
+  </div><!--end row-->
+</div><!-- container -->

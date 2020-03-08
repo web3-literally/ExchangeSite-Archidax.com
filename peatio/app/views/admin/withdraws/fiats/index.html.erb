@@ -1,12 +1,29 @@
-<% unless @latest_withdraws.empty? %>
-  <h3>Withdraws for the last 24 hours</h3>
-  <div class="card">
-    <%= render partial: 'table', locals: {withdraws: @latest_withdraws} %>
-  </div>
-<% end %>
-<% unless @all_withdraws.empty? %>
-  <h3>All withdraws</h3>
-  <div class="card">
-    <%= render partial: 'table', locals: {withdraws: @all_withdraws} %>
-  </div>
-<% end %>
+<div class="container-fluid">
+  <!-- Page-Title -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-title-box">
+        <div class="float-right">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Withdraws</li>
+          </ol>
+        </div>
+
+        <% unless @latest_withdraws.empty? %>
+          <h4 class="page-title">Withdraws for the last 24 hours</h4>
+          <div class="table-responsive">
+            <%= render partial: 'table', locals: {withdraws: @latest_withdraws} %>
+          </div>
+        <% end %>
+        <% unless @all_withdraws.empty? %>
+          <h4 class="page-title">All withdraws</h4>
+          <div class="table-responsive">
+            <%= render partial: 'table', locals: {withdraws: @all_withdraws} %>
+          </div>
+        <% end %>
+
+      </div><!--end page-title-box-->
+    </div><!--end col-->
+  </div><!--end row-->
+  <!-- end page title end breadcrumb -->
+</div><!-- container -->

@@ -1,19 +1,46 @@
-<div class="row">
-  <div class="col-6">
-    <h3>Rewards</h3>
-  </div>
-</div>
+<div class="container-fluid">
+  <!-- Page-Title -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-title-box">
+        <div class="float-right">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Rewards</li>
+          </ol>
+        </div>
+        <h4 class="page-title">Rewards</h4>
+      </div><!--end page-title-box-->
+    </div><!--end col-->
+  </div><!--end row-->
+  <!-- end page title end breadcrumb -->
 
-<div class="card">
-  <%= table_for @rewards, class: 'table table-condensed table-striped' do |t| %>
-    <% t.column :member_id %>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h4 class="header-title mt-0 mb-3">Rewards</h4>
+              <div class="table-responsive">
+                <%= table_for @rewards, class: 'table table-bordered table-hover mb-0' do |t| %>
+                  <% t.column :member_id %>
 
-    <% t.column :currency_id %>
+                  <% t.column :currency_id %>
 
-    <% t.column :amount %>
+                  <% t.column :amount %>
 
-    <% t.column :created_at %>
+                  <% t.column :created_at %>
 
-    <%= paginate @rewards %>
-  <% end %>
-</div>
+                  <%= paginate @rewards %>
+                <% end %>
+              </div><!--end /div-->
+            </div>
+          </div>
+        </div><!--end card-body-->
+      </div><!--end card-->
+    </div><!--end col-->
+  </div><!--end row-->
+
+
+
+</div><!-- container -->

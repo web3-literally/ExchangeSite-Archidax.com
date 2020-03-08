@@ -1,44 +1,64 @@
-<div class="row">
-  <div class="col-6">
-    <h3>Markets</h3>
-  </div>
-  <div class="col-6">
-    <%= link_to raw("<i class='fa fa-plus mr-2'></i> New market"), new_admin_market_path, class: "btn btn-primary float-right mb-3" %>
-  </div>
-</div>
 
-<div class="card">
-  <%= table_for @markets, class: 'table table-bordered table-striped' do |t| %>
-    <% t.column :name, 'Name', class: 'col-xs-2' %>
+<div class="container-fluid">
+  <!-- Page-Title -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-title-box">
+        <div class="float-right">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Markets</li>
+          </ol>
+        </div>
+        <h4 class="page-title">Markets</h4>
+      </div><!--end page-title-box-->
+    </div><!--end col-->
+  </div><!--end row-->
+  <!-- end page title end breadcrumb -->
 
-    <% t.column :bid_fee, 'Bid fee', class: 'col-xs-2' %>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <%= link_to raw("<i class='mdi mdi-plus-circle-outline mr-2'></i> New market"), new_admin_market_path,
+                          class: "btn btn-primary px-4 float-right mt-0 mb-3" %>
+              <h4 class="header-title mt-0 mb-3">Markets</h4>
+              <div class="table-responsive">
+                <%= table_for @markets, class: 'table table-bordered table-hover mb-0' do |t| %>
+                  <% t.column :name, 'Name', class: 'col-xs-2' %>
 
-    <% t.column :ask_fee, 'Ask fee', class: 'col-xs-2' %>
+                  <% t.column :bid_fee, 'Bid fee', class: 'col-xs-2' %>
 
-    <% t.column 'Min ask amount', class: 'col-xs-2' do |x| %>
-      <%= x.min_ask_amount %>
-    <% end %>
+                  <% t.column :ask_fee, 'Ask fee', class: 'col-xs-2' %>
 
-    <% t.column 'Min bid amount', class: 'col-xs-2' do |x| %>
-      <%= x.min_bid_amount %>
-    <% end %>
+                  <% t.column 'Min ask amount', class: 'col-xs-2' do |x| %>
+                    <%= x.min_ask_amount %>
+                  <% end %>
 
-    <% t.column 'Created at', class: 'col-xs-3' do |x| %>
-      <%= l(x.created_at, format: :long) %>
-    <% end %>
+                  <% t.column 'Min bid amount', class: 'col-xs-2' do |x| %>
+                    <%= x.min_bid_amount %>
+                  <% end %>
 
-    <% t.column 'Enabled', class: 'col-xs-2' do |x| %>
-      <% if x.enabled? %>
-        <span class="text-success">Yes</span>
-      <% else %>
-        <span class="text-danger">No</span>
-      <% end %>
-    <% end %>
+                  <% t.column 'Created at', class: 'col-xs-3' do |x| %>
+                    <%= l(x.created_at, format: :long) %>
+                  <% end %>
 
-    <% t.column 'Actions', class: 'col-xs-1' do |x| %>
-      <%= link_to 'View', admin_market_path(x) %>
-    <% end %>
-  <% end %>
-</div>
+                  <% t.column 'Enabled', class: 'col-xs-2' do |x| %>
+                    <% if x.enabled? %>Yes<% else %>No<% end %>
+                  <% end %>
 
+                  <% t.column 'Actions', class: 'col-xs-1' do |x| %>
+                    <%= link_to 'View', admin_market_path(x), class: 'text-success' %>
+                  <% end %>
+                <% end %>
+              </div><!--end /div-->
+            </div>
+          </div>
+        </div><!--end card-body-->
+      </div><!--end card-->
+    </div><!--end col-->
+  </div><!--end row-->
+
+</div><!-- container -->
 <%= paginate @markets %>
