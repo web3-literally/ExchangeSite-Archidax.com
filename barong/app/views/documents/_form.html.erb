@@ -10,29 +10,24 @@
       </ul>
     </div>
   <% end %>
-  <div class="row">
-    <div class="field col-12 ">
-      <%= form.file_field :upload, id: :document_upload, class: 'dropify', 'data-allowed-file-extensions': 'png jpg jpeg pdf', 'data-max-file-size': '10M', 'data-default-file': document.upload.present? ? image_url(document.upload.url) : false %>
-      </br>
-    </div>
+
+  <div class="col-md-12 mt-4 mb-3">
+    <%= form.file_field :upload, id: :document_upload, class: 'dropify',
+                        'data-allowed-file-extensions': 'png jpg jpeg pdf', 'data-max-file-size': '10M',
+                        'data-default-file': document.upload.present? ? image_url(document.upload.url) : false %>
   </div>
-  <div class="row">
-    <div class="field form-group col-6">
-      <%= form.select(:doc_type, Document::TYPES, {id: :document_doc_type}, {class: 'form-control', id: 'document-type'}) %>
-    </div>
-
-    <div class="field form-group col-6">
-      <div class="down-arrow">
-        <%= form.text_field :doc_expire, id: :document_doc_expire, class: 'datepicker-toggle form-control', 'data-date-format': 'yyyy-mm-dd', 'data-date-start-date': '+1d', placeholder: 'Expiry date' %>
-      </div>
-    </div>
-
-    <div class="field form-group col-12">
-      <%= form.text_field :doc_number, id: :document_doc_number, class: 'px-1 form-control', placeholder: 'AB123456' %>
-    </div>
+  <div class="col-md-6">
+    <%= form.select(:doc_type, Document::TYPES, {id: :document_doc_type}, {class: 'custom-select frm-new', id: 'document-type'}) %>
+  </div>
+  <div class="col-md-6 mb-3">
+    <%= form.text_field :doc_expire, id: :document_doc_expire, class: 'datepicker-toggle form-control frm-new', 'data-date-format': 'yyyy-mm-dd', 'data-date-start-date': '+1d', placeholder: 'Expiry date' %>
   </div>
 
-  <div class="submit-container">
-    <%= form.submit 'Submit', class: 'btn btn-block btn-success' %>
+  <div class="col-md-12 mb-3">
+    <%= form.text_field :doc_number, id: :document_doc_number, class: 'form-control frm-new', placeholder: 'AB123456' %>
+  </div>
+
+  <div class="col-md-12 mb-2">
+    <button class="btn btn-warning btn-dark-orange-cust btn-round waves-effect full-width" type="Submit">Submit</button>
   </div>
 <% end %>

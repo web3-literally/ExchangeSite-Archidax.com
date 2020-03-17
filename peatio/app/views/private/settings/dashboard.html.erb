@@ -1,144 +1,8 @@
 <%= content_for :scripts do %>
-  <%= stylesheet_link_tag 'dashboard/swiper' %>
-  <%= javascript_include_tag 'dashboard/swiper' %>
+  <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css' %>
 <% end %>
 
 <div class="wrapper container main-wrapper row " style="display: none;">
-
-    <div class="col-lg-11 mt-15 mb-15">
-        <section class="wra">
-            <div class="swiper-container coins-slider text-center swiper-container-horizontal">
-                <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
-
-                    <% @accounts.each_with_index do |account, index| %>
-                        <% if index == 0 %>
-                            <% slide_class = 'swiper-slide-active' %>
-                        <% else %>
-                            <% slide_class = index == 1 ? 'swiper-slide-next' : '' %>
-                        <% end %>
-
-                        <div class="swiper-slide <%= slide_class %>" style="width: 261px; margin-right: 10px;">
-                            <div class="coin-box flex align-items-center">
-
-                                <div class="coin-icon mr-10">
-                                    <%= image_tag account.currency_id == 'bgc' ? "#{account.currency_id}.png" : "#{account.currency_id}.svg" %>
-                                </div>
-                                <div class="coin-balance text-left">
-                                    <h5 class="coin-name boldy"><%= account.currency.name %> Balance</h5>
-                                    <p class="mb-0"><%= account.balance %></p>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    <% end %>
-
-                </div>
-
-            </div>
-            <div class="apg-arrows">
-                <!-- Add Navigation -->
-                <div class="swiper-button-prev swiper-button-disabled">
-                    <i class="fas fa-long-arrow-alt-left fa-2x"></i>
-                </div>
-                <div class="swiper-button-next">
-                    <i class="fas fa-long-arrow-alt-right fa-2x"></i>
-                </div>
-            </div>
-        </section>
-    </div>
-    <div class="col-md-1"></div>
-    <div class="clearfix"></div>
-
-    <!-- <div class="col-12">
-        <div class="page-title">
-
-            <div class="pull-left"> -->
-                <!-- PAGE HEADING TAG - START -->
-                <!-- <h1 class="title">Crypto Dashboard</h1> -->
-                <!-- PAGE HEADING TAG - END -->
-           <!--  </div>
-
-        </div>
-    </div> -->
-    <div class="col-lg-12">
-        <section class="box nobox marginBottom0">
-            <div class="content-body">
-                <div class="row">
-                   
-                    <div class="col-lg-3 col-sm-6 col-12">
-                        <div class="statistics-box">
-                            <div class="mb-15">
-                                <i class="pull-left ico-icon icon-md icon-primary">
-                                    <%= image_tag 'crypto-dash/s1.png', class: 'ico-icon-o' %>
-                                </i>
-                                <div class="stats">
-                                    <h3 class="boldy mb-5">$<%= @total_balance %></h3>
-                                    <span>Account Balance</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-12">
-                        <div class="statistics-box">
-                            <div class="mb-15">
-                                <i class="pull-left ico-icon icon-md icon-primary">
-                                    <%= image_tag 'crypto-dash/s2.png', class: 'ico-icon-o' %>
-                                </i>
-                                <div class="stats">
-                                    <h3 class="boldy mb-5">$<%= @deposits_sum %></h3>
-                                    <span>Total Income</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-12">
-                        <div class="statistics-box">
-                            <div class="mb-15">
-                                <i class="pull-left ico-icon icon-md icon-primary">
-                                    <%= image_tag 'crypto-dash/s3.png', class: 'ico-icon-o' %>
-                                </i>
-                                <div class="stats">
-                                    <h3 class="boldy mb-5"><%= @total_balance > 0 ? (@total_balance / @deposits_sum.to_f * 100).round(2) : 0 %>%</h3>
-                                    <span>Rate of Return</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-12">
-                        <div class="statistics-box">
-                            <div class="mb-15">
-                                <i class="pull-left ico-icon icon-md icon-primary">
-                                    <%= image_tag 'crypto-dash/s4.png', class: 'ico-icon-o' %>
-                                </i>
-                                <div class="stats">
-                                    <h3 class="boldy mb-5"><%= @trades.count %></h3>
-                                    <span>Number of Trades</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                <!-- End .row -->
-            </div>
-        </section>
-    </div>
-
-    <div class="clearfix"></div>
-    <!-- MAIN CONTENT AREA STARTS -->
-
-    <!-- <div class="col-12">
-
-        <div class="pull-left"> -->
-            <!-- PAGE HEADING TAG - START -->
-            <!-- <h4 class="title boldy mb-5 mt-15">Crypto Balance</h4> -->
-            <!-- PAGE HEADING TAG - END -->
-        <!-- </div>
-
-    </div> -->
-
-    <div class="clearfix"></div>
 
     <div class="col-lg-8">
         <section class="box" style="overflow:hidden">
@@ -184,407 +48,7 @@
             </div>
         </section>
     </div>
-
-    <div class="col-12 col-md-6 col-lg-4">
-        <section class="box stock-status">
-            <header class="panel_header">
-                <h2 class="title pull-left">Stock Status</h2>
-                <div class="actions panel_actions pull-right">
-                    <i class="fas fa-chevron-down"></i>
-                    <i class="box_setting fas fa-cog" data-toggle="modal" href="#section-settings"></i>
-                    <i class="box_close fas fa-times"></i>
-                </div>
-            </header>
-            <div class="content-body">
-                <div class="row">
-                    <div class="col-12">
-                        <% @accounts.each do |account| %>
-                            <% if account.currency_id != 'usd' %>
-                                <% market_change = calc_change(account).slice(0).to_f %>
-                                <div class="coin-box2 flex align-items-center">
-                                    <div class="coin-icon mr-10">
-                                        <%= image_tag account.currency_id == 'bgc' ? "#{account.currency_id}.png" : "#{account.currency_id}.svg" %>
-                                    </div>
-                                    
-                                    <h5 class="coin-name boldy"><%= account.currency.name %></h5>
-                                    <h5 class="coin-price boldy">$
-                                      <% if Gon.tickers.has_key? "#{account.currency_id}btc" %>
-                                        <%= Gon.tickers["#{account.currency_id}btc"][:last].round(2) %>
-                                      <% else %>
-                                        0
-                                      <% end %>
-                                    </h5>
-                                    <p class="mb-0 <%= market_change >= 0 ? 'green-text' : 'red-text' %>"><%= calc_change(account) %>%<i class="complete fa fa-arrow-<%= market_change >= 0 ? 'up' : 'down' %> ml-10"></i></p>
-                                </div>
-                            <% end %>
-                        <% end %>
-
-                    </div>
-                </div> <!-- End .row -->
-            </div>
-        </section>
-    </div>
-
-    <!-- <div class="clearfix"></div>
-
-    <div class="col-12 col-md-4">
-        <section class="box ">
-            <header class="panel_header">
-                <h2 class="title pull-left">Transactions Status</h2>
-                <div class="actions panel_actions pull-right">
-                    <i class="fas fa-chevron-down"></i>
-                    <i class="box_setting fas fa-cog" data-toggle="modal" href="#section-settings"></i>
-                    <i class="box_close fas fa-times"></i>
-                </div>
-            </header>
-            <div class="content-body pb10">
-                <div class="row">
-                    <div class="col-8 col-md-offset-2 col-sm-offset-2 col-offset-2 mb-20">
-                        <canvas id="donut-chartjs" width="436" height="436" style="width: 218px; height: 218px;"></canvas>
-                    </div>
-                    <div class="col-md-6 col-12">
-                        <div class="token-info">
-                            <div class="info-wrapper three">
-                                <div class="token-descr">
-                                    <h3 class="bold mt-0 mb-0"><%= @completed_tr_pr %>%</h3>
-                                    <input type="hidden" name="" id="completed_tr" value="<%= @completed_tr.count %>">
-                                    Completed
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                        <div class="token-info">
-                            <div class="info-wrapper five">
-                                <div class="token-descr">
-                                    <h3 class="bold mt-0 mb-0"><%= @pending_tr_pr %>%</h3>
-                                    <input type="hidden" name="" id="pending_tr" value="<%= @pending_tr.count %>">
-                                    Pending
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                        <div class="token-info">
-                            <div class="info-wrapper two">
-                                <div class="token-descr">
-                                    <h3 class="bold mt-0 mb-0"><%= @canceled_tr_pr %>%</h3>
-                                    <input type="hidden" id="canceled_tr" name="" value="<%= @canceled_tr.count %>">
-                                    Cancelled
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 col-12">
-                        <div class="token-info">
-                            <div class="info-wrapper default">
-                                <div class="token-descr">
-                                    <h3 class="bold mt-0 mb-0"><%= @other_tr_pr %>%</h3>
-                                    <input type="hidden" name="" id="other_tr" value="<%= @other_tr.count %>">
-                                    Others
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div> -->
-
-    <!-- <div class="col-lg-8">
-        <div class="row"> -->
-            <!-- <div class="col-lg-6 col-12">
-                <div class="r1_graph1 db_box db_box_large has-shadow2 mt-15">
-                    <div class="pat-info-wrapper">
-                        <div class="pat-info text-left">
-                            <h5 class="">Total Funds</h5>
-                            <h6>Complete transactions</h6>
-                        </div>
-                        <div class="pat-val relative">
-                            <h4 class="value blue-text"><i class="complete fa fa-arrow-up"></i>124%<span>increase By</span></h4>
-                        </div>
-                    </div>
-                    <span class="sparkline15"><canvas width="270" height="200" style="display: inline-block; width: 270px; height: 200px; vertical-align: top;"></canvas></span>
-                </div>
-            </div> -->
-            
-           <!--  <div class="col-lg-12">
-                <div class="ask-box active">
-                    <div class="ask-circle">
-                      <%= image_tag 'crypto-dash/crypto-buy.png' %>
-                    </div>
-                    <div class="ask-info">
-                      <h3 class="w-text bold">Buy &amp; Sell Crypto Directly and Easily</h3>
-                      <p class="g2-text mb-0">lorem ipsum dolor sit elit. Perferendis veniam exercitationem ducimus  magni distinctio sit explicabo.</p>
-                    </div>
-                    <div class="ask-arrow">
-                      <a href="/trading/<%= current_market.id %>"><span><i class="fas fa-long-arrow-alt-right"></i></span></a>
-                    </div>
-                 </div>
-            </div> -->
-
-            <!-- <div class="col-lg-6 col-12">
-                <div class="r1_graph1 db_box db_box_large has-shadow2 mt-15">
-                    <div class="promp-box text-center">
-                        <%= image_tag 'crypto-dash/crypto-wallet.png' %>
-                        <h4 class="boldy mt-20 mb-10">Start crypto trading Today</h4>
-                        <p>Lorem ipsum dolor sit amet, Eveniet magni sit explicabo Quo nihil atque.</p>
-                        <div class="form-group no-mb">
-                            <a href="/trading/<%= current_market.id %>" class="btn btn-primary btn-lg mt-20 gradient-blue" style="width:100%">Start Trading</a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-       <!--  </div>
-    </div>
-
-    <div class="clearfix"></div> -->
-
-    <!-- <div class="col-lg-6">
-        <section class="box">
-            <header class="panel_header">
-                <h2 class="title pull-left">Recent Activities</h2>
-                <div class="actions panel_actions pull-right">
-                    <i class="fas fa-chevron-down"></i>
-                    <i class="box_setting fas fa-cog" data-toggle="modal" href="#section-settings"></i>
-                    <i class="box_close fas fa-times"></i>
-                </div>
-            </header>
-            <div class="content-body">
-                <div class="row">
-                    <div class="col-12">
-
-                        <div class="table-responsive" data-pattern="priority-columns">
-                            <table id="tech-companies-1" class="table vm table-small-font no-mb table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Crypto Orders</th>
-                                        <th>Status</th>
-                                        <th>Amount</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="round img2">
-                                                <%= image_tag 'crypto-dash/p1.png' %>
-                                            </div>
-                                            <div class="designer-info">
-                                                <h6>Buy Record</h6>
-                                                <small class="text-muted"><span class="mr-10">11-26</span> 10:23:45</small>
-                                            </div>
-                                        </td>
-                                        <td><span class="badge  w-70 round-success">completed</span></td>
-                                        <td class="green-text boldy">+3,800$</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="round img2">
-                                                <%= image_tag 'crypto-dash/p2.png' %>
-                                            </div>
-                                            <div class="designer-info">
-                                                <h6>Sell Record</h6>
-                                                <small class="text-muted"><span class="mr-10">11-25</span> 12:53:25</small>
-                                            </div>
-                                        </td>
-                                        <td><span class="badge w-70 round-warning">Pending</span></td>
-                                        <td class="red-text boldy">-1,760$</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="round img2">
-                                                <%= image_tag 'crypto-dash/p3.png' %>
-                                            </div>
-                                            <div class="designer-info">
-                                                <h6>Exchange Record</h6>
-                                                <small class="text-muted"><span class="mr-10">11-24</span> 04:03:25</small>
-                                            </div>
-                                        </td>
-                                        <td><span class="badge w-70 round-primary">exchanged </span></td>
-                                        <td class="blue-text boldy">+20,760$</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="round img2">
-                                                <%= image_tag 'crypto-dash/p1.png' %>
-                                            </div>
-                                            <div class="designer-info">
-                                                <h6>Buy Record</h6>
-                                                <small class="text-muted"><span class="mr-10">11-22</span> 09:33:02</small>
-                                            </div>
-                                        </td>
-                                        <td><span class="badge w-70 round-danger">Canceled</span></td>
-                                        <td class="green-text boldy">+10,760$</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="round img2">
-                                                <%= image_tag 'crypto-dash/p2.png' %>
-                                            </div>
-                                            <div class="designer-info">
-                                                <h6>Buy Record</h6>
-                                                <small class="text-muted"><span class="mr-10">11-22</span> 09:33:02</small>
-                                            </div>
-                                        </td>
-                                        <td><span class="badge w-70 round-success">Completed</span></td>
-                                        <td class="red-text boldy">-8,760$</td>
-                                    </tr>
-                                    
-
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-    </div>
-
-    <div class="col-lg-6">
-        <section class="box">
-            <header class="panel_header">
-                <h2 class="title pull-left">Transactions History</h2>
-                <div class="actions panel_actions pull-right">
-                    <i class="box_toggle fas fa-chevron-down"></i>
-                    <i class="box_setting fas fa-cog" data-toggle="modal" href="#section-settings"></i>
-                    <i class="box_close fas fa-times"></i>
-                </div>
-            </header>
-            <div class="content-body">
-                <div class="row">
-                    <div class="col-12">
-
-                        <div class="table-responsive" data-pattern="priority-columns">
-                            <table id="tech-companies-1" class="table vm trans table-small-font no-mb table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Crypto Trade</th>
-                                        <th>Time</th>
-                                        <th>Status</th>
-                                        <th>Amount</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="round img2">
-                                                <%= image_tag 'crypto-dash/coin1.png' %>
-                                            </div>
-                                            <div class="designer-info">
-                                                <h6>Bitcoin</h6>
-                                            </div>
-                                        </td>
-                                        <td><small class="text-muted">10:23:45</small></td>
-                                        <td><span class="badge  w-70 round-success">completed</span></td>
-                                        <td class="green-text boldy">+0,041BTC</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="round img2">
-                                                <%= image_tag 'crypto-dash/coin8.png' %>
-                                            </div>
-                                            <div class="designer-info">
-                                                <h6>Litecoin</h6>
-                                            </div>
-                                        </td>
-                                        <td><small class="text-muted">12:53:25</small></td>
-                                        <td><span class="badge w-70 round-warning">Pending</span></td>
-                                        <td class="red-text boldy">-1,176LTC</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="round img2">
-                                                <%= image_tag 'crypto-dash/coin2.png' %>
-                                            </div>
-                                            <div class="designer-info">
-                                                <h6>Ethereum</h6>
-                                            </div>
-                                        </td>
-                                        <td><small class="text-muted">04:03:25</small></td>
-                                        <td><span class="badge w-70 round-primary">exchanged </span></td>
-                                        <td class="blue-text boldy">0.023ETH</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="round img2">
-                                                <%= image_tag 'crypto-dash/coin4.png' %>
-                                            </div>
-                                            <div class="designer-info">
-                                                <h6>Ripple</h6>
-                                            </div>
-                                        </td>
-                                        <td><small class="text-muted"> 09:33:02</small></td>
-                                        <td><span class="badge w-70 round-danger">Canceled</span></td>
-                                        <td class="green-text boldy">+107,0XRP</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="round img2">
-                                                <%= image_tag 'crypto-dash/coin1.png' %>
-                                            </div>
-                                            <div class="designer-info">
-                                                <h6>Bitcoin</h6>
-                                            </div>
-                                        </td>
-                                        <td><small class="text-muted">10:23:45</small></td>
-                                        <td><span class="badge  w-70 round-warning">pending</span></td>
-                                        <td class="green-text boldy">-0,098BTC</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="round img2">
-                                                <%= image_tag 'crypto-dash/coin3.png' %>
-                                            </div>
-                                            <div class="designer-info">
-                                                <h6>Dashcoin</h6>
-                                            </div>
-                                        </td>
-                                        <td><small class="text-muted">09:33:02</small></td>
-                                        <td><span class="badge w-70 round-success">Completed</span></td>
-                                        <td class="red-text boldy">-2,76DAH</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="round img2">
-                                                <%= image_tag 'crypto-dash/coin5.png' %>
-                                            </div>
-                                            <div class="designer-info">
-                                                <h6>Bitdash</h6>
-                                            </div>
-                                        </td>
-                                        <td><small class="text-muted">09:33:02</small></td>
-                                        <td><span class="badge w-70 round-success">Completed</span></td>
-                                        <td class="green-text boldy">+1,429DAH</td>
-                                    </tr>
-                                    
-
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-    </div> -->
-
-
-
-    <div class="clearfix"></div>
-
-    <!-- MAIN CONTENT AREA ENDS -->
-    <%= javascript_include_tag 'dashboard/perfect-scrollbar.min.js' %>
-    <%= javascript_include_tag 'dashboard/Chart.min.js' %>
-    <%= javascript_include_tag 'dashboard/swiper' %>
-    <%= javascript_include_tag 'dashboard/dashboard-crypto.js' %>
 </div>
-
-
-
 
 <!-- Updated design for dashboard page -->
 <% barong_domain = ENV['BARONG_DOMAIN'] %>
@@ -619,170 +83,251 @@
     </div><!--end col-->
   </div><!--end row-->
   <!-- end page title end breadcrumb -->
+  <!-- end page title end breadcrumb -->
 
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-body" style="margin: 30px;">
-            <div class="row">
-              <div class="col-md-2">
-                <div class="avatar-box align-self-center mr-2" style="width: 150px;height: 150px;font-size: 55px;font-weight: 700;">
-                  <span class="avatar-title bg-soft-primary rounded-circle">AE</span>
-                </div>
-              </div>
-              <div class="col-md-5" align="center">
-                <h3>Member Level : General</h3>
-                <span class="text-primary"><%= current_user.email %></span>
-                <h5>Last Login Time : <%= current_user.login_time %></h5>
-                <h5>IP : <span class="text-primary"><%= current_user.login_ip %></span></h5>
-                <div class="row">
-                  <div class="col-md-10">
-                    <h5>Using <span class="text-primary">BGC</span> to pay for fees (30% discount)</h5>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="custom-control custom-switch switch-primary switch-lg mt-2">
-                      <input type="checkbox" class="custom-control-input" id="customSwitchPrimary"
-                             <%= "#{'checked' if current_user.house_fee }" %>>
-                      <label class="custom-control-label" for="customSwitchPrimary"></label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-5" align="center">
-                <div class="row">
-                  <div class="col-md-4">
-                    <h1><img src="<%= current_user.level == 1 ? image_path("diamond-active.png")
-                                          : image_path("diamond-non-active.png") %>"></br />Lv.1</h1>
-                  </div>
-                  <div class="col-md-4">
-                    <h1><img src="<%= current_user.level == 2 ? image_path("diamond-active.png")
-                                          : image_path("diamond-non-active.png") %>"></br />Lv.2</h1>
-                    <small class="text-danger">
-                      <%= link_to current_user.level >= 2 ? 'Change phone' : "Verify phone", '/users/phones/new', class: 'text-danger' %>
-                    </small>
-                  </div>
-                  <div class="col-md-4">
-                    <h1><img src="<%= current_user.level == 3 ? image_path("diamond-active.png")
-                                          : image_path("diamond-non-active.png") %>"></br />Lv.3</h1>
-                    <small class="text-danger">
-                      <%= link_to 'Submit Verification Documents (General)', '/users/profiles/new', class: 'text-danger' %>
-                    </small>
-                  </div>
-                </div>
+  <div class="road-map-controls" aria-label="Carousel Navigation" tabindex="0">
+    <button id="road-map-prev" class="btn btn-info" data-controls="prev" tabindex="-1" aria-controls="tns1" disabled>
+      <i class="fas fa-arrow-left"></i>
+    </button>
+    <button id="road-map-next" class="btn btn-info" data-controls="next" tabindex="-1" aria-controls="tns1">
+      <i class="fas fa-arrow-right"></i>
+    </button>
+  </div>
+
+  <div id="road-map">
+
+    <% @accounts.each_with_index do |account, index| %>
+      <div>
+        <div class="card profile-card">
+          <div class="card-body p-0">
+            <div class="media p-3 align-items-center">
+              <%= image_tag "#{account.currency_id}.png", alt: 'user', class: "rounded-circle thumb-xl" %>
+              <div class="media-body ml-3 align-self-center">
+                <h5 class="pro-title"><%= account.currency.name %> Balance</h5>
+                <p class="mb-0 text-muted"><%= account.balance %></p>
               </div>
             </div>
           </div><!--end card-body-->
         </div><!--end card-->
       </div><!--end col-->
+    <% end %>
+  </div><!--end row-->
 
-      <div class="col-6">
-        <div class="card">
-          <div class="card-body">
-            <div class="row mb-4">
-              <div class="col-md-2">
-                <i class="mdi mdi-cellphone-iphone" style="font-size: 4rem"></i>
-              </div>
-              <div class="col-md-7 mt-1">
-                <h5>SMS Authentication</h5>
-                <smal>Used for withdrawals and security modifications</smal>
-              </div>
-              <div class="col-md-3 mt-3">
-                <%= link_to 'Enable', "/users/phones/new", class: 'btn btn-danger' %>
-              </div>
+  <div class="row justify-content-center">
+    <div class="col-md-3">
+      <div class="card report-card bg-purple-gradient shadow-purple">
+        <div class="card-body">
+          <div class="float-right">
+            <i class="dripicons-wallet report-main-icon"></i>
+          </div>
+          <h3 class="my-3">$<%= @total_balance %></h3>
+          <p class="mb-0 text-truncate">Account Balance</p>
+        </div><!--end card-body-->
+      </div><!--end card-->
+    </div> <!--end col-->
+    <div class="col-md-3">
+      <div class="card report-card bg-danger-gradient shadow-danger">
+        <div class="card-body">
+          <div class="float-right">
+            <i class="dripicons-graph-bar report-main-icon"></i>
+          </div>
+          <h3 class="my-3">$<%= @deposits_sum %></h3>
+          <p class="mb-0 text-truncate">Total Income</p>
+        </div><!--end card-body-->
+      </div><!--end card-->
+    </div> <!--end col-->
+    <div class="col-md-3">
+      <div class="card report-card bg-secondary-gradient shadow-secondary">
+        <div class="card-body">
+          <div class="float-right">
+            <i class="dripicons-graph-pie report-main-icon"></i>
+          </div>
+          <h3 class="my-3"><%= @total_balance > 0 ? (@total_balance / @deposits_sum.to_f * 100).round(2) : 0 %>%</h3>
+          <p class="mb-0 text-truncate">Rate of Return</p>
+        </div><!--end card-body-->
+      </div><!--end card-->
+    </div> <!--end col-->
+    <div class="col-md-3">
+      <div class="card report-card bg-warning-gradient shadow-warning">
+        <div class="card-body">
+          <div class="float-right">
+            <i class="dripicons-checklist report-main-icon"></i>
+          </div>
+          <h3 class="my-3"><%= @trades.count %></h3>
+          <p class="mb-0 text-truncate">Number of Trades</p>
+        </div><!--end card-body-->
+      </div><!--end card-->
+    </div> <!--end col-->
+  </div><!--end row-->
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-body">
+          <div class="crypto-report-history d-flex justify-content-end mb-3">
+            <a href="#" class="mr-2"><i class="fas fa-angle-down"></i></a>
+            <a href="#" class="mr-2"><i class="fas fa-cog"></i></a>
+            <a href="#"><i class="fas fa-times"></i></a>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <div class="media">
+                <%= image_tag "btc.png", class: "mr-3 thumb-sm align-self-center rounded-circle", alt: "..." %>
+                <div class="media-body align-self-center">
+                  <div class="coin-bal">
+                    <h4 class="m-0">$7289.45</h4>
+                    <p class="text-muted mb-0">Bitcoin
+                      <span class="text-muted font-12">(BTC)</span>
+                      <span class="text-success">2.5% <i class="mdi mdi-arrow-up"></i></span>
+                    </p>
+                  </div>
+                </div><!--end media body-->
+              </div><!--end col-->
+            </div><!--end col-->
+            <div class="col-md-3">
+              <p class="mb-0 p-2 bg-primary-gradient text-white shadow-primary rounded"><b>Last: </b>0.25436584</p>
+            </div><!--end col-->
+            <div class="col-md-3">
+              <p class="mb-0 p-2 bg-success-gradient text-white shadow-success rounded"><b>24High: </b>0.25436584</p>
+            </div><!--end col-->
+            <div class="col-md-3">
+              <p class="mb-0 p-2 bg-danger-gradient text-white shadow-danger rounded"><b>24Low: </b>0.25436584</p>
+            </div><!--end col-->
+          </div><!-- end row -->
+          <div id="crypto_dash_main" class="apex-charts"></div>
+
+          <div class="crypto-report-history d-flex justify-content-end mt-3">
+            <ul class="nav" style="margin: 0 auto;">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Hour</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Day</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Week</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Month</a>
+              </li>
+            </ul>
+          </div>
+        </div><!--end card-body-->
+      </div><!--end card-->
+    </div><!--end col-->
+    <div class="col-lg-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="row no-padding no-margin">
+            <div class="col-md-8" align="left">
+              <h4 class="header-title mt-0 mb-3">Stock Status</h4>
             </div>
-            <div class="row">
-              <div class="col-md-2">
-                <img src="<%= image_path('authenticator.png') %>" width="65">
-              </div>
-              <div class="col-md-7 mt-1">
-                <h5>Google Authentication</h5>
-                <small>Used for withdrawals and security modifications</small>
-              </div>
-              <div class="col-md-3 mt-3">
-                <%= link_to 'Enable', "/users/security", class: 'btn btn-danger' %>
-              </div>
+
+            <div class="col-md-4" align="right">
+              <a href="#" class="mr-1"><i class="fas fa-angle-down"></i></a>
+              <a href="#" class="mr-1"><i class="fas fa-cog"></i></a>
+              <a href="#"><i class="fas fa-times"></i></a>
+            </div>
+
+            <div class="col-md-12">
+              <ul class="list-group wallet-bal-crypto stock-coin">
+                <% @accounts.each do |account| %>
+                  <% if account.currency_id != 'usd' %>
+                    <% market_change = calc_change(account).slice(0).to_f %>
+
+                    <li class="list-group-item align-items-center d-flex justify-content-between">
+                      <div class="media">
+                        <%= image_tag "#{account.currency_id}.png", class: "mr-3 thumb-sm align-self-center rounded-circle", alt: "..." %>
+                        <div class="media-body align-self-center">
+                          <div class="coin-bal">
+                            <h3 class="m-0"><%= account.currency.name %></h3>
+                          </div>
+                        </div><!--end media body-->
+                      </div>
+                      <div class="coin-bal">
+                        <h3 class="m-0">$
+                          <% if Gon.tickers.has_key? "#{account.currency_id}btc" %>
+                            <%= Gon.tickers["#{account.currency_id}btc"][:last].round(2) %>
+                          <% else %>
+                            0
+                          <% end %>
+                        </h3>
+                      </div>
+                      <div class="coin-bal">
+                        <h3 class="m-0 <%= market_change >= 0 ? 'text-success' : 'text-failed' %>">
+                          <%= calc_change(account) %>%
+                          <i class="fas fa-arrow-<%= market_change >= 0 ? 'up' : 'down' %>"></i>
+                        </h3>
+                      </div>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
             </div>
           </div>
-        </div>
-      </div>
+        </div><!--end card-body-->
+      </div><!--end card-->
+    </div><!--end col-->
+  </div><!--end row-->
+  <footer class="footer text-center text-sm-left">
+    &copy; 2020 Five Angels Investment Limited <span class="text-muted d-none d-sm-inline-block float-right">Powered By <i class="mdi mdi-heart text-danger"></i> by Archidax Exchange</span>
+  </footer><!--end footer-->
 
-      <div class="col-6">
-        <div class="card">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-2">
-                <i class="em em-lock" style="font-size: 2.5rem"></i>
-              </div>
-              <div class="col-md-7 mt-3">
-                <h4>Login Password</h4>
-              </div>
-              <div class="col-md-3 mt-3">
-                <%= link_to 'Change', '/accounts/edit', class: 'btn btn-primary' %>
-              </div>
-            </div>
-          </div>
-        </div>
+  <%= javascript_include_tag 'plugins/apexcharts/irregular-data-series.js' %>
+  <%= javascript_include_tag 'plugins/chartist/js/chratist.min.js' %>
+  <%= javascript_include_tag 'plugins/chartist/js/chartist-plugin-tooltip.min.js' %>
+  <%= javascript_include_tag 'pages/jquery.crypto-dashboard.init.js' %>
 
-        <div class="card">
-          <% unless barong_domain.blank? %>
-            <div class="card-body" style="margin:20px;">
-              <div class="row mb-4">
-                <div class="col-md-3">
-                  My referral ID :
-                </div>
-                <div class="col-md-3">
-                  <span class="text-warning"><%= current_user.code %></span>
-                </div>
-                <div class="col-md-6">
-                  Your commission rate: <span class="text-warning">80%</span>
-                </div>
-              </div>
+  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js' %>
 
-              <div class="row mb-4">
-                <div class="col-md-3 mt-2">
-                  Referral Link :
-                </div>
-                <div class="col-md-9">
-                  <div class="input-group">
-                    <input type="text" class="form-control" id="clipboardInput"
-                           value="<%= barong_domain %>accounts/sign_up?referral_code=<%= current_user.code %>" >
-                    <div class="input-group-append">
-                      <button type="button" class="btn btn-gradient-secondary btn-clipboard" data-clipboard-action="copy" data-clipboard-target="#clipboardInput">
-                        <i class="far fa-copy"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+  <script type="module">
+      const prev = document.getElementById('road-map-prev');
+      const next = document.getElementById('road-map-next');
 
-              <div class="row">
-                <div class="col-md-3 mt-2">
-                  Share :
-                </div>
-                <div class="col-md-9">
-                  <div class="button-list btn-social-icon">
-                    <button type="button" class="btn btn-blue btn-round">
-                      <i class="fab fa-facebook-f"></i>
-                    </button>
+      const roadMap = tns({
+          "container": "#road-map",
+          "loop": false,
+          "responsive": {
+              "350": {
+                  "items": 2
+              },
+              "500": {
+                  "items": 3
+              }
+          },
+          "swipeAngle": false,
+          "speed": 400,
+          "nav": false
+      });
 
-                    <button type="button" class="btn btn-secondary btn-round ml-2">
-                      <i class="fab fa-twitter"></i>
-                    </button>
+      prev.addEventListener('click', () => {
+          if(!prev.disabled){
+              roadMap.goTo('prev')
+          }
+      })
 
-                    <button type="button" class="btn btn-pink btn-round  ml-2">
-                      <i class="fab fa-linkedin"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div><!--end row-->
-  </div>
+      next.addEventListener('click', () => {
+          if(!next.disabled){
+              roadMap.goTo('next')
+          }
+      })
+      roadMap.events.on('indexChanged', (v) => {
+          const item = document.querySelectorAll('#road-map .tns-item')
+          const roadMapIW = document.getElementById('road-map-ow')
+          let index = v.displayIndex - 1
+          let fullWidth = 0
+          let offsetWidth = 0
+          item.forEach((value, index2) => {
+              fullWidth += value.offsetWidth
+              if(index2 < index){
+                  offsetWidth = fullWidth
+              }
+          })
+          prev.disabled = (index === 0)
+          next.disabled = (fullWidth - offsetWidth < roadMapIW.offsetWidth)
+      });
+  </script>
 
-
-
-</div><!-- container -->
+</div>
+<!-- end page content -->

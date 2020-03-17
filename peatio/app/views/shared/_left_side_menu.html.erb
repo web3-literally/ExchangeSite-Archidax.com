@@ -30,18 +30,28 @@
           <li class="nav-item"><a class="nav-link" href="/funds"><i class="dripicons-wallet"></i>Crypto Wallet</a></li>
           <li class="nav-item"><a class="nav-link" href="#"><i class="dripicons-basket"></i>Buy & Sell</a></li>
           <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-history"></i>IEO History</a></li>
-          <li class="nav-item"><a class="nav-link" href="<%= admin_dashboard_path %>"><i class="fas fa-chart-bar"></i>Admin Access</a></li>
+          <% if is_admin? %>
+            <li class="nav-item">
+              <a class="nav-link" href="<%= admin_dashboard_path %>"><i class="fas fa-chart-bar"></i>Admin Access</a>
+            </li>
+          <% end %>
           <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-rocketchat"></i>Affiliate Program</a></li>
           <li class="nav-item"><a class="nav-link" href="<%= order_history_path %>"><i class="fas fa-history"></i>My History</a></li>
           <li class="nav-item"><a class="nav-link" href="#"><i class="dripicons-user"></i>Support</a></li>
           <li class="nav-item"><a class="nav-link" href="/settings"><i class="mdi mdi-cogs"></i>Settings</a></li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-window-restore"></i><span class="w-100">Access Page</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
-            <ul class="nav-second-level" aria-expanded="true">
-              <li><a href="/accounts/sign_in">Login</a></li>
-              <li><a href="/accounts/sign_up">Register</a></li>
-            </ul>
-          </li>
+          <% if is_admin? %>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fas fa-window-restore"></i>
+                <span class="w-100">Access Page</span>
+                <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span>
+              </a>
+              <ul class="nav-second-level" aria-expanded="true">
+                <li><a href="/accounts/sign_in">Login</a></li>
+                <li><a href="/accounts/sign_up">Register</a></li>
+              </ul>
+            </li>
+          <% end %>
         </ul><!--end nav-->
       </div><!-- end Others -->
     </div><!--end menu-body-->

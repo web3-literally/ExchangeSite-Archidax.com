@@ -1,22 +1,23 @@
-<h2 class="title font-weight-bold"><span>Add document</span></h2>
+<div class="text-center auth-logo-text mb-3">
+  <h4 class="mt-0 mb-4 mt-5" style="text-transform: uppercase;">Add Document</h4>
+</div><!--end auth-logo-text-->
 
-<div class="d-flex justify-content-center box-shadow">
-  <div class="steps d-flex justify-content-between pb-2 px-5 mb-2">
-    <div class="col-4 step-col first">
-      <div class="step text-muted completed"></div>
-      <small>Email</small>
-    </div>
-    <div class="col-4 step-col">
-      <div class="step text-muted completed"></div>
-      <small>Phone</small>
-    </div>
-    <div class="col-4 step-col last">
-      <div class="step text-muted current"></div>
-      <small>Document</small>
-    </div>
+<div class="row steps-cust">
+  <div class="col-md-4" align="right">
+    <a href="<%= edit_account_registration_path %>" class="btn btn-success btn-round"><i class="fas fa-check"></i></a>
+  </div>
+
+  <div class="col-md-4" align="center">
+    <a href="<%= new_phone_path %>" class="btn btn-success btn-round"><i class="fas fa-check"></i></a>
+  </div>
+
+  <div class="col-md-4" align="left">
+    <a href="#" class="btn btn-info btn-round"><i class="fas fa-circle"></i></a>
   </div>
 </div>
 
-<div class="d-flex justify-content-center px-5 mt-3">
-  <%= render 'form', document: @document %>
-</div><br/>
+<form class="form-horizontal auth-form my-4" action="">
+  <div class="row mb-3">
+    <%= render 'form', document: @document %>
+  </div>
+</form>

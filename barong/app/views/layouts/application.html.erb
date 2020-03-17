@@ -6,15 +6,84 @@
     </title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'web', media: 'all' %>
-    <%= stylesheet_link_tag    'account_style' %>
-    <%= domain_stylesheet_tag(domain_asset :stylesheet) %>
-    <%= javascript_include_tag 'web' %>
+    <% if account_signed_in? %>
+      <%= stylesheet_link_tag    'update', media: 'all' %>
+    <% else %>
+      <%= stylesheet_link_tag    'web', media: 'all' %>
+      <%= stylesheet_link_tag    'account_style' %>
+      <%= domain_stylesheet_tag(domain_asset :stylesheet) %>
+      <%= javascript_include_tag 'web' %>
+    <% end %>
 
     <%= domain_favicon_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body class="devise">
+
+  <% if account_signed_in? %>
+    <body class="account-body accountbg">
+      <div class="row vh-100 bg-city">
+        <div class="col-12 align-self-center">
+          <div class="container">
+            <div class="card card-cust auth-card shadow-lg mb-4" style="width: 70%;margin: 0 auto;">
+              <div class="card-body">
+                <div class="px-3">
+                  <div class="auth-logo-box">
+                    <a href="/" class="logo logo-admin">
+                      <img src="<%= image_path('archidax.png') %>" height="125" alt="logo" class="auth-logo">
+                    </a>
+                  </div><!--end auth-logo-box-->
+
+                  <%= yield %>
+
+                  <div class="row mb-4">
+                    <div class="col-md-4" align="right">
+                      <div class="btn-group mb-4">
+                        <button type="button" class="btn btn-link btn-round dropdown-toggle text-white"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Settings <i class="mdi mdi-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);">
+                          <a class="dropdown-item" href="<%= edit_account_registration_path %>">Change Your Password</a>
+                          <a class="dropdown-item" href="<%= new_document_path %>">Upload Document</a>
+                          <a class="dropdown-item" href="<%= new_phone_path %>">Add Phone</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-4" align="center">
+                      <a href="/settings">
+                        <button class="btn btn-success btn-dark-green-cust btn-square btn-skew waves-effect
+                                            waves-light btn-xl">Dashboard</button>
+                      </a>
+                    </div>
+
+                    <div class="col-md-4" align="left">
+                      <button type="button" class="btn btn-link btn-round waves-effect waves-light text-white"
+                              onclick="window.open('/signout'); window.location.assign('/accounts/sign_out');">
+                        <i class="mdi mdi-power mr-2"></i>Logout
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div align="center" class="mb-2">
+            <a href="/" class="btn btn-light waves-effect waves-light btn-xs text-white">Home</a>
+            <a href="/" class="btn btn-light waves-effect waves-light btn-xs text-white">Support</a>
+          </div>
+          <div align="center" class="text-white">
+            <strong>©2020 </strong> Five Angel Investment Limited - BVI
+          </div>
+        </div>
+      </div>
+
+      <%= javascript_include_tag 'update' %>
+    </body>
+  <% else %>
+    <body class="devise">
     <%= domain_html_tag(domain_asset :header) %>
 
     <div class="main-card">
@@ -23,15 +92,15 @@
         <%= link_to domain_logo_tag(domain_asset :logo), "/",  class: 'logo' %>
 
         <% unless alert.blank? %>
-          <span class="alert alert-danger mb-0">
-            <i class="icon icon-cancel-circled"></i> <h3><%= alert %></h3>
-          </span>
+            <span class="alert alert-danger mb-0">
+              <i class="icon icon-cancel-circled"></i> <h3><%= alert %></h3>
+            </span>
         <% end %>
 
         <% unless notice.blank? %>
-          <span class="alert alert-success mb-0">
-            <i class="icon icon-cancel-circled"></i> <h3><%= notice %></h3>
-          </span>
+            <span class="alert alert-success mb-0">
+              <i class="icon icon-cancel-circled"></i> <h3><%= notice %></h3>
+            </span>
         <% end %>
 
         <div class="pt-2">
@@ -55,5 +124,6 @@
     </div>
 
     <%= domain_html_tag(domain_asset :footer) %>
-  </body>
+    </body>
+  <% end %>
 </html>

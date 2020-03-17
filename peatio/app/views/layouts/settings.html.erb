@@ -13,6 +13,10 @@
     <%= include_gon %>
 
     <%= javascript_include_tag "locales/#{I18n.locale}" %>
+    <%= javascript_include_tag "custom/jquery.min.js" %>
+    <%= javascript_include_tag "custom/bootstrap.bundle.min.js" %>
+    <%= javascript_include_tag "plugins/apexcharts/apexcharts.min.js" %>
+
     <%= yield(:scripts) if content_for?(:scripts) %>
   </head>
 
